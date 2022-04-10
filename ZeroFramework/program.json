@@ -1,0 +1,53 @@
+{
+    "table": "news",
+    "template": "admin_table",
+    "route": "/news",
+    "middleware": "auth",
+    "title": "Xəbərlər",
+    "migration": true,
+    "description": "Bu bölmədə xəbərləri əlavə etmək, düzəliş etmək və silmək mümkündür.",
+    "cols": [
+        {
+            "text": "Şəkil",
+            "name": "image",
+            "type": "image",
+            "placeholder": "",
+            "required": "false",
+            "value": ""
+        },
+        {
+            "text": "Başlıq",
+            "name": "title",
+            "type": "text",
+            "placeholder": "",
+            "required": "false",
+            "value": ""
+        },
+        {
+            "text": "Məlumat",
+            "name": "info",
+            "type": "ckeditor",
+            "placeholder": "",
+            "required": "false",
+            "value": ""
+        }
+    ],
+    "actions":[
+        {
+            "text": "Dəyiş",
+            "icon": "fa fa-plus",
+            "type": "edit"
+        },
+        {
+            "text": "Sil",
+            "icon": "fa fa-plus",
+            "type": "remove"
+        },
+        {
+            "text": "Əlavə et",
+            "icon": "fa fa-plus",
+            "type": "create",
+            "position": "top"
+        }
+    ]
+}
