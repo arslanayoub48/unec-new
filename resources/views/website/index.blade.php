@@ -358,7 +358,7 @@
                     <h3 class="text-left mt-10 text-white">ELANLAR</h3>
                 </div>
                 <div class="col-md-6 col-sm-12">
-                    <h5 class="text-right text-white" style="padding-top:7px;><a href="http://news.unec.edu.az">BÜTÜN ELANLAR</a></h5>
+                    <h5 class="text-right text-white" style="padding-top:7px;"><a href="/advertisements">BÜTÜN ELANLAR</a></h5>
                 </div>
 
           </div>
@@ -367,58 +367,22 @@
     <div class="container-fluid">
       <div class="wrapper">
             <div class="carousel carousel_2 carousel_inline_block_with_text">
-                   <div class="carousel_item">
-                    <a style="color:#000; width:auto;" href="#">  
+            @foreach(\App\Models\Advertisements::orderBy("id","DESC")->get() as $new)
+                  <div class="carousel_item">
+                    <a style="color:#000; width:auto;" href="/advertisement/{{$new->slug}}">  
                         <div>
-                              <img src="https://unec.zerobyte.site/userfiles/cache/thumbnails/450/tn-bg-section-team-2203638272.webp" style="width: <?=isset($params["width"])?$params["width"]: "360px"?>;height: <?=isset($params["height"])?$params["height"]: "200px"?>;object-fit: cover;object-position: center;">
-                                  <div class="inline-slider-caption" style="width: <?=isset($params["width"])?$params["width"]."px": "100%"?>;">
-                                      <h5 style="<?=isset($params["color"]) ? "color:".$params["color"]: "" ?>">
+                              <img src="/image/{{$new->image}}" style="width: 360px; height: 200px;object-fit: cover;object-position: center;">
+                                  <div class="inline-slider-caption" style="width: 100%;">
+                                      <h5 style="color:#fff;">
                                       
-                                          <?=isset($item["full_title"]) ? $item["full_title"] :""?>
+                                          {{$new->title}}
                                       </h5>
                                   </div>
                           </div>
                           </a>
                    </div>
-                   <div class="carousel_item">
-                    <a style="color:#000; width:auto;" href="#">  
-                        <div>
-                              <img src="https://unec.zerobyte.site/userfiles/cache/thumbnails/450/tn-bg-section-team-2203638272.webp" style="width: <?=isset($params["width"])?$params["width"]: "360px"?>;height: <?=isset($params["height"])?$params["height"]: "200px"?>;object-fit: cover;object-position: center;">
-                                  <div class="inline-slider-caption" style="width: <?=isset($params["width"])?$params["width"]."px": "100%"?>;">
-                                      <h5 style="<?=isset($params["color"]) ? "color:".$params["color"]: "" ?>">
-                                      
-                                          <?=isset($item["full_title"]) ? $item["full_title"] :""?>
-                                      </h5>
-                                  </div>
-                          </div>
-                          </a>
-                   </div>
-                   <div class="carousel_item">
-                    <a style="color:#000; width:auto;" href="#">  
-                        <div>
-                              <img src="https://unec.zerobyte.site/userfiles/cache/thumbnails/450/tn-bg-section-team-2203638272.webp" style="width: <?=isset($params["width"])?$params["width"]: "360px"?>;height: <?=isset($params["height"])?$params["height"]: "200px"?>;object-fit: cover;object-position: center;">
-                                  <div class="inline-slider-caption" style="width: <?=isset($params["width"])?$params["width"]."px": "100%"?>;">
-                                      <h5 style="<?=isset($params["color"]) ? "color:".$params["color"]: "" ?>">
-                                      
-                                          <?=isset($item["full_title"]) ? $item["full_title"] :""?>
-                                      </h5>
-                                  </div>
-                          </div>
-                          </a>
-                   </div>
-                   <div class="carousel_item">
-                    <a style="color:#000; width:auto;" href="#">  
-                        <div>
-                              <img src="https://unec.zerobyte.site/userfiles/cache/thumbnails/450/tn-bg-section-team-2203638272.webp" style="width: <?=isset($params["width"])?$params["width"]: "360px"?>;height: <?=isset($params["height"])?$params["height"]: "200px"?>;object-fit: cover;object-position: center;">
-                                  <div class="inline-slider-caption" style="width: <?=isset($params["width"])?$params["width"]."px": "100%"?>;">
-                                      <h5 style="<?=isset($params["color"]) ? "color:".$params["color"]: "" ?>">
-                                      
-                                          <?=isset($item["full_title"]) ? $item["full_title"] :""?>
-                                      </h5>
-                                  </div>
-                          </div>
-                          </a>
-                   </div>
+                  
+                  @endforeach
             </div>
           </div>
       </div>

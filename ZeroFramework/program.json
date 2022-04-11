@@ -1,11 +1,11 @@
 {
-    "table": "news",
+    "table": "events",
     "template": "admin_table",
-    "route": "/news",
+    "route": "/events",
     "middleware": "auth",
-    "title": "Xəbərlər",
+    "title": "Tədbirlər",
     "migration": true,
-    "description": "Bu bölmədə xəbərləri əlavə etmək, düzəliş etmək və silmək mümkündür.",
+    "description": "Bu bölmədə tədbirlər əlavə etmək, düzəliş etmək və silmək mümkündür.",
     "cols": [
         {
             "text": "Şəkil",

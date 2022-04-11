@@ -144,8 +144,11 @@
                         </label>
                        @endif
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          @if($col["type"] == "text")
+                        @if($col["type"] == "text")
                           <input id="{{$col['name']}}" class="form-control col-md-7 col-xs-12" name="{{$col['name']}}" value="{{$col['value']}}" placeholder="{{$col['placeholder']}}"  type="text" @if($col['required']) required="required" @endif>
+                          @endif 
+                          @if($col["type"] == "date")
+                          <input id="{{$col['name']}}" class="form-control col-md-7 col-xs-12" name="{{$col['name']}}" value="{{$col['value']}}" placeholder="{{$col['placeholder']}}"  type="date" @if($col['required']) required="required" @endif>
                           @endif
                           @if($col["type"] == "image")
                           <input id="{{$col['name']}}" class="form-control col-md-7 col-xs-12"  name="{{$col['name']}}"  placeholder="{{$col['placeholder']}}"  type="file" @if($col['required']) required="required" @endif>

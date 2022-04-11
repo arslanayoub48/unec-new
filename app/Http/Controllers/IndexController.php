@@ -233,7 +233,7 @@ class IndexController extends Controller
         $data = DB::table($params["table"])->where("id", $request->id)->first();
         $editcols = [];
         foreach($params["editcols"] as $col){
-            if($col["type"] == "text" || $col["type"] == "select" || $col["type"] == "ckeditor" || $col["type"] == "multiselect"|| $col["type"] == "multifiles"){
+            if($col["type"] == "text" || $col["type"] == "select" || $col["type"] == "ckeditor" || $col["type"] == "multiselect"|| $col["type"] == "multifiles"|| $col["type"] == "date"){
                 $col["value"] = $data->{$col["name"]};
                
             }

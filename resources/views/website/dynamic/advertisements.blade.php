@@ -12,18 +12,18 @@
 
     <div class="row">
         <?php
-            $filter = \App\Models\News::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent());
+            $filter = \App\Models\Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent());
             $filter = $filter->get();
 
         ?>
-        @foreach($filter as $advertisement)
+        @foreach($filter as $new)
 
             <div class="col-md-4">
-                <a href="/new/{{$advertisement->slug}}">
-                    <img src="/image/{{$advertisement->image}}" style="width:280px; height: 232px; object-fit:cover; object-position: center;" alt="">
+                <a href="/advertisement/{{$new->slug}}">
+                    <img src="/image/{{$new->image}}" style="width:280px; height: 232px; object-fit:cover; object-position: center;" alt="">
                     <div style="width: 280px;">
                         <?php
-                            echo mb_substr($advertisement->info,0,142, "utf-8")."...";
+                            echo mb_substr($new->info,0,142, "utf-8")."...";
                         ?>
                     </div>
                 </a>

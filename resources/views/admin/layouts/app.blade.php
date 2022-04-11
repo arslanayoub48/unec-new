@@ -90,7 +90,8 @@
                   <li><a href="/admin/pages"><i class="fa fa-edit"></i>Səhifələr</a></li>
                   <li><a href="/admin/gallery"><i class="fa fa-edit"></i>Gallery</a></li>
                   <li><a href="/admin/settings"><i class="fa fa-edit"></i>Parameterlər</a></li> -->
-                  <li><a href="/admin/news"><i class="fa fa-edit"></i>Xəbərlər</a></li><program></program>
+                  <li><a href="/admin/news"><i class="fa fa-edit"></i>Xəbərlər</a></li><li><a href="/admin/advertisements"><i class="fa fa-edit"></i>Elanlar</a></li>
+                  <li><a href="/admin/events"><i class="fa fa-edit"></i>Tədbirlər</a></li><program></program>
                   <!-- <li><a><i class="fa fa-desktop"></i> Menu <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="categories">Kategoriyalar</a></li>
