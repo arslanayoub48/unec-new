@@ -31,6 +31,9 @@
   border-radius: 10px;
   opacity: .9;
 }
+.make_my_childs_white *{
+  color:#fff !important;
+}
 #text h5{
   font-size: 35px;
   color: #fff;
@@ -288,63 +291,28 @@
         <div class="container-fluid">
           <div class="wrapper">
                 <div class="carousel carousel_1 carousel_inline_block_with_text">
-                       <div class="carousel_item">
-                       <a style="color:#000; width:auto;" href="#">  
-                          <div class="row">
-                            <div class="col-md-3">
-                                <div class="left" style="margin:auto;">
-                                    <span style="font-size:71px;color:#fff;">01</span>
-                                    <p style="font-size:20px;color:#fff;">FEVRAL</p>
+                      @foreach(\App\Models\Events::orderBy("id", "DESC")->get() as $ad)
+                        <div class="carousel_item">
+                            
+                              <div class="row">
+                                <div class="col-md-3">
+                                    <div class="left" style="margin:auto;">
+                                        <span style="font-size:71px;color:#fff;">{{date("d",strtotime($ad->start_at))}}</span>
+                                        <p style="font-size:20px;color:#fff;">{{\App\Models\TimeDate::MonthToAz(date("M",strtotime($ad->start_at)))}}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div style="width: 100%">
-                                    <h5 class="text-white">ADNSU-da “Postkonflikt vəziyyətlərdə yenidənqurma və bərpa” mövzusunda Beynəlxalq elmi konfrans keçiriləcək</h5><br>
-                                    <p class="text-white">ZOOM görüş: https://zoom.us/j/92235863886</p><br>
-                                    <p class="text-white">24-25 fevral 2022-ci il tarixlərində Azərbaycan Dövlət Neft və Sənaye Universiteti hibrid formada “Postkonflikt vəziyyətlərdə yenidənqurma və bərpa” mövzusunda 2-ci Beynəlxalq elmi konfransı keçiriləcək.</p><br>
-                            </div>
-                            </div>
-                          </div>
-                            </a>
-                       </div>
-                       <div class="carousel_item">
-                       <a style="color:#000; width:auto;" href="#">  
-                          <div class="row">
-                            <div class="col-md-3">
-                                <div class="left" style="margin:auto;">
-                                    <span style="font-size:71px;color:#fff;">01</span>
-                                    <p style="font-size:20px;color:#fff;">FEVRAL</p>
+                                <div class="col-md-6">
+                                  <div class="make_my_childs_white" style="width: 100%">
+                                  <a style="color:#000; width:auto;" href="/event/{{$ad->slug}}">  
+                                    <?php echo $ad->info; ?>
+                                  </a>
+                                  </div>
                                 </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div style="width: 100%">
-                                    <h5 class="text-white">ADNSU-da “Postkonflikt vəziyyətlərdə yenidənqurma və bərpa” mövzusunda Beynəlxalq elmi konfrans keçiriləcək</h5><br>
-                                    <p class="text-white">ZOOM görüş: https://zoom.us/j/92235863886</p><br>
-                                    <p class="text-white">24-25 fevral 2022-ci il tarixlərində Azərbaycan Dövlət Neft və Sənaye Universiteti hibrid formada “Postkonflikt vəziyyətlərdə yenidənqurma və bərpa” mövzusunda 2-ci Beynəlxalq elmi konfransı keçiriləcək.</p><br>
-                            </div>
-                            </div>
-                          </div>
-                            </a>
-                       </div>
-                       <div class="carousel_item">
-                       <a style="color:#000; width:auto;" href="#">  
-                          <div class="row">
-                            <div class="col-md-3">
-                                <div class="left" style="margin:auto;">
-                                    <span style="font-size:71px;color:#fff;">01</span>
-                                    <p style="font-size:20px;color:#fff;">FEVRAL</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                            <div style="width: 100%">
-                                    <h5 class="text-white">ADNSU-da “Postkonflikt vəziyyətlərdə yenidənqurma və bərpa” mövzusunda Beynəlxalq elmi konfrans keçiriləcək</h5><br>
-                                    <p class="text-white">ZOOM görüş: https://zoom.us/j/92235863886</p><br>
-                                    <p class="text-white">24-25 fevral 2022-ci il tarixlərində Azərbaycan Dövlət Neft və Sənaye Universiteti hibrid formada “Postkonflikt vəziyyətlərdə yenidənqurma və bərpa” mövzusunda 2-ci Beynəlxalq elmi konfransı keçiriləcək.</p><br>
-                            </div>
-                            </div>
-                          </div>
-                            </a>
-                       </div>
+                              </div>
+                        </div>
+                      
+
+                      @endforeach
                 </div>
               </div>
           </div>

@@ -61,4 +61,5 @@ Route::get('/reset',"UsersController@reset");
 Route::post('reset/', ['as' => 'reset', 'uses' => 'UsersController@reset_password']);
 Route::get("/new/{slug}", "NewsController@show");
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
+Route::get("/event/{slug}", "EventsController@show");
 Route::get('/{any}', "PageController@show")->where('any', '.*');

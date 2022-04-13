@@ -20,9 +20,11 @@ class EventsController extends Controller
             "table" => "events",
             "description" => "Bu bölmədə tədbirlər əlavə etmək, düzəliş etmək və silmək mümkündür.",
             "editcols" => [
-               ["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""],["text" => "Məlumat","name" => "info","type" => "ckeditor","placeholder" => "","required" => "false","value" => ""]
+               ["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""],
+               ["text" => "Məlumat","name" => "info","type" => "ckeditor","placeholder" => "","required" => "false","value" => ""],
+               ["text" => "Ətraflı","name" => "more","type" => "ckeditor","placeholder" => "","required" => "false","value" => ""]
                 ,[
-                    "text" => "Slider şəkilləri",
+                    "text" => "Slider şəkilləri (Shortcode: [slider])",
                     "type" => "multifiles",
                     "name" => "slider",
                     "placeholder" => "",
@@ -62,5 +64,9 @@ class EventsController extends Controller
         ];
         $request->session()->put("params", $params);
         return view("admin/datapage" , ["params" => $params] );
+    }
+    public function show($slug){
+        $event = Events::where("slug", $slug)->first();
+        return view("website.dynamic.event", ["event" => $event]);
     }
 }

@@ -506,7 +506,14 @@ li:hover .has-parent {
 
 
 // Slick version 1.5.8
+$(document).ready(function(){
 
-
+$('.items').slick({
+infinite: false,
+arrows:true,
+slidesToShow: 30,
+slidesToScroll:30
+});
+});
 </script>
 
