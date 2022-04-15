@@ -34,6 +34,7 @@ class Meta extends Model
         $meta = Meta::where("rel_id", $data_id)->whereIn("id",$ids)->get();
         return $meta? $meta : false;
     }
+   
     public static function type($name){
         $meta = MetaTypes::where("slug", $name)->first();
         return $meta ? $meta->name : false;

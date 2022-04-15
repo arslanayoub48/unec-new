@@ -41,7 +41,9 @@
     }
 </style>
 <div class="container">
-    
+    <div class="row">
+     
+       
     <div class="row">
         <div class="col-md-12 m-auto">
             <h1 class="text-center">Bütün tədbirlər</h1>
@@ -49,17 +51,7 @@
             <a href="/events">Filteri təmizlə</a>
         </div>
     </div>
-    <div class="row">
-        <?php
-            $filter = \App\Models\Events::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent());
-            if(isset($_GET["day"]) && isset($_GET["month"])){
-                $filter_date = $_GET["month"]."/".$_GET["day"]."/".date("Y");
-                $filter_date = date("Y-m-d", strtotime($filter_date));
-                $filter->whereDate("start_at", $filter_date);
-            }
-        ?>
-       
-        <div class="calendar">
+<div class="calendar">
             <div class="row">
                 <?php 
                     $start = new DateTime('now');
@@ -92,21 +84,57 @@
               
             </div>
         </div>
-        <?php   $filter = $filter->get();?>
-        @foreach($filter as $new)
-
-            <div class="col-md-4">
-                <a href="/event/{{$new->slug}}">
-                    <img src="/image/{{$new->image}}" style="width:280px; height: 232px; object-fit:cover; object-position: center;" alt="">
-                    <div style="width: 280px;">
-                        <?php
-                            echo mb_substr($new->info,0,142, "utf-8")."...";
-                        ?>
-                    </div>
-                </a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="col-md-1"></div>
+        <div class="col-md-7">
+                <div class="filter_data"></div>
+        </div>
+        <div class="col-md-4">
+            <h3>Filter</h3><br>
+                
+            <div class="filter-item">
+                <h5>Tədris binaları</h5>
+                <br class="clearfix">
+                <div class="form-group">
+                            @foreach(\App\Models\Meta::multi(0, 'tedris') as $element)
+                                    <input type="checkbox"   class="common_selector tedris_binasi" value="{{$element->id}}" id="check_1_{{$element->id}}"> <label for="check_1_{{$element->id}}">{{$element->value}}</label> <br>
+                            @endforeach
+                </div>
             </div>
-
-        @endforeach
+           
+            <div class="filter-item">
+                <h5>Rubrikalar</h5>
+                <br class="clearfix">
+                <div class="form-group">
+                        @foreach(\App\Models\Events_categories::all() as $element)
+                                    <input type="checkbox" class="common_selector event_category"  value="{{$element->id}}" id="check_1_{{$element->id}}"> <label for="check_1_{{$element->id}}">{{$element->title}}</label> <br>
+                        @endforeach
+                </div>
+            </div>
+            <div class="filter-item">
+                <h5>Tədbirin növü</h5>
+                <br class="clearfix">
+                <div class="form-group">
+                                    <input type="checkbox"  class="common_selector event_type" value="0"  id="check_3_{{$element->id}}"> <label for="check_3_{{$element->id}}">Qiyabi</label> <br>
+                                    <input type="checkbox"  class="common_selector event_type" value="1" id="check_5_{{$element->id}}"> <label for="check_5_{{$element->id}}">Əyani</label> <br>
+                </div>
+            </div>
+            <div class="filter-item">
+                <h5>Dil</h5>
+                <br class="clearfix">
+                <div class="form-group">
+                            @foreach(\App\Models\Meta::multi(0,"language_knowlage") as $element)
+                                    <input type="checkbox"  class="common_selector event_lang"   value="{{$element->id}}" id="check_4_{{$element->id}}"> <label for="check_4_{{$element->id}}">{{$element->value}}</label> <br>
+                            @endforeach
+                </div>
+            </div>
+           
+          
+          
+        </div>
     </div>
             
 
@@ -119,4 +147,6 @@
 <br>
 <br>
 <br>
+
+
 @endsection

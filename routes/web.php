@@ -35,6 +35,7 @@ Route::prefix("admin")->group(function () {
     Route::get("/news","NewsController@list")->middleware('auth');
     Route::get("/advertisements","AdvertisementsController@list")->middleware('auth');
     Route::get("/events","EventsController@list")->middleware('auth');
+    Route::get("/events_categories","Events_categoriesController@list")->middleware('auth');
 });
 Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);  
 
@@ -62,4 +63,5 @@ Route::post('reset/', ['as' => 'reset', 'uses' => 'UsersController@reset_passwor
 Route::get("/new/{slug}", "NewsController@show");
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/event/{slug}", "EventsController@show");
+Route::post("/events/filter", "EventsController@filter");
 Route::get('/{any}', "PageController@show")->where('any', '.*');

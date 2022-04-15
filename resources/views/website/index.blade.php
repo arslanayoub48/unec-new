@@ -280,8 +280,11 @@
                 <div class="col-md-6 col-sm-12">
                     <h3 class="text-left mt-10 text-white">UNEC TƏDBİRLƏR</h3>
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <h5 class="text-right text-white" style="padding-top:7px;><a href="http://news.unec.edu.az">BÜTÜN TƏDBİRLƏR</a></h5>
+                <div class="col-md-3 col-sm-12" >
+                    <h5 class="text-right text-white" style="padding-top:7px;"><a style="color:#fff;" href="/events">BÜTÜN TƏDBİRLƏR</a></h5>
+                </div>
+                <div class="col-md-3 col-sm-12" style="z-index:1000">
+                    <h5 class="text-right text-white" style="padding-top:7px;"><a  style="color:#fff" href="/advertisements">BÜTÜN ELANLAR</a></h5>
                 </div>
 
           </div>
@@ -325,9 +328,7 @@
                 <div class="col-md-6 col-sm-12">
                     <h3 class="text-left mt-10 text-white">ELANLAR</h3>
                 </div>
-                <div class="col-md-6 col-sm-12">
-                    <h5 class="text-right text-white" style="padding-top:7px;"><a href="/advertisements">BÜTÜN ELANLAR</a></h5>
-                </div>
+             
 
           </div>
       </div>

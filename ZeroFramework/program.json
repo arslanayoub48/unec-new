@@ -1,32 +1,16 @@
 {
-    "table": "events",
+    "table": "events_categories",
     "template": "admin_table",
-    "route": "/events",
+    "route": "/events_categories",
     "middleware": "auth",
-    "title": "Tədbirlər",
+    "title": "Tədbir Kategoriyaları",
     "migration": true,
-    "description": "Bu bölmədə tədbirlər əlavə etmək, düzəliş etmək və silmək mümkündür.",
+    "description": "Bu bölmədə tədbirlərin kategoriyalarını əlavə etmək, düzəliş etmək və silmək mümkündür.",
     "cols": [
-        {
-            "text": "Şəkil",
-            "name": "image",
-            "type": "image",
-            "placeholder": "",
-            "required": "false",
-            "value": ""
-        },
         {
             "text": "Başlıq",
             "name": "title",
             "type": "text",
-            "placeholder": "",
-            "required": "false",
-            "value": ""
-        },
-        {
-            "text": "Məlumat",
-            "name": "info",
-            "type": "ckeditor",
             "placeholder": "",
             "required": "false",
             "value": ""
