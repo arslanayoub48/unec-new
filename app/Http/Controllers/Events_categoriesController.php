@@ -17,6 +17,7 @@ class Events_categoriesController extends Controller
         }
         $params = [
             "title" => "Tədbir Kategoriyaları",
+            "translate" => true,
             "table" => "events_categories",
             "description" => "Bu bölmədə tədbirlərin kategoriyalarını əlavə etmək, düzəliş etmək və silmək mümkündür.",
             "editcols" => [["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""]],

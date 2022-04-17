@@ -75,6 +75,17 @@ li:hover .has-parent {
 .zero_menu_item{
   font-size:11px;
 }
+.topmenu li {
+    display: inline;
+    padding: 4px;
+    font-size: 11px;
+}
+
+.topmenu a {
+    color: #fff;
+    text-decoration: underline;
+    text-transform: uppercase;
+}
 </style>
     <!--Google Fonts-->
     <link
@@ -90,11 +101,10 @@ li:hover .has-parent {
           <div class="contact-info" style="width:100%">
           <div class=" module module-menu " id="module-menu--1" data-mw-title="Menu" name="header_menu" template="top" data-type="menu" parent-module="menu" parent-module-id="module-menu--1">
 <div role="menu" id="" class="menu menu_5  menu-root menu-item-id-50 menu-item-parent-5">
-    @foreach(\App\Models\Menu::where("locale", \App\Models\Wlang::getCurrent())->where("menu_type", "top_menu")->get() as $menu)
-      <span role="menuitem" class="menu_element    depth-0" data-item-id="50">
-            <a itemprop="url" data-item-id="50" class="menu_element_link   menu-root menu-item-id-50 menu-item-parent-5 depth-0 zero_menu_item " href="{{$menu->link}}">{{$menu->name}}</a>
-        </span>
-    @endforeach
+   
+    <div class="topmenu">
+    <?php echo \App\Models\Menu::tree('top'); ?>
+    </div>
 <style>
 
     .zero_menu_item{
@@ -159,7 +169,7 @@ li:hover .has-parent {
 
 
 </style>
-            <?php echo \App\Models\Menu::build_menu(App\Models\Menu::all()->where("locale",\App\Models\Wlang::getCurrent())->where("menu_type", "main_menu")->toArray()) ?>
+            <?php echo \App\Models\Menu::tree('main'); ?>
               
               
               

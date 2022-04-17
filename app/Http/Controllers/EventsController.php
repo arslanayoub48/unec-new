@@ -21,6 +21,7 @@ class EventsController extends Controller
         $params = [
             "title" => "Tədbirlər",
             "table" => "events",
+            "translate" => true,
             "description" => "Bu bölmədə tədbirlər əlavə etmək, düzəliş etmək və silmək mümkündür.",
             "editcols" => [
                ["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""],

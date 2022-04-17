@@ -17,6 +17,7 @@ class AdvertisementsController extends Controller
         }
         $params = [
             "title" => "Elanlar",
+            "translate" => true,
             "table" => "advertisements",
             "description" => "Bu bölmədə elanlar əlavə etmək, düzəliş etmək və silmək mümkündür.",
             "editcols" => [

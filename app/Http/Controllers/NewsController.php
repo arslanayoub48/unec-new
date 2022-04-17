@@ -17,7 +17,8 @@ class NewsController extends Controller
         }
         $params = [
             "title" => "Xəbərlər",
-            "table" => "news",
+            "table" => "news",            
+            "translate" => true,
             "description" => "Bu bölmədə xəbərləri əlavə etmək, düzəliş etmək və silmək mümkündür.",
             "editcols" => [
                 ["text" => "Şəkil","name" => "image","type" => "image","placeholder" => "","required" => "false","value" => ""],["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""],["text" => "Məlumat","name" => "info","type" => "ckeditor","placeholder" => "","required" => "false","value" => ""]
