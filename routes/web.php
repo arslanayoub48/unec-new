@@ -47,6 +47,8 @@ Route::prefix("admin")->group(function () {
     Route::post('update-menuitem/{id}',[menuController::class,'updateMenuItem']);
     Route::get('delete-menuitem/{id}/{key}/{in?}',[menuController::class,'deleteMenuItem']);
     Route::get('delete-menu/{id}',[menuController::class,'destroy']);	
+    Route::get("/news_categories","News_categoriesController@list")->middleware('auth');
+    Route::get("/advertisements_categories","Advertisements_categoriesController@list")->middleware('auth');
 });
 Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);  
 
@@ -76,3 +78,4 @@ Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 Route::get('/{any}', "PageController@show")->where('any', '.*');
+  

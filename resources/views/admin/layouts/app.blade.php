@@ -43,6 +43,9 @@
         background-color:#2A3F54;
         color:#fff;
       }
+      .text-white{
+        color:#fff;
+      }
     </style>
     
     <!-- jQuery -->
@@ -146,16 +149,28 @@
                   <!-- <li><a href="/orders"><i class="fa fa-edit"></i> Maliyyə</a></li> -->
                   <!-- <li><a href="/admin/menus"><i class="fa fa-edit"></i> Menu</a></li> -->
                   <li><a href="/admin/manage-menus"><i class="fa fa-edit"></i>Menular</a></li>
-                  <li><a href="/admin/teachers"><i class="fa fa-edit"></i>Müəllimlər</a></li>
-                  <li><a href="/admin/meta"><i class="fa fa-edit"></i>Müəllimlər Meta</a></li>
+                  <li><a href="/admin/teachers"><i class="fa fa-edit"></i>Müəllimlər</a>
+                  <ul><li><a href="/admin/meta" class="text-white"><i class="fa fa-edit" ></i>Müəllimlər Meta</a></li></ul>  
+                </li>
+                  
                   <li><a href="/admin/lang"><i class="fa fa-edit"></i>Saytın dilləri</a></li>
                   <!-- <li><a href="/admin/sliders"><i class="fa fa-edit"></i>Sliderlər</a></li>
                   <li><a href="/admin/pages"><i class="fa fa-edit"></i>Səhifələr</a></li>
                   <li><a href="/admin/gallery"><i class="fa fa-edit"></i>Gallery</a></li>
                   <li><a href="/admin/settings"><i class="fa fa-edit"></i>Parameterlər</a></li> -->
-                  <li><a href="/admin/news"><i class="fa fa-edit"></i>Xəbərlər</a></li><li><a href="/admin/advertisements"><i class="fa fa-edit"></i>Elanlar</a></li>
-                  <li><a href="/admin/events"><i class="fa fa-edit"></i>Tədbirlər</a></li>
-                  <li><a href="/admin/events_categories"><i class="fa fa-edit"></i>Tədbir Kategoriyaları</a></li><program></program>
+                  <li><a href="/admin/news"><i class="fa fa-edit"></i>Xəbərlər</a>
+                    <ul><li><a href="/admin/news_categories" class="text-white"><i class="fa fa-edit"></i>Xəbərlər Kategoriyaları</a></li></ul>
+                  </li>
+                  <li><a href="/admin/advertisements"><i class="fa fa-edit"></i>Elanlar</a>
+                  <ul><li><a href="/admin/advertisements_categories" class="text-white"><i class="fa fa-edit"></i>Elan Kategoriyaları</a></li></ul>
+                </li>
+                  <li><a href="/admin/events"><i class="fa fa-edit"></i>Tədbirlər</a>
+                    <ul>
+                      <li ><a href="/admin/events_categories" class="text-white"><i class="fa fa-edit"></i>Tədbir Kategoriyaları</a></li>
+                    </ul>
+                  </li>
+                  
+                  <program></program>
                   <!-- <li><a><i class="fa fa-desktop"></i> Menu <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="categories">Kategoriyalar</a></li>

@@ -20,7 +20,6 @@ class ControllerName extends Controller
             "table" => "{{table}}",
             "description" => "{{description}}",
             "editcols" => [{{editcols}}],
-            "imagecol" => 1,
             "cols" => [{{cols}}],
             "data" => $dat,
             "noaction" => false,

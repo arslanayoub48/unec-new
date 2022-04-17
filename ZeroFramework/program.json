@@ -1,11 +1,11 @@
 {
-    "table": "events_categories",
+    "table": "advertisements_categories",
     "template": "admin_table",
-    "route": "/events_categories",
+    "route": "/advertisements_categories",
     "middleware": "auth",
-    "title": "Tədbir Kategoriyaları",
+    "title": "Elan Kategoriyaları",
     "migration": true,
-    "description": "Bu bölmədə tədbirlərin kategoriyalarını əlavə etmək, düzəliş etmək və silmək mümkündür.",
+    "description": "Bu bölmədə elan kategoriyalarını əlavə etmək, düzəliş etmək və silmək mümkündür.",
     "cols": [
         {
             "text": "Başlıq",

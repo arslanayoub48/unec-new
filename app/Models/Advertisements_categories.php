@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class News extends Model
+class Advertisements_categories extends Model
 {
     use HasFactory;
-    protected $table = "news";
+    protected $table = "advertisements_categories";
     public function newQuery()
     {
         return parent::newQuery()->where("locale", Wlang::getCurrent());
@@ -20,3 +20,4 @@ class News extends Model
         return $model;
     }
 }
+ 

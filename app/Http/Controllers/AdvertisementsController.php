@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Advertisements;
+use App\Models\Advertisements_categories;
 class AdvertisementsController extends Controller
 {
     public function list(Request $request){
@@ -38,7 +39,25 @@ class AdvertisementsController extends Controller
                     "placeholder" => "",
                     "required" => false,
                     "value" => ""
-                ]
+            ], 
+            [   
+                "text" => "Əlavə olunma tarixi",
+                "name" => "created_at",
+                "type" => "date",
+                "placeholder" => "",
+                "required" => false,
+                "value" => ""
+            ],
+            [   
+                "text" => "Kategoriya",
+                "name" => "category_id",
+                "type" => "select",
+                "selectdata" => Advertisements_categories::all()->toArray(),
+                "selectdatacol" => "title",
+                "placeholder" => "",
+                "required" => false,
+                "value" => ""
+            ]
             ],
             "imagecol" => 1,
             "cols" => ["#","Şəkil","Başlıq","Məlumat"],

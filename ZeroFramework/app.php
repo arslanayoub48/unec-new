@@ -12,7 +12,7 @@ if(file_exists("program.json")){
     $table = $json->table;
     
     //Navigator
-    $nav = '<li><a href="'.$json->route.'"><i class="fa fa-edit"></i>'.$json->title.'</a></li>';
+    $nav = '<li><a href="/admin'.$json->route.'"><i class="fa fa-edit"></i>'.$json->title.'</a></li>';
     $navs = file_get_contents($navigator_dir);
     $navs = str_replace("<program></program>", $nav."<program></program>",$navs);
     file_put_contents($navigator_dir, $navs);

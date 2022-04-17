@@ -223,17 +223,12 @@ class IndexController extends Controller
         $params["data"]  = $data;
         return view("admin/datapage" , ["params" => $params, "accounts" => $accounts] );
     }
-    public function compile(){
-        
-        $data = file_get_contents("zeropos.min.html");
-        file_put_contents("project.zero", Crypt::Encrypt(base64_encode($data)));
-        echo "OK";
-    }
+
     public function edit($params,$request){
         $data = DB::table($params["table"])->where("id", $request->id)->first();
         $editcols = [];
         foreach($params["editcols"] as $col){
-            if($col["type"] == "text" || $col["type"] == "select" || $col["type"] == "ckeditor" || $col["type"] == "multiselect"|| $col["type"] == "multifiles"|| $col["type"] == "date"){
+            if($col["type"] == "text" || $col["type"] == "select" || $col["type"] == "ckeditor" || $col["type"] == "multiselect"|| $col["type"] == "multifiles"){
                 $col["value"] = $data->{$col["name"]};
                
             }
@@ -241,7 +236,10 @@ class IndexController extends Controller
                 $pivot = DB::table("rel")->where("content_id", $request->id)->where("content_type", $col["pivot"])->get()->toArray();
                 $col["values"] = $pivot;
                
-            }   
+            }  
+            if($col["type"] == "date"){
+                $col["value"] = date("Y-m-d", strtotime($data->{$col["name"]}));
+            } 
              $editcols[] = $col;
         }
         $params["editcols"] = $editcols;

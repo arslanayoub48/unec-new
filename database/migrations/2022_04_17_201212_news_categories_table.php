@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTable extends Migration
+class NewsCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateTable extends Migration
      */
     public function up()
     {
-        if (!Schema::hasTable('tableName')) {
-            Schema::create('tableName', function (Blueprint $table) {
+        if (!Schema::hasTable('news_categories')) {
+            Schema::create('news_categories', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string("locale");
-                {{code}}
+                $table->string('title');$table->timestamp('updated_at')->useCurrent();$table->timestamp('created_at')->useCurrent();
             });
         }
     }
@@ -29,6 +28,6 @@ class CreateTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tableName');
+        Schema::dropIfExists('news_categories');
     }
 }

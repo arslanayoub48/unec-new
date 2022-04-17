@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use App\Models\News_categories;
 class NewsController extends Controller
 {
     public function list(Request $request){
@@ -35,6 +36,24 @@ class NewsController extends Controller
                     "name" => "slug",
                     "slug" => "title",
                     "type" => "hidden",
+                    "placeholder" => "",
+                    "required" => false,
+                    "value" => ""
+            ],
+                [   
+                    "text" => "Əlavə olunma tarixi",
+                    "name" => "created_at",
+                    "type" => "date",
+                    "placeholder" => "",
+                    "required" => false,
+                    "value" => ""
+                ],
+                [   
+                    "text" => "Kategoriya",
+                    "name" => "category_id",
+                    "type" => "select",
+                    "selectdata" => News_categories::all()->toArray(),
+                    "selectdatacol" => "title",
                     "placeholder" => "",
                     "required" => false,
                     "value" => ""

@@ -107,7 +107,16 @@ class EventsController extends Controller
                     "placeholder" => "",
                     "required" => false,
                     "value" => ""
+                ],
+                [   
+                    "text" => "Əlavə olunma tarixi",
+                    "name" => "created_at",
+                    "type" => "date",
+                    "placeholder" => "",
+                    "required" => false,
+                    "value" => ""
                 ]
+                
             ],
             "cols" => ["#","Başlıq","Məlumat", "Tədbirin başlama tarixi", "Tədbirin bitmə tarixi"],
             "data" => $dat,
