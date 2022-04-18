@@ -45,6 +45,15 @@ class EventsController extends Controller
                     "value" => ""
                 ],
                 
+                [   "text" => "",
+                    "name" => "author",
+                    "type" => "hidden",
+                    "placeholder" => "",
+                    "required" => false,
+                    "value" => auth()->user()->id
+                ],
+                
+                
                 [   "text" => "Tədbirin başlama tarixi",
                     "name" => "start_at",
                     "type" => "date",
@@ -109,6 +118,24 @@ class EventsController extends Controller
                     "value" => ""
                 ],
                 [   
+                    "text" => "Status",
+                    "name" => "status",
+                    "type" => "select",
+                    "selectdata" => [["id" => "publish", "text" => "Publish"], ["id" => "unPublish", "text" => "Unpublish"]],
+                    "selectdatacol" => "text",
+                    "placeholder" => "",
+                    "required" => true,
+                    "value" => ""
+                ],
+                [   
+                    "text" => "Teqlər",
+                    "name" => "tags",
+                    "type" => "tags",
+                    "placeholder" => "",
+                    "required" => false,
+                    "value" => ""
+                ],
+                [   
                     "text" => "Əlavə olunma tarixi",
                     "name" => "created_at",
                     "type" => "date",
@@ -137,7 +164,7 @@ class EventsController extends Controller
         $filter_event_category = $request->event_category;
         $filter_event_type = $request->event_type;
         $filter_event_lang = $request->event_lang;
-        $filter =Events::orderBy("id", "DESC")->where("locale",Wlang::getCurrent());
+        $filter =Events::orderBy("id", "DESC")->where("locale",Wlang::getCurrent())->where("status", "publish");
 
     
         if(!empty($filter_tedris_binasi)){

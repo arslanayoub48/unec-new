@@ -2,6 +2,7 @@
 @extends('admin.layouts.app')
 
 @section("content")
+<link rel="stylesheet" href="/css/tags.css">
 <script
   src="https://code.jquery.com/jquery-3.6.0.min.js"
   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -146,6 +147,22 @@
                         <div class="col-md-6 col-sm-6 col-xs-12">
                         @if($col["type"] == "text")
                           <input id="{{$col['name']}}" class="form-control col-md-7 col-xs-12" name="{{$col['name']}}" value="{{$col['value']}}" placeholder="{{$col['placeholder']}}"  type="text" @if($col['required']) required="required" @endif>
+                          @endif 
+                          @if($col["type"] == "tags")
+                          <div class="tags-input" id="myTags">
+                            <span class="data">
+                                <input type="hidden" id="tags" name="{{$col['name']}}">
+                                @foreach(explode(",", $col["value"]) as $tag)
+                                    <span class="tag"><span class="text" _value="{{$tag}}">{{$tag}}</span><span class="close">&times;</span></span>
+                                @endforeach
+                            </span>
+
+                                <span class="autocomplete">
+                                <input type="text" id="tag_input">
+                                <div class="autocomplete-items">
+                                </div>
+                            </span>
+                        </div>
                           @endif 
                           @if($col["type"] == "date")
                           <input id="{{$col['name']}}" class="form-control col-md-7 col-xs-12" name="{{$col['name']}}" value="{{$col['value']}}" placeholder="{{$col['placeholder']}}"  type="date" @if($col['required']) required="required" @endif>
@@ -352,7 +369,22 @@
             </div>
           </div>
         </div>
+        <script src="/js/tags.js"></script>
         <script>
+           function runSuggestions(element,query) {
+            let sug_area=$(element).parents().eq(2).find('.autocomplete .autocomplete-items');
+            let input = $("#tag_input").val();
+            $.getJSON("/admin/tags?input="+input, function( data ) {
+                _tag_input_suggestions_data = data;
+                $.each(data,function (key,value) {
+                    let template = $("<div>"+value.name+"</div>").hide()
+                    sug_area.append(template)
+                    template.show()
+
+                })
+            });
+
+            }
           function remove(id){
                 Swal.fire({
                   title: 'Are you sure?',
@@ -420,6 +452,16 @@
               @if($col["type"] == "ckeditor")
                 let {{$col["name"]}} = CKEDITOR.instances['{{$col["name"]}}'].getData();
                 $("#{{$col['name']}}").val({{$col["name"]}});
+              @endif
+              @if($col["type"] == "tags")
+               let alltags = document.querySelectorAll("#myTags .tag span");
+               let tags = [];
+               alltags.forEach((val) => {
+                  if(val.innerHTML != 'x'){
+                    tags.push(val.innerHTML)
+                  }
+               })
+                $("#tags").val(JSON.stringify(tags));
               @endif
             @endforeach
             

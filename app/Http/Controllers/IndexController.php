@@ -13,6 +13,7 @@ use App\Models\Image;
 use App\Models\Slug;
 use App\Models\Translations;
 use App\Models\Wlang;
+use App\Models\Tags;
 use DateTime;
 class IndexController extends Controller
 {   
@@ -129,6 +130,25 @@ class IndexController extends Controller
                     $data[$col["name"]] = json_encode($ids);
 
 
+            }else if($col["type"] == "tags") {
+
+                   $tags = $request[$col["name"]];
+                   $tags = json_decode($tags);
+                   $json_tags = [];
+                   foreach($tags as $tag){
+                       if($tag == "×") continue;
+                        $findexists  = Tags::where("name", $tag)->first();
+                        if(!$findexists){
+                            Tags::create(["name" => $tag]);
+                        }
+                        $json_tags[] = $tag;
+                   }
+
+                   $data[$col["name"]] =  json_encode($json_tags);
+
+
+
+                    
             }else if($col["type"] == "multiselect"){
                 if($request[$col["name"]] != null && $request[$col["name"]] != "")
                     $data[$col["name"]] = json_encode($request[$col["name"]],true);
@@ -240,6 +260,12 @@ class IndexController extends Controller
             if($col["type"] == "date"){
                 $col["value"] = date("Y-m-d", strtotime($data->{$col["name"]}));
             } 
+            if($col["type"] == "tags"){
+                $json_tags = json_decode($data->{$col["name"]});
+                if(is_array($json_tags))
+                    $col["value"] = implode(",", json_decode($data->{$col["name"]}));
+            }
+         
              $editcols[] = $col;
         }
         $params["editcols"] = $editcols;
@@ -280,7 +306,16 @@ class IndexController extends Controller
         
         return redirect()->to('/dataPageAction?action=edit&id='.$newid);
     }
-   
+    public function tags(){
+        $data = $_GET["input"];
+        $tags = Tags::where("name", "LIKE", "%$data%")->get();
+        $json = [];
+        foreach($tags as $tag){
+            $json[] = ["id" => $tag->id, "name" => $tag->name];
+        }
+       
+        return response()->json($json);
+    }
    
    
     public function home(){

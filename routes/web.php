@@ -49,6 +49,7 @@ Route::prefix("admin")->group(function () {
     Route::get('delete-menu/{id}',[menuController::class,'destroy']);	
     Route::get("/news_categories","News_categoriesController@list")->middleware('auth');
     Route::get("/advertisements_categories","Advertisements_categoriesController@list")->middleware('auth');
+    Route::get("/tags","IndexController@tags")->middleware('auth');
 });
 Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);  
 

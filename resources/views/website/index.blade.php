@@ -247,7 +247,7 @@
       <div class="container-fluid">
       <div class="wrapper">
             <div class="carousel carousel_3 carousel_inline_block_with_text">
-                  @foreach(\App\Models\News::orderBy("id","DESC")->get() as $new)
+                  @foreach(\App\Models\News::orderBy("id","DESC")->where("status", "publish")->get() as $new)
                   <div class="carousel_item">
                     <a style="color:#000; width:auto;" href="/new/{{$new->slug}}">  
                         <div>
@@ -294,7 +294,7 @@
         <div class="container-fluid">
           <div class="wrapper">
                 <div class="carousel carousel_1 carousel_inline_block_with_text">
-                      @foreach(\App\Models\Events::orderBy("id", "DESC")->get() as $ad)
+                      @foreach(\App\Models\Events::orderBy("id", "DESC")->where("status", "publish")->get() as $ad)
                         <div class="carousel_item">
                             
                               <div class="row">
@@ -336,7 +336,7 @@
     <div class="container-fluid">
       <div class="wrapper">
             <div class="carousel carousel_2 carousel_inline_block_with_text">
-            @foreach(\App\Models\Advertisements::orderBy("id","DESC")->get() as $new)
+            @foreach(\App\Models\Advertisements::orderBy("id","DESC")->where("status","publish")->get() as $new)
                   <div class="carousel_item">
                     <a style="color:#000; width:auto;" href="/advertisement/{{$new->slug}}">  
                         <div>

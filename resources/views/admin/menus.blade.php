@@ -176,6 +176,9 @@
   </div>
 </div>
 <div id="serialize_output" style="display:none;">@if($desiredMenu){{$desiredMenu->content}}@endif</div>	
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="/js/jquery-sortable-min.js"></script>
 @if($desiredMenu)
 <script>
 $('#add-categories').click(function(){

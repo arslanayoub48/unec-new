@@ -22,7 +22,7 @@ class AdvertisementsController extends Controller
             "table" => "advertisements",
             "description" => "Bu bölmədə elanlar əlavə etmək, düzəliş etmək və silmək mümkündür.",
             "editcols" => [
-                ["text" => "Şəkil","name" => "image","type" => "image","placeholder" => "","required" => "false","value" => ""],["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""],["text" => "Məlumat","name" => "info","type" => "ckeditor","placeholder" => "","required" => "false","value" => ""]
+                ["text" => "Şəkil","name" => "image","type" => "image","placeholder" => "","required" => false,"value" => ""],["text" => "Başlıq","name" => "title","type" => "text","placeholder" => "","required" => "false","value" => ""],["text" => "Məlumat","name" => "info","type" => "ckeditor","placeholder" => "","required" => "false","value" => ""]
                 ,[
                     "text" => "Slider şəkilləri",
                     "type" => "multifiles",
@@ -46,6 +46,25 @@ class AdvertisementsController extends Controller
                 "type" => "date",
                 "placeholder" => "",
                 "required" => false,
+                "value" => ""
+            ],
+            [   
+                "text" => "Teqlər",
+                "name" => "tags",
+                "type" => "tags",
+                "placeholder" => "",
+                "required" => false,
+                "value" => ""
+            ],
+            
+            [   
+                "text" => "Status",
+                "name" => "status",
+                "type" => "select",
+                "selectdata" => [["id" => "publish", "text" => "Publish"], ["id" => "unPublish", "text" => "Unpublish"]],
+                "selectdatacol" => "text",
+                "placeholder" => "",
+                "required" => true,
                 "value" => ""
             ],
             [   

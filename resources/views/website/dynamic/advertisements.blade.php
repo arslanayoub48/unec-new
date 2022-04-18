@@ -12,7 +12,7 @@
 
     <div class="row">
         <?php
-            $filter = \App\Models\Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent());
+            $filter = \App\Models\Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish");
             $filter = $filter->get();
 
         ?>
