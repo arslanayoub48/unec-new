@@ -88,6 +88,6 @@ class NewsController extends Controller
     }
     public function show($slug){
         $new = News::where("slug", $slug)->first();
-        return view("website.dynamic.new", ["new" => $new]);
+        return view("website.static.new", ["new" => $new]);
     }
 }

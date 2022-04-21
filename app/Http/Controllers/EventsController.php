@@ -155,7 +155,7 @@ class EventsController extends Controller
     }
     public function show($slug){
         $event = Events::where("slug", $slug)->first();
-        return view("website.dynamic.event", ["event" => $event]);
+        return view("website.static.event", ["event" => $event]);
     }
 
     public function filter(Request $request){

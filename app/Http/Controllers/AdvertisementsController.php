@@ -89,6 +89,6 @@ class AdvertisementsController extends Controller
     }
     public function show($slug){
         $advertisement = Advertisements::where("slug", $slug)->first();
-        return view("website.dynamic.new", ["new" => $advertisement]);
+        return view("website.static.new", ["new" => $advertisement]);
     }
 }

@@ -119,11 +119,16 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <?php $a=0; ?>
                         @foreach($params["data"] as $data)
+                        <?php $a++; ?>
                             <tr style="height: 100px;">
                                 @for($i=0;$i<count($data); $i++)
                                   @if(isset($params["imagecol"]) && $params["imagecol"] == $i)
                                     <td><img src="/image/{{$data[$i]}}" style="width: 150px;" /></td>
+                                  @elseif($i == 0)
+                                    <td>{{$a}}</td>
+                                    
                                   @else
                                     <td>{{$data[$i]}}</td>
                                   @endif

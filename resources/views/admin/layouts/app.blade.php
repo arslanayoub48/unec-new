@@ -89,6 +89,7 @@
                   <!-- <li><a href="/orders"><i class="fa fa-edit"></i> Maliyyə</a></li> -->
                   <!-- <li><a href="/admin/menus"><i class="fa fa-edit"></i> Menu</a></li> -->
                   <li><a href="/admin/manage-menus"><i class="fa fa-edit"></i>Menular</a></li>
+                  <li><a href="/admin/pages-manage"><i class="fa fa-edit"></i>Səhifələr</a>
                   <li><a href="/admin/teachers"><i class="fa fa-edit"></i>Müəllimlər</a>
                   <ul><li><a href="/admin/meta" class="text-white"><i class="fa fa-edit" ></i>Müəllimlər Meta</a></li></ul>  
                 </li>

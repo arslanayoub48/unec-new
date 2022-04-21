@@ -114,6 +114,9 @@
   margin: 10px 5px 0 0;
 }
  </style>
+ <script>
+      let current_editor_element = ""
+ </script>
  <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
@@ -201,8 +204,29 @@
                           @if($col["type"] == "ckeditor")
                           <input name="{{$col['name']}}" type="textarea" id="{{$col['name']}}"> 
                           <script>
-                             var editor = CKEDITOR.replace( '{{$col['name']}}', {});
-                                editor.setData(`<?php echo $col['value']; ?>`);
+                          
+                             var editor_{{$col['name']}} = CKEDITOR.replace( '{{$col['name']}}', {});
+                                editor_{{$col['name']}}.setData(`<?php echo $col['value']; ?>`);
+                                // setTimeout(() => {
+                                //   editor_{{$col['name']}}.addCommand('test1', {
+                                //       exec: editor => {
+                                //           $("#pdf_upload_modal").modal("show")
+                                //       }
+                                //   });
+                                //   if ( editor_{{$col['name']}}.contextMenu ) {
+                                //       editor_{{$col['name']}}.addMenuGroup( 'testGroup' );
+                                //       editor_{{$col['name']}}.addMenuItem( 'testItem', {
+                                //           label: 'PDF əlavə et',
+                                //           icon: '/images/pdf.png',
+                                //           command: 'test1',
+                                //           group: 'testGroup'
+                                //       });
+                                //       editor_{{$col['name']}}.contextMenu.addListener(element => {
+                                //           current_editor_element = element;
+                                //           return { testItem: CKEDITOR.TRISTATE_OFF };
+                                //       });
+                                //   }
+                                // }, 1000);
 
                           </script>
                           @endif
@@ -369,8 +393,33 @@
             </div>
           </div>
         </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="pdf_upload_modal" tabindex="-1" role="dialog" aria-labelledby="pdf_upload_modal_label" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="pdf_upload_modal_label">PDF yüklə</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <input type="file" id="fileupload" class="form-control">
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Qayıt</button>
+              <button type="button" class="btn btn-primary" onclick="saveSelectedPDF()">Yadda saxla</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
         <script src="/js/tags.js"></script>
         <script>
+           
            function runSuggestions(element,query) {
             let sug_area=$(element).parents().eq(2).find('.autocomplete .autocomplete-items');
             let input = $("#tag_input").val();

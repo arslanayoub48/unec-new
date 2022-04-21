@@ -14,9 +14,8 @@ class PageController extends Controller
         foreach($pages as $page){
             $sub = [];
             $sub[] = $page->id;
-            $sub[] = $page->image;
             $sub[] = $page->title;
-            $sub[] = $page->description;
+            $sub[] = "/".$page->slug;
             $sub[] = $page->created_at;
             $data[] = $sub;
         }
@@ -25,13 +24,6 @@ class PageController extends Controller
             "table" => "pages",
             "description" => "",
             "editcols" => [[
-                "text" => "Şəkili seçin",
-                "name" => "image",
-                "type" => "image",
-                "placeholder" => "Şəkili seçin.",
-                "required" => false,
-                "value" => ""
-            ],[
                 "text" => "Başlıq",
                 "name" => "title",
                 "type" => "text",
@@ -39,27 +31,19 @@ class PageController extends Controller
                 "required" => true,
                 "value" => ""
             ],[
-                "text" => "Qısa text",
-                "name" => "description",
-                "type" => "text",
-                "placeholder" => "Qısa text-i yazın",
-                "required" => true,
-                "value" => ""
-            ],[
-                "text" => "Kontent",
-                "name" => "content",
-                "type" => "ckeditor",
+                "text" => "",
+                "name" => "slug",
+                "type" => "slug",
+                "slug" => "title",
                 "placeholder" => "",
                 "required" => true,
                 "value" => ""
             ]
         ],
-            "imagecol" => 1,
             "cols" => [
                 "#",
-                "Şəkil",
                 "Başlıq",
-                "Qısa text",
+                "Link",
                 "Yaradılma tarixi"
             ],
             "data" => $data,
@@ -71,10 +55,17 @@ class PageController extends Controller
                     "link" => "/dataPageAction?action=create",
                     "position" => "top"
                 ],
+                
+                [
+                    "text" => "Bax",
+                    "newtab" => true,
+                    "icon" => "fa fa-plus",
+                    "link" => "/admin/view?action=",
+                ],
                 [
                     "text" => "Düzəliş et",
                     "icon" => "fa fa-plus",
-                    "link" => "/dataPageAction?action=edit",
+                    "link" => "/admin/contentbuilder?action",
                 ],
                 [
                     "text" => "Sil",
@@ -85,6 +76,22 @@ class PageController extends Controller
         ];
         $request->session()->put("params", $params);
         return view("admin/datapage" , ["params" => $params] );
+    }
+    public function contentbuilder(Request $request){
+        $id = $request->id;
+        $page = Page::find($id);
+        if($page){
+            return view("admin.manage_pages", ["page" => $page]);
+        }
+        return view("errors.404");
+    }
+    public function viewAdmin(Request $request){
+        $id = $request->id;
+        $page = Page::find($id);
+        if($page){
+            return view("website.static.content", ["page" => $page]);
+        }
+        return view("errors.404");
     }
     public function get(Request $request){
         $menu = Menu::where("link", $request->id)->first();
@@ -107,9 +114,28 @@ class PageController extends Controller
         else{
             $page = Page::where("slug", 'LIKE', '%'.$id.'%')->where("locale", Wlang::getCurrent())->first();
             if($page){
-                return view("website.dynamic.content", ["page" => $page]);
+                return view("website.static.content", ["page" => $page]);
             }
         }
         return view("errors.404");
+    }
+    public function manage(){
+        return view("admin.manage_pages");
+    }
+    public function save(Request $request){
+        $id = $request->id;
+        $source = $request->source;
+        $page = Page::find($id);
+        if($page){
+            $source=  str_replace('contenteditable="true"', '' , $source);
+            $source=  str_replace('data-click="true"', '' , $source);
+            $page->content = $source;
+            $page->save();
+        }else{
+            $page = new Page();
+            $page->content = $source;
+            $page->save();
+        }
+        return redirect("/admin/pages-manage");
     }
 }

@@ -392,16 +392,16 @@ class TeachersController extends Controller
         
         $teacher = Teachers::where("slug", $slug)->first();
         if(!$teacher) {
-            return view("website.dynamic.muellimler_inner", ["teacher" => $teacher]);
+            return view("website.static.muellimler_inner", ["teacher" => $teacher]);
         }
         $orginal = Wlang::findOrginal($teacher->id);
         if(!$orginal) {
-            return view("website.dynamic.muellimler_inner", ["teacher" => $teacher]);
+            return view("website.static.muellimler_inner", ["teacher" => $teacher]);
         }
         $teacher = Teachers::find($orginal);
         if($slug != $teacher->slug){
             return redirect()->to("/teacher/".$teacher->slug);
         }
-        return view("website.dynamic.muellimler_inner", ["teacher" => $teacher]);
+        return view("website.static.muellimler_inner", ["teacher" => $teacher]);
     }
 }

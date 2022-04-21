@@ -16,7 +16,6 @@ use App\Http\Controllers\MenuController as menuController;
 
 //WEBSITE
 Route::get('/', "IndexController@index");
-Route::get('/page/{id}',"PageController@get");
 Route::get('/list',"ProductsController@all");
 Route::get('/contact',function () {
     return view("website.contact");
@@ -50,10 +49,17 @@ Route::prefix("admin")->group(function () {
     Route::get("/news_categories","News_categoriesController@list")->middleware('auth');
     Route::get("/advertisements_categories","Advertisements_categoriesController@list")->middleware('auth');
     Route::get("/tags","IndexController@tags")->middleware('auth');
+    Route::get("/pages-manage","PageController@list")->middleware('auth');
+    Route::post("/page/save","PageController@save")->middleware('auth');
+    Route::get("/view","PageController@viewAdmin")->middleware('auth');
+    Route::get("/contentbuilder","PageController@contentbuilder")->middleware('auth');
 });
 Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);  
 
-Route::get("/teacher/{slug}", "TeachersController@teacher");
+Route::get("/staff/{slug}", "TeachersController@teacher");
+Route::get("/staff", function() {
+    return view("website.static.muellimler");
+});
 Route::get("/lang/{slug}", function ($slug){
     \App\Models\Wlang::setCurrent($slug);
     return redirect()->back();
@@ -76,6 +82,9 @@ Route::get('/reset',"UsersController@reset");
 Route::post('reset/', ['as' => 'reset', 'uses' => 'UsersController@reset_password']);
 Route::get("/new/{slug}", "NewsController@show");
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
+Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
+Route::get("/news", function (){ return view("website.static.news" ); });
+Route::get("/events", function (){ return view("website.static.events" ); });
 Route::get("/event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 Route::get('/{any}', "PageController@show")->where('any', '.*');
