@@ -148,5 +148,46 @@
 <br>
 <br>
 
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<script>
+    
+$(document).ready(function(){
+    filter_data();
 
+    function filter_data()
+    {
+        $('.filter_data').html('<div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only">Loading...</span></div>');
+        var action = 'fetch_data';
+        let tedris_binasi = get_filter("tedris_binasi")
+        let event_category = get_filter("event_category")
+        let event_type = get_filter("event_type")
+        let event_lang = get_filter("event_lang");
+        let event_date = '<?=isset($_GET["event_date"]) ? $_GET["event_date"] : "" ?>'
+        $.ajax({
+            url:"/events/filter",
+            method:"POST",
+            data:{_token: '{{ csrf_token() }}', tedris_binasi, event_category,event_type,event_lang, event_date},
+            success:function(data){
+                $('.filter_data').html(data);
+            }
+        });
+    }
+
+    function get_filter(class_name)
+    {
+        var filter = [];
+        $('.'+class_name+':checked').each(function(){
+            filter.push($(this).val());
+        });
+        return filter;
+    }
+
+    $('.common_selector').click(function(){
+        filter_data();
+    });
+
+ 
+
+});
+</script>
 @endsection

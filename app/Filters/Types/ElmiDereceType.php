@@ -2,10 +2,10 @@
 
 namespace App\Filters\Types;
 
-class KorpusType
+class ElmiDereceType
 {
     public function filter($builder, $value)
     {
-        return $builder->where('tedris', 'like' , '%'.$value.'%');
+        return $builder->where('elmiderece','like', '%"'.$value.'"%');
     }
 }

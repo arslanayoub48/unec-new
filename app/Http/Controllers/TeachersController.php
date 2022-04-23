@@ -404,4 +404,9 @@ class TeachersController extends Controller
         }
         return view("website.static.muellimler_inner", ["teacher" => $teacher]);
     }
+    public function filter(Request $request){
+        $filter = Teachers::filter($request)->get();
+        return view("filters.teachers", ["filter" => $filter]);
+    }
+
 }

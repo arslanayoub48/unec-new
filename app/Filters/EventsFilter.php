@@ -12,8 +12,8 @@ use Illuminate\Database\Eloquent\Builder;
 class EventsFilter extends AbstractFilter
 {
     protected $filters = [
-        'event_category' => CategoryType::class,
         'tedris_binasi' => KorpusType::class,
+        'event_category' => CategoryType::class,
         'event_type' => EventType::class,
         'event_lang' => EventLangType::class,
         'event_date' => EventDateType::class,

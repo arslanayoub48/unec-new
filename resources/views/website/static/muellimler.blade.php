@@ -24,39 +24,39 @@
                     z-index: 1000;
                 ">
                 <ul>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','all')}}">Hamısı</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','A')}}">A</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','B')}}">B</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','C')}}">C</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Ç')}}">Ç</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','D')}}">D</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','E')}}">E</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Ə')}}">Ə</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','F')}}">F</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','G')}}">G</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Ğ')}}">Ğ</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','H')}}">H</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','X')}}">X</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','I')}}">I</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','İ')}}">İ</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','J')}}">J</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','K')}}">K</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Q')}}">Q</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','L')}}">L</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','M')}}">M</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','N')}}">N</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','O')}}">O</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Ö')}}">Ö</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','P')}}">P</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','R')}}">R</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','S')}}">S</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Ş')}}">Ş</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','T')}}">T</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','U')}}">U</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Ü')}}">Ü</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','V')}}">V</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Y')}}">Y</a></li>
-                    <li><a href="{{\App\Models\ZURL::add('azlist','Z')}}">Z</a></li>
+                    <li><a href="?azlist=">Hamısı</a></li>
+                    <li><a href="?azlist=A">A</a></li>
+                    <li><a href="?azlist=B">B</a></li>
+                    <li><a href="?azlist=C">C</a></li>
+                    <li><a href="?azlist=Ç">Ç</a></li>
+                    <li><a href="?azlist=D">D</a></li>
+                    <li><a href="?azlist=E">E</a></li>
+                    <li><a href="?azlist=Ə">Ə</a></li>
+                    <li><a href="?azlist=F">F</a></li>
+                    <li><a href="?azlist=G">G</a></li>
+                    <li><a href="?azlist=Ğ">Ğ</a></li>
+                    <li><a href="?azlist=H">H</a></li>
+                    <li><a href="?azlist=X">X</a></li>
+                    <li><a href="?azlist=I">I</a></li>
+                    <li><a href="?azlist=İ">İ</a></li>
+                    <li><a href="?azlist=J">J</a></li>
+                    <li><a href="?azlist=K">K</a></li>
+                    <li><a href="?azlist=Q">Q</a></li>
+                    <li><a href="?azlist=L">L</a></li>
+                    <li><a href="?azlist=M">M</a></li>
+                    <li><a href="?azlist=N">N</a></li>
+                    <li><a href="?azlist=O">O</a></li>
+                    <li><a href="?azlist=Ö">Ö</a></li>
+                    <li><a href="?azlist=P">P</a></li>
+                    <li><a href="?azlist=R">R</a></li>
+                    <li><a href="?azlist=S">S</a></li>
+                    <li><a href="?azlist=Ş">Ş</a></li>
+                    <li><a href="?azlist=T">T</a></li>
+                    <li><a href="?azlist=U">U</a></li>
+                    <li><a href="?azlist=Ü">Ü</a></li>
+                    <li><a href="?azlist=V">V</a></li>
+                    <li><a href="?azlist=Y">Y</a></li>
+                    <li><a href="?azlist=Z">Z</a></li>
                 </ul>
                 </div> 
 
@@ -121,32 +121,7 @@
                         <br class="clearfix">
                     </div>
                 <div class="well clearfix post-single teachers" itemscope >
-                   <?php
-                        $filter = \App\Models\Teachers::where("active", 1)->where("locale", \App\Models\Wlang::getCurrent());
-                        if(isset($_GET["azlist"]) && $_GET["azlist"] != "all"){
-                            $filter = $filter->where("name", 'like', $_GET["azlist"].'%');
-                        }
-                        $filter = $filter->get();
-
-                    ?>
-                    @foreach($filter as $teacher)
-                
-                    <div class="row" onclick="window.location.href='/staff/{{\App\Models\Slug::make($teacher->name)}}'">
-                        <div class="col-xs-2 col-md-2">
-                                <img src="/image/{{$teacher->image}}"  itemprop="image" >
-                            </div>
-                            <div class="col-md-3">
-                                <h5>{{$teacher->name}}</h5>
-                                <p>{{App\Models\Meta::toString(App\Models\Meta::ids(0,$teacher->vezife))}}</p>
-                            </div>
-                            <div class="col-md-3 ">
-                                <?php echo $teacher->contact_info; ?>
-                            </div>   
-                        </div>
-                        <br class="clearfix">
-
-                    @endforeach
-                
+                    <div class="filter_data"></div>
 
                 </div>
                 </div>
@@ -213,5 +188,40 @@
 <br class="clearfix">
 <br class="clearfix">
 <br class="clearfix">
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<script>
 
+
+$(document).ready(function(){
+    filter_data();
+    function filter_data()
+    {
+        
+        $('.filter_data').html('<div class="spinner-grow" style="width: 3rem; height: 3rem;" role="status"><span class="sr-only">Loading...</span></div>');
+        var action = 'fetch_data';
+        let tedris = $("#tedris").val();
+        let struktur = $("#struktur").val();
+        let kafedra = $("#kafedra").val();
+        let elmiderece = $("#elmiderece").val();
+        let vezife = $("#vezife").val();
+        let azlist = '{{isset($_GET["azlist"]) ? $_GET["azlist"] : ""}}';
+        $.ajax({
+            url:"/staff/filter",
+            method:"POST",
+            data:{_token: '{{ csrf_token() }}',elmiderece,tedris,vezife, struktur,kafedra,azlist},
+            success:function(data){
+                $('.filter_data').html(data);
+            }
+        });
+    }
+
+
+    $('.selectpicker').on("change",function(){
+        filter_data();
+    });
+
+ 
+
+});
+</script>
 @endsection

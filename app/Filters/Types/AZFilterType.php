@@ -2,10 +2,10 @@
 
 namespace App\Filters\Types;
 
-class KorpusType
+class AZFilterType
 {
     public function filter($builder, $value)
     {
-        return $builder->where('tedris', 'like' , '%'.$value.'%');
+        return $builder->where('name','like', $value.'%');
     }
 }

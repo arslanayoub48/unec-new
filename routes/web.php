@@ -87,5 +87,6 @@ Route::get("/news", function (){ return view("website.static.news" ); });
 Route::get("/events", function (){ return view("website.static.events" ); });
 Route::get("/event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
+Route::post("/staff/filter", "TeachersController@filter");
 Route::get('/{any}', "PageController@show")->where('any', '.*');
   
