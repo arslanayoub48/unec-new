@@ -60,10 +60,7 @@ Route::get("/staff/{slug}", "TeachersController@teacher");
 Route::get("/staff", function() {
     return view("website.static.muellimler");
 });
-Route::get("/lang/{slug}", function ($slug){
-    \App\Models\Wlang::setCurrent($slug);
-    return redirect()->back();
-});
+Route::get("/lang/{lang}", "LangController@change");
 Route::get("/image/{id}", "ImageController@show");
 //HELPERS
 Route::get('/dataPageAction',"IndexController@dataPageAction")->middleware('auth');
@@ -89,4 +86,3 @@ Route::get("/event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 Route::post("/staff/filter", "TeachersController@filter");
 Route::get('/{any}', "PageController@show")->where('any', '.*');
-  

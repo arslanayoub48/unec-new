@@ -147,7 +147,7 @@ li:hover .has-parent {
                 <div class="header-element mt-1 "  style="display:flex">
                     @foreach(\App\Models\Wlang::all() as $lang)
 
-                    <a href="/lang/{{$lang->slug}}" class="btn btn-secondary " style="display:inline-block;margin:7px; color:#fff">{{$lang->name}}</a>
+                    <a href="/lang/{{$lang->slug}}" class="btn btn-secondary " style="display:inline-block;margin:7px; color:#fff">{{__("index.".$lang->name)}}</a>
                     @endforeach
                 </div>
               </div>

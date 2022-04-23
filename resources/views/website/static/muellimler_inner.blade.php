@@ -193,13 +193,13 @@
                     <img src="/image/{{$teacher->image}}" class="z-image" alt="">
                 </div>
                 <div class="z-info container">
-                    <h5>Dil bilikləri</h5>
+                    <h5>{{__("staff.language_knowlage")}}</h5>
                     <p>{{\App\Models\Meta::toString(App\Models\Meta::ids(0,$teacher->language_knowlage))}}</p>
-                    <h5>Əlaqə</h5>
+                    <h5>{{__("staff.contact")}}</h5>
                     <p><?php echo $teacher->contact_info ?></p>
-                    <h5>Kafedra</h5>
+                    <h5>{{__("staff.kafedra")}}</h5>
                     <p>{{\App\Models\Meta::toString(App\Models\Meta::ids(0,$teacher->kafedra))}}</p>
-                    <h5>Tədris Binası</h5>
+                    <h5>{{__("staff.tedrisbinasi")}}</h5>
                     <p>{{\App\Models\Meta::toString(App\Models\Meta::ids(0,$teacher->tedris))}}</p>
                 </div>
             </div>
@@ -241,11 +241,11 @@
                 <div class="full-info">
                 <br class="clearfix">
                         <ul class="nav nav-tabs">
-                                <li class="active"><a class="z-tabs" data-toggle="tab" href="#home">Haqqında</a></li>
-                                <li ><a class="z-tabs" data-toggle="tab" href="#menu1">Əmək / Pedaqoji fəaliyyəti</a></li>
-                                <li ><a class="z-tabs" data-toggle="tab" href="#menu2">Elmi nəşrlər və tədqiqatlar </a></li>
-                                <li ><a class="z-tabs" data-toggle="tab" href="#menu3">İş təcrübəsi </a></li>
-                                <li ><a class="z-tabs" data-toggle="tab" href="#menu4">Xəbərlərdə</a></li>
+                                <li class="active"><a class="z-tabs" data-toggle="tab" href="#home">{{__("staff.about")}}</a></li>
+                                <li ><a class="z-tabs" data-toggle="tab" href="#menu1">{{__("staff.pedoqoji")}}</a></li>
+                                <li ><a class="z-tabs" data-toggle="tab" href="#menu2">{{__("staff.elmiderece")}} </a></li>
+                                <li ><a class="z-tabs" data-toggle="tab" href="#menu3">{{__("staff.istecrubesi")}} </a></li>
+                                <li ><a class="z-tabs" data-toggle="tab" href="#menu4">{{__("staff.xeberlerde")}}</a></li>
                             </ul>
                         <br class="flearfix">
 

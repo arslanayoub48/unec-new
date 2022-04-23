@@ -236,7 +236,7 @@
                 <h3 class="text-left mt-10">UNEC NEWS</h3>
             </div>
             <div class="col-md-6 col-sm-12">
-                <h5 class="text-right" style="padding-top:7px;"><a href="/news">BÜTÜN XƏBƏRLƏR</a></h5>
+                <h5 class="text-right" style="padding-top:7px;"><a href="/news">{{__("index.all_news")}}</a></h5>
             </div>
 
           </div>
@@ -278,13 +278,13 @@
       <div class="container edit" rel="content" field="unec_events_text">
           <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h3 class="text-left mt-10 text-white">UNEC TƏDBİRLƏR</h3>
+                    <h3 class="text-left mt-10 text-white">{{__("index.all_events")}}</h3>
                 </div>
                 <div class="col-md-3 col-sm-12" >
-                    <h5 class="text-right text-white" style="padding-top:7px;"><a style="color:#fff;" href="/events">BÜTÜN TƏDBİRLƏR</a></h5>
+                    <h5 class="text-right text-white" style="padding-top:7px;"><a style="color:#fff;" href="/events">{{__("index.all_events")}}</a></h5>
                 </div>
                 <div class="col-md-3 col-sm-12" style="z-index:1000">
-                    <h5 class="text-right text-white" style="padding-top:7px;"><a  style="color:#fff" href="/advertisements">BÜTÜN ELANLAR</a></h5>
+                    <h5 class="text-right text-white" style="padding-top:7px;"><a  style="color:#fff" href="/advertisements">{{__("index.all_advertisements")}}</a></h5>
                 </div>
 
           </div>
@@ -326,7 +326,7 @@
     <div class="container edit" rel="content" field="unec_events_text">
           <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <h3 class="text-left mt-10 text-white">ELANLAR</h3>
+                    <h3 class="text-left mt-10 text-white">{{__("index.advertisements")}}</h3>
                 </div>
              
 
