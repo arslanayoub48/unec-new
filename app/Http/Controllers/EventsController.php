@@ -157,73 +157,10 @@ class EventsController extends Controller
         $event = Events::where("slug", $slug)->first();
         return view("website.static.event", ["event" => $event]);
     }
-
     public function filter(Request $request){
-
-        $filter_tedris_binasi = $request->tedris_binasi;
-        $filter_event_category = $request->event_category;
-        $filter_event_type = $request->event_type;
-        $filter_event_lang = $request->event_lang;
-        $filter =Events::orderBy("id", "DESC")->where("locale",Wlang::getCurrent())->where("status", "publish");
-
-    
-        if(!empty($filter_tedris_binasi)){
-            $filter->where("korpus", $filter_tedris_binasi);
-            foreach($filter_tedris_binasi as $td){
-                $filter->orWhere("korpus", $td);
-            }
-        }
-        if(!empty($filter_event_category)){
-            $filter->where("category_id", $filter_event_category);
-            foreach($filter_event_category as $td){
-                $filter->orWhere("category_id", $td);
-            }
-        }
-        if(!empty($filter_event_type)){
-            $filter->where("event_type", $filter_event_type);
-            foreach($filter_event_type as $td){
-                $filter->orWhere("event_type", $td);
-            }
-        }
-        if(isset($filter_event_lang[0])){
-            $filter->where("event_language", "like",'%'.$filter_event_lang[0].'%');
-        }
-        if(isset($request->day) && isset($request->month)){
-            $filter_date = $request->month."/".$request->day."/".date("Y");
-            $filter_date = date("Y-m-d", strtotime($filter_date));
-            $filter->whereDate("start_at", $filter_date);
-        }
-        $filter = $filter->get();
-        $html = "";
-        foreach($filter as $event){
-            $html .= '<a href="/event/'.$event->slug.'">';
-            $html .= '            <div >';
-            $html .= '                <h3>'.$event->title.'</h3><br>';
-            $html .= '                <div class="badget" style="';
-            $html .= '                    position: absolute;';
-            $html .= '                    left: -100px;';
-            $html .= '                    top: 20px;';
-            $html .= '                    text-align: center;';
-            $html .= '                ">';
-            $html .= '                        <p style="';
-            $html .= '                    font-size: 58px;';
-            $html .= '                    color: #07294e;';
-            $html .= '                ">'.date("d", strtotime($event->start_at)).'</p>';
-            $html .= '                        <p style="';
-            $html .= '                    font-size: 20px;';
-            $html .= '                ">'.\App\Models\TimeDate::MonthToAz(date("M", strtotime($event->start_at))).'</p>';
-
-            $html .= '                    </div>';
-            $html .= '                <?php';
-            $html .= '                     '.$event->info;
-            $html .= '            </div>';
-
-            $html .= '        </a>';
-            $html .= '        <br><br>';
-            $html .= '        ';
-
-     
+        $filter = Events::filter($request)->get();
+        return view("filters.events", ["filter" => $filter]);
     }
-    return $html;
-    }
+
+  
 }

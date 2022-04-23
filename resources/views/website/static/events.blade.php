@@ -70,7 +70,7 @@
                         $month = $dt->format("M");
                         $month_number = $dt->format("m");
                         $month_fixed = \App\Models\TimeDate::MonthToAz($dt->format("M"));
-                        echo '<div><p><a href="?day='.$day.'&month='.$month_number.'">'.$day.'</a></p>';
+                        echo '<div><p><a href="?event_date='.$month_number.'/'.$day.'/'.date("Y").'" >'.$day.'</a></p>';
                         if($dt->format("M") != $current){
                             $current = $dt->format("M");
                             echo '<span><b>'.$month_fixed.' '.date("Y").'</b> </span>';

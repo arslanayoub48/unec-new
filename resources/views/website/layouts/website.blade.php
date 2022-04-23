@@ -541,10 +541,11 @@ $(document).ready(function(){
         let event_category = get_filter("event_category")
         let event_type = get_filter("event_type")
         let event_lang = get_filter("event_lang");
+        let event_date = '<?=isset($_GET["event_date"]) ? $_GET["event_date"] : "" ?>'
         $.ajax({
             url:"/events/filter",
             method:"POST",
-            data:{_token: '{{ csrf_token() }}', tedris_binasi, event_category,event_type,event_lang, day:'{{isset($_GET["day"])?$_GET["day"]:""}}', month:'{{isset($_GET["month"])?$_GET["month"]:""}}'},
+            data:{_token: '{{ csrf_token() }}', tedris_binasi, event_category,event_type,event_lang, event_date},
             success:function(data){
                 $('.filter_data').html(data);
             }
