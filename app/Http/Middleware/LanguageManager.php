@@ -19,7 +19,12 @@ class LanguageManager
     public function handle($request, Closure $next)
     {
    
-        if (Session::has('applocale') AND array_key_exists(Session::get('applocale'), config("app.languages"))) {
+        $languages = [
+            "az" => "AZ",
+            "ru" => "RU",
+            "en" => "EN"
+        ];
+        if (Session::has('applocale') AND array_key_exists(Session::get('applocale'), $languages)) {
             App::setLocale(Session::get('applocale'));
         }
         else { 

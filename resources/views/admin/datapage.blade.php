@@ -125,9 +125,9 @@
                             <tr style="height: 100px;">
                                 @for($i=0;$i<count($data); $i++)
                                   @if(isset($params["imagecol"]) && $params["imagecol"] == $i)
-                                    <td><img src="/image/{{$data[$i]}}" style="width: 150px;" /></td>
+                                    <td><a href="/dataPageAction?action=edit&id={{$data[0]}}"><img src="/image/{{$data[$i]}}" style="width: 150px;" /></a></td>
                                   @elseif($i == 0)
-                                    <td>{{$a}}</td>
+                                    <td><a href="/dataPageAction?action=edit&id={{$data[0]}}">{{$a}}</a></td>
                                     
                                   @else
                                     <td>{{$data[$i]}}</td>

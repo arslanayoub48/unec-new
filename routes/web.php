@@ -16,14 +16,10 @@ use App\Http\Controllers\MenuController as menuController;
 
 //WEBSITE
 Route::get('/', "IndexController@index");
-Route::get('/list',"ProductsController@all");
-Route::get('/contact',function () {
-    return view("website.contact");
-});
 
 //ADMIN
 Route::prefix("admin")->group(function () {
-    Route::get('/',"IndexController@home")->middleware('auth');
+    Route::get('/',"IndexController@admin")->middleware('auth');
     Route::get('/menus',"MenuController@list")->middleware('auth');
     Route::get('/sliders',"SliderController@list")->middleware('auth');
     Route::get('/pages',"PageController@list")->middleware('auth');
@@ -53,30 +49,24 @@ Route::prefix("admin")->group(function () {
     Route::post("/page/save","PageController@save")->middleware('auth');
     Route::get("/view","PageController@viewAdmin")->middleware('auth');
     Route::get("/contentbuilder","PageController@contentbuilder")->middleware('auth');
-});
-Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);  
+    Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);  
+   
 
-Route::get("/staff/{slug}", "TeachersController@teacher");
-Route::get("/staff", function() {
-    return view("website.static.muellimler");
 });
-Route::get("/lang/{lang}", "LangController@change");
-Route::get("/image/{id}", "ImageController@show");
-//HELPERS
 Route::get('/dataPageAction',"IndexController@dataPageAction")->middleware('auth');
 Route::post('/dataPageAction',"IndexController@dataPageActionPost")->middleware('auth');
-
-//AUTH
 Route::get('/change_password', "UsersController@change_password")->middleware('auth');
 Route::post('/change_password', "UsersController@change_password_post")->middleware('auth');
-
 Route::get('/login',"IndexController@login");
 Route::post('login/', ['as' => 'login', 'uses' => 'UsersController@login']);
 
-Route::post('register/', ['as' => 'register', 'uses' => 'UsersController@store']);
+Route::get("/staff/{slug}", "TeachersController@teacher");
+Route::get("/staff", function() {return view("website.static.muellimler");});
+Route::post("/staff/filter", "TeachersController@filter");
+Route::get("/lang/{lang}", "LangController@change");
+Route::get("/image/{id}", "ImageController@show");
+//HELPERS
 
-Route::get('/reset',"UsersController@reset");
-Route::post('reset/', ['as' => 'reset', 'uses' => 'UsersController@reset_password']);
 Route::get("/new/{slug}", "NewsController@show");
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
@@ -84,5 +74,5 @@ Route::get("/news", function (){ return view("website.static.news" ); });
 Route::get("/events", function (){ return view("website.static.events" ); });
 Route::get("/event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
-Route::post("/staff/filter", "TeachersController@filter");
+
 Route::get('/{any}', "PageController@show")->where('any', '.*');

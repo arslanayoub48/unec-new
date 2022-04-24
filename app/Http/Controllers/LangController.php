@@ -10,7 +10,12 @@ class LangController extends Controller
 {
     public function change(Request $request)
     {
-        if (array_key_exists($request->lang, config("app.languages"))) {
+        $languages = [
+            "az" => "AZ",
+            "ru" => "RU",
+            "en" => "EN"
+        ];
+        if (array_key_exists($request->lang, $languages)) {
             Session::put('applocale', $request->lang);
         }
         \App\Models\Wlang::setCurrent($request->lang);
