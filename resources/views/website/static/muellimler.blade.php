@@ -1,20 +1,9 @@
 @extends('website.layouts.website')
 
 @section("content")
+<link href="{{ asset('frontend/assets/css/views_website/muellimler.css') }}" rel="stylesheet" type="text/css" >
 <div class="post-list mw-post-list-blog">
-<style scoped>
-   .mw-post-list-blog-content .lead{
-     margin-top: 0;
-   }
 
-   .teachers img{
-       
-       border-radius: 6px;
-       width: 90px;
-
-   }
-   
-</style>
 <div class="container mt-50">
     <div class="row">
         <div class="col-md-8">
@@ -59,36 +48,7 @@
                     <li><a href="?azlist=Z">Z</a></li>
                 </ul>
                 </div> 
-
-                <style>
-
-                    @media only screen and (max-width: 600px) {
-                        .azlist-table{
-                            display: none;
-                        }
-                        .azlist-icon{
-                            display:block !important;
-                            background-color: #0e3971;
-                            color: #fff;
-                            font-weight: 600;
-                            padding: 6px;
-                            border-radius: 20px;
-                        }
-                        .azlist{
-                            top: 78px !important;
-                        }
-                    }
-                    .azlist-icon{
-                        display: none;
-                    }
-                    .azlist{
-                        background-color:#fff;
-                    }
-                    .azlist li {
-                    display: inline-block;
-                    padding: 10px;
-                }
-                </style>
+                
                 <script>
                     let azlistOpenToggle = false;
                     function openAZList(){

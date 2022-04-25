@@ -1,0 +1,37 @@
+.mw-post-list-blog-content .lead {
+  margin-top: 0;
+}
+
+.teachers img {
+  border-radius: 6px;
+  width: 90px;
+}
+
+/////////////////////////////////
+
+@media only screen and (max-width: 600px) {
+  .azlist-table {
+    display: none;
+  }
+  .azlist-icon {
+    display: block !important;
+    background-color: #0e3971;
+    color: #fff;
+    font-weight: 600;
+    padding: 6px;
+    border-radius: 20px;
+  }
+  .azlist {
+    top: 78px !important;
+  }
+}
+.azlist-icon {
+  display: none;
+}
+.azlist {
+  background-color: #fff;
+}
+.azlist li {
+  display: inline-block;
+  padding: 10px;
+}
