@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+       
     <!--Meta Tags-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+    
     <!--Title Here-->
     <title>Azərbaycan Dövlət İqtisad Universiteti</title>
     <!--Stylesheets-->
@@ -22,72 +23,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
     <link href="/contentbuilder/assets/minimalist-blocks/content.css?<?=rand(0,5000)?>" rel="stylesheet" type="text/css" />
-    <style>
-      html{
-        overflow-x: hidden;
-      }
-      .text-white{
-        color:#fff;
-      }
-      .primary-nav ul ul {
-    position: absolute;
-    top: 30px;
-    z-index: 1000;
-    background-color: #fff;
-    padding: 20px;
-    display: none;
-}
-li:hover .has-parent {
-  display: block !important;
-}
+    <link href="{{ asset('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css" >
+    @stack('styles')
 
-    </style>
-<style>
-  /* .mw-selector{
-    display:none;
-  } */
-  .js-switch-language-dropdown{
-    
-    width: 120px;
-    border-radius: 13px;
-
-  }
-  .zero-content{
-    margin:45px;
-  }
-  .zero-content .element, .zero-content .edit, .zero-content .model{
-    clear: none !important;
-  }
-  .middle_menu a{
-    color:#262626;
-    text-transform: uppercase;
-  }
-  .has-submenu .submenu li {
-    vertical-align: middle;
-    flex: 1;
-    width: 25%;
-    display: inline-block;
-    border-bottom: none;
-}
-.submenu {
-  width: 1040px;
-  
-}
-.zero_menu_item{
-  font-size:11px;
-}
-.topmenu li {
-    display: inline;
-    padding: 4px;
-    font-size: 11px;
-}
-
-.topmenu a {
-    color: #fff;
-    text-decoration: underline;
-    text-transform: uppercase;
-}
-</style>
     <!--Google Fonts-->
     <link
       href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -106,16 +44,7 @@ li:hover .has-parent {
     <div class="topmenu">
     <?php echo \App\Models\Menu::tree('top'); ?>
     </div>
-<style>
-
-    .zero_menu_item{
-        color:#fff;
-    }
-    .zero_menu_item:hover{
-        color:#fff;
-        text-decoration: underline;
-    }
-</style></div>
+</div>
         
           </div>
           <!--Topbar Contact End-->
@@ -166,10 +95,7 @@ li:hover .has-parent {
                 <!--Primary Navigation Start-->
                 <div class="primary-nav">
                <div class=" module module-menu " id="module-menu--2" data-mw-title="Menu" name="header_menu" template="navmenu" data-type="menu" parent-module="menu" parent-module-id="module-menu--2">
-<style>
 
-
-</style>
             <?php echo \App\Models\Menu::tree('main'); ?>
               
               
@@ -258,6 +184,7 @@ li:hover .has-parent {
     </div>
   </div>
 </footer>
+
     <!--Javascripts-->
     <script src="/vendors/jquery/dist/jquery.min.js"></script>
     <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>

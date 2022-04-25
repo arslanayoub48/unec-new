@@ -7,42 +7,9 @@
 <br>
 <br>
 <br>
-<style>
-    .calendar{
-        cursor:pointer;
-        position:relative;
-        width: 1130px;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    .calendar .item {
-        display: inline-block;
-        margin: 20px;
-        text-align: center;
-    }
-
-    .calendar .item p {
-        font-size: 13px;
-    }
-    .calendar .row{
-        position:relative;
-    }
-    .items a{
-        border-radius: 20px;
-        background-color: #fff;
-        padding: 10px;
-        color: #000;
-    }
-    .items a:hover{
-        border-radius: 20px;
-        background-color: #07294e;
-        padding: 10px;
-        color: #fff;
-    }
-</style>
 <div class="container">
     <div class="row">
-     
+    <link href="{{ asset('frontend/assets/css/views_website/events.css') }}" rel="stylesheet" type="text/css" >
        
     <div class="row">
         <div class="col-md-12 m-auto">
