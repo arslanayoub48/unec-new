@@ -35,6 +35,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        \App\Models\Wlang::setIfNot();
         $this->configureRateLimiting();
 
         $this->routes(function () {

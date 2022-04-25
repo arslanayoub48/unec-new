@@ -6,9 +6,33 @@
 <br>
 <br>
 <br>
+<style>
+    .tag {
+    width: 65px;
+    height: 28px;
+    text-align: center;
+    display: inline-block;
+    transition: all 0.16s ease;
+    cursor:pointer;
+}
+
+.tag a:hover{
+    text-decoration:underline;
+}
+</style>
 <div class="container-fluid" style="width: 1120px;" >
     <div class="row">
         <div class="col-md-12">
+        <div class="container">
+            <h1>{{$new->title}}</h1>
+            <br class="clearfix">
+            <p>
+                <i class="ml-1 fa fa-folder-open"></i>  &nbsp; {{$new->category->title}}
+                <i class="ml-1 fa fa-eye"></i>&nbsp; {{$new->views}}
+                <i class="ml-1 fa fa-calendar"></i>&nbsp;  {{date("d-m-Y", strtotime($new->created_at))}}
+            </p>
+        </div>
+        <br class="clearfix">
          @if($new->slider)
                     <div class="slider" style="width: 400px; float:left;">
                         <div class="container-fluid">
@@ -35,9 +59,19 @@
                             </div>
                         </div>
                  @endif
-          
-            <div> <?php echo $new->info; ?></div>
+            <div class="tags">
+            @foreach(\App\Models\Tags::tags($new->tags) as $tag)
+            @if(empty($tag)) @continue @endif
+               <div class="tag">
+                   <a href="/tag/{{$tag}}"> {{$tag}}</a>
+               </div>
+
+            @endforeach
+            </div>
+            <br class="clearfix">
             
+            <div> <?php echo $new->info; ?></div>
+         
         </div>
     </div>
 

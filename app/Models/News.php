@@ -19,4 +19,7 @@ class News extends Model
         $model = static::query()->create($attributes);
         return $model;
     }
+    public function category(){
+        return $this->hasOne(News_categories::class, "id", "category_id");
+    }
 }

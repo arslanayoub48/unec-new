@@ -88,6 +88,8 @@ class NewsController extends Controller
     }
     public function show($slug){
         $new = News::where("slug", $slug)->first();
+        $new->views += 1;
+        $new->save();
         return view("website.static.new", ["new" => $new]);
     }
 }

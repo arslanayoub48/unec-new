@@ -88,71 +88,7 @@
           </section>
         </div>
 
-        <div id="register" class="animate form registration_form">
-          <section class="login_content">
-            <form method="post" action="{{route("register")}}">
-            {{ csrf_field() }}
-              <h1>Hesab yarat</h1>
-              @include('partials.formerrors')
-              <div class=" form-group has-feedback">
-                        <input type="text" class="form-control" name="name" id="inputSuccess1" placeholder="Ad Soyad" required>
-                        <span class="fa fa-user form-control-feedback right" aria-hidden="true"></span>
-                      </div>
-              <div class="form-group has-feedback">
-                        <input type="text" class="form-control" id="inputSuccess2" name="telephone" placeholder="Telefon nömrəsi" required>
-                        <span class="fa fa-phone form-control-feedback right" aria-hidden="true"></span>
-                </div>
-                <div class=" form-group has-feedback">
-                        <input type="text" class="form-control " id="inputSuccess3" name="email" placeholder="Email" required>
-                        <span class="fa fa-envelope form-control-feedback right" aria-hidden="true"></span>
-                      </div>
-              <div>
-            
-                <div class=" form-group has-feedback">
-                        <input type="password" class="form-control " id="inputSuccess4" name="password" placeholder="Şifrə" required>
-                        <span class="fa  fa-lock form-control-feedback right" aria-hidden="true"></span>
-                      </div>
-              <div>
-                <div class=" form-group has-feedback">
-                        <input type="password" class="form-control " id="inputSuccess5" name="password_confirmation" placeholder="Şifrənin təkrarı" required>
-                        <span class="fa  fa-lock form-control-feedback right" aria-hidden="true"></span>
-                      </div>
-              <div>
-              <div class="form-group">
-              <div class="checkbox">
-                            <label class="hover">
-                              <div class="icheckbox_flat-green hover" style="position: relative;">
-                                <input type="checkbox" name="rules" class="flat" style="position: absolute; opacity: 0;" required>
-                                  <ins class="iCheck-helper" style="position: absolute; top: 0%; left: 0%; display: block; width: 100%; height: 100%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins>
-                                </div> İstifadəçi qaydaları ilə tanış oldum və razıyam.
-                            </label>
-                          </div>
-              </div>
-                <button class="btn btn-default submit" type="submit" >Qeydiyyatı tamamla</button>
-              </div>
-
-              <div class="clearfix"></div>
-
-              <div class="separator">
-                <p class="change_link">Artıq hesabınız var ?
-                  <a href="#signin" class="to_register"> Daxil ol </a>
-                </p>
-
-                <div class="clearfix"></div>
-                <br />
-
-                <div>
-                <div class="row text-center">
-                    <div class="col-12">
-                        <img src="images/logo/zero.png" width="200" alt="">
-                    </div>
-                </div><br>
-                  <p>©2020 All Rights Reserved. Zero Technology  is most powerfull business system management</p>
-                </div>
-              </div>
-            </form>
-          </section>
-        </div>
+     
       </div>
     </div>
   

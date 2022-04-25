@@ -9,4 +9,8 @@ class Tags extends Model
 {
     use HasFactory;
     protected $fillable = ["name"];
+    public static function tags($tags){
+        $tags = json_decode($tags);
+        return $tags;
+    }
 }

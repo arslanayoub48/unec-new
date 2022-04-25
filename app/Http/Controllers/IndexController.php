@@ -7,6 +7,7 @@ use App\Services\Admin\Data\HubService;
 use App\Services\Admin\Data\PostService;
 use App\Services\Admin\Data\TagsService;
 use App\Models\Tags;
+use App\Models\Wlang;
 use DateTime;
 class IndexController extends Controller
 {   

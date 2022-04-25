@@ -11,6 +11,9 @@ class Wlang extends Model
 {
     use HasFactory;
     protected $table = "lang";
+    public static function setIfNot(){
+        Session::put("applocale", Wlang::getCurrent());
+    }
     public static function getCurrent(){
         $request = request();
         $lang = "az";
@@ -30,6 +33,7 @@ class Wlang extends Model
     public static function getName($slug){
         return Wlang::where("slug", $slug)->first()->name;
     }
+    
     public static function setCurrent($lang){
         Session::put("lang", $lang);
     }
