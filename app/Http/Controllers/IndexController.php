@@ -15,7 +15,7 @@ class IndexController extends Controller
         return view("admin/index");
     }
     public function index(){
-        return view("website.index");
+        return view("website.indexNew");
     }
     function dataPageAction(Request $request){
         $hub = new HubService();

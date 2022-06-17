@@ -12,16 +12,16 @@
         <div class="video-overlay"></div>
         <div class="video-container">
           <iframe class="video-iframe" src="https://www.youtube.com/embed/wFWxuVU5z_k?controls=0&mute=1&autoplay=1&playlist=wFWxuVU5z_k&loop=1" frameborder="0"></iframe>
-            <div id="text">    
+            <div id="text">
             <div class="container edit" rel="content" field="hero-text">
               <div class="banner-title text-left ">
                 <h5>UNEC-lə xəyallarınıza doğru hər <br> gün bir addım yaxınlaşın</h5>
               </div>
-             
+
             </div>
-          </div> 
+          </div>
         </div>
-        
+
       </div>
       <!--Banner Item End-->
     </div>
