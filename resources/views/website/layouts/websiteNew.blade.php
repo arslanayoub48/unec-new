@@ -20,8 +20,10 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{{ asset('demos/style.css') }}">
     <link href="{{ asset('assets/style.css') }}" rel="stylesheet" type="text/css" />
-
+    <link href="{{ asset('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css" >
     <title>UNEC ADIU</title>
 
 </head>
@@ -29,347 +31,33 @@
 <body>
 <div id="app">
     <!-- header -->
+
     <header>
         <div class="top-header">
             <div class="container" style="position: relative;">
                 <div class="menu">
-                    <button class="toggle-btn"><img src="assets/images/icons/menu.svg" alt="open-menu"> MENYU</button>
+                    <button class="toggle-btn"><img src="{{ asset('assets/images/icons/menu.svg') }}" alt="open-menu"> MENYU</button>
                 </div>
+
                 <div class="dropdown-nav">
-                    <ul class="navbar-nav" style="flex-direction: row;">
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Tələbə</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Müəllim</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Abituriyent</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Filiallar</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">WebMail</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Kitabxana</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Resurslar</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Media</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="menu-toggled nav-item">
-                            <a class="nav-link" href="#">Əlaqə</a>
-                            <div class="menu-content">
-                                <div class="row">
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 01</a></li>
-                                            <li> <a href="#">Submenu link 02</a></li>
-                                            <li> <a href="#">Submenu link 03</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 04</a></li>
-                                            <li> <a href="#">Submenu link 05</a></li>
-                                            <li> <a href="#">Submenu link 06</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 07</a></li>
-                                            <li> <a href="#">Submenu link 08</a></li>
-                                            <li> <a href="#">Submenu link 09</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col">
-                                        <ul>
-                                            <li> <a href="#">Submenu link 10</a></li>
-                                            <li> <a href="#">Submenu link 11</a></li>
-                                            <li> <a href="#">Submenu link 12</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
+                    <?php echo \App\Models\Menu::treeTop('top'); ?>
                 </div>
                 <ul class="icons">
-                    <li><a href="#"><img src="/assets/images/icons/search.svg" alt="search-icon" /></a></li>
-                    <li><a href="#"><img src="/assets/images/icons/eye.svg" alt="eye-icon" /></a></li>
+                    <li><a href="#"><img src="{{ asset('assets/images/icons/search.svg') }}" alt="search-icon" /></a></li>
+                    <li><a href="#"><img src="{{ asset('assets/images/icons/eye.svg') }}" alt="eye-icon" /></a></li>
                     <li><a href="#">EN</a></li>
                 </ul>
             </div>
             <div class="container">
                 <div class="menu-toggle" id="menu-toggle" style="display: none;">
                     <div class="menu">
-                        <button class="toggle-btn"><img src="assets/images/close.svg" alt="=close-menu"></button>
+                        <button class="toggle-btn"><img src="{{url('assets/images/close.svg')}}" alt="=close-menu"></button>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <div class="title-menu">
-                                    <h2>BÜTÜN SAYT</h2><img src="assets/images/Frame.svg" alt="menu">
+                                    <h2>BÜTÜN SAYT</h2><img src="{{url('assets/images/Frame.svg')}}" alt="menu">
                                 </div>
                                 <a class="nav-link active show" id="sidebar-menu-2-tab" data-toggle="pill" href="#sidebar-menu-2"
                                    role="tab" aria-controls="sidebar-menu-2" aria-selected="false">SIdebar menu active 02</a>
@@ -433,365 +121,14 @@
         </div>
         <nav class="navbar navbar-desktop navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="/"><img src="assets/images/logo 1.svg" alt="navbar-brand"></a>
+                <a class="navbar-brand" href="/"><img src="{{url('assets/images/logo 1.svg')}}" alt="navbar-brand"></a>
                 <div class="collapse navbar-collapse" style="flex-direction: column;" id="navbarSupportedContent">
                     <div class="dropdown-nav medium-dropdown-nav ml-auto" style="position: relative;">
-                        <ul class="navbar-nav text-uppercase">
-                            <li class="menu-toggled nav-item">
-                                <a href="#" class="qabul" style="text-decoration: none;">Qəbul</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Təhsİl</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Elm</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Elektron Unİversİtet</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Vİrtual tur</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <?php echo \App\Models\Menu::treeMain('main'); ?>
+
                     </div>
                     <div class="dropdown-nav ml-auto" style="position: relative;">
-                        <ul class="navbar-nav">
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Haqqımızda</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">İxtisaslar</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Sosial həyat</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">Beynəlxalq əməkdaşlıq</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="menu-toggled nav-item">
-                                <a class="nav-link" href="#">UNEC NEWS</a>
-                                <div class="menu-content">
-                                    <div class="row">
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 01</a></li>
-                                                <li> <a href="#">Submenu link 02</a></li>
-                                                <li> <a href="#">Submenu link 03</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 04</a></li>
-                                                <li> <a href="#">Submenu link 05</a></li>
-                                                <li> <a href="#">Submenu link 06</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 07</a></li>
-                                                <li> <a href="#">Submenu link 08</a></li>
-                                                <li> <a href="#">Submenu link 09</a></li>
-                                            </ul>
-                                        </div>
-                                        <div class="col">
-                                            <ul>
-                                                <li> <a href="#">Submenu link 10</a></li>
-                                                <li> <a href="#">Submenu link 11</a></li>
-                                                <li> <a href="#">Submenu link 12</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <?php echo \App\Models\Menu::treeLower('lower'); ?>
                     </div>
                 </div>
             </div>
@@ -799,11 +136,11 @@
         <nav class="navbar-mobile">
             <div class="container">
                 <div class="logo">
-                    <a class="navbar-brand" href="#"><img src="assets/images/mobile-logo.svg" alt="navbar-brand"></a>
+                    <a class="navbar-brand" href="#"><img src="{{url('assets/images/mobile-logo.svg')}}" alt="navbar-brand"></a>
                 </div>
                 <div class="toggle-menu ml-auto">
                     <button><img src="/assets/images/mobile-search.svg" alt="search-icon" /></button>
-                    <button class="toggle-menu-btn"><img src="/assets/images/mobile-menu.svg" alt="mobile-menu-icon" /></button>
+                    <button class="toggle-menu-btn"><img src="{{url('assets/images/mobile-menu.svg')}}" alt="mobile-menu-icon" /></button>
                 </div>
             </div>
         </nav>
@@ -811,11 +148,11 @@
             <div class="container">
                 <div class="row">
                     <div class="menu" style="width: 100%;">
-                        <button class="toggle-menu-btn" style="float: right;"><img src="assets/images/close-mobile.svg"
+                        <button class="toggle-menu-btn" style="float: right;"><img src="{{url('assets/images/close-mobile.svg')}}"
                                                                                    alt="=close-menu"></button>
                     </div>
                     <div class="title-menu">
-                        <h2>BÜTÜN SAYT</h2><img src="assets/images/Frame.svg" alt="menu">
+                        <h2>BÜTÜN SAYT</h2><img src="{{url('assets/images/Frame.svg')}}" alt="menu">
                     </div>
                     <div class="accordion" id="exampleAccordion">
                         <div class="card">
@@ -1012,9 +349,9 @@
             <div class="row">
                 <div class="col-12 col-lg-4">
                     <form class="newsletter">
-                        <img src="assets/images/footer/logo sayt ag 2.svg" alt="logo">
+                        <img src="{{url('assets/images/footer/logo sayt ag 2.svg')}}" alt="logo">
                         <div class="newsletter-input">
-                            <img src="assets/images/footer/Vector (5).svg" alt="icon">
+                            <img src="{{url('assets/images/footer/Vector (5).svg')}}" alt="icon">
                             <input type="email" class="icon" name="email" id="email" placeholder="Email daxil edin">
                             <span>UNEC-in yenilikləri haqqinda ilk məlumat almaq üçün abunə olun</span>
                         </div>
@@ -1075,15 +412,15 @@
             <div class="bottom-footer">
                 <div class="row" style="float: right;">
                     <div class="logo">
-                        <img src="assets/images/footer/logo.svg" alt="radio">
-                        <img src="assets/images/footer/UNEC Radio.svg" alt="UNEC">
+                        <img src="{{url('assets/images/footer/logo.svg')}}" alt="radio">
+                        <img src="{{url('assets/images/footer/UNEC Radio.svg')}}" alt="UNEC">
                     </div>
                     <div class="icons">
-                        <a href="#" target="_blank"><img src="assets/images/footer/Vector.svg" alt="twitter-icon"></a>
-                        <a href="#" target="_blank"><img src="assets/images/footer/Vector (1).svg" alt="facebook-icon"></a>
-                        <a href="#" target="_blank"><img src="assets/images/footer/Vector (2).svg" alt="linkedin-icon"></a>
-                        <a href="#" target="_blank"><img src="assets/images/footer/Vector (3).svg" alt="youtube-icon"></a>
-                        <a href="#" target="_blank"><img src="assets/images/footer/Vector (4).svg" alt="instagram-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector.svg')}}" alt="twitter-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (1).svg')}}" alt="facebook-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (2).svg')}}" alt="linkedin-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (3).svg')}}" alt="youtube-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (4).svg')}}" alt="instagram-icon"></a>
                     </div>
                 </div>
                 <div class="" style="float: left;">
@@ -1105,7 +442,21 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
-<script src="assets/main.js"></script>
+
+<script src="{{ asset('assets/main.js') }}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script>
+    $(function () {
+        $("#datepicker").datepicker({
+            showOtherMonths: true,
+            firstDay: 1,
+            selectOtherMonths: true
+        });
+    });
+</script>
+
+
 </body>
 
 </html>

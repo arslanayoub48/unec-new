@@ -60,19 +60,26 @@ Route::post('/change_password', "UsersController@change_password_post")->middlew
 Route::get('/login',"IndexController@login");
 Route::post('login/', ['as' => 'login', 'uses' => 'UsersController@login']);
 
-Route::get("/staff/{slug}", "TeachersController@teacher");
-Route::get("/staff", function() {return view("website.static.muellimler");});
+//Route::get("/staff/{slug}", "TeachersController@teacher");
+//Route::get("/staff", function() {return view("website.static.muellimler");});
+Route::get("/single-staff", "TeachersController@show");
+Route::get("/staff", "TeachersController@index");
 Route::post("/staff/filter", "TeachersController@filter");
 Route::get("/lang/{lang}", "LangController@change");
 Route::get("/image/{id}", "ImageController@show");
 //HELPERS
 
-Route::get("/new/{slug}", "NewsController@show");
+Route::get("/single-news", "NewsController@show");
+Route::get("/news", "NewsController@index");
+
+
+
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
-Route::get("/news", function (){ return view("website.static.news" ); });
+
 Route::get("/events", function (){ return view("website.static.events" ); });
-Route::get("/event/{slug}", "EventsController@show");
+Route::get("/events", "EventsController@index");
+Route::get("/single-event", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');

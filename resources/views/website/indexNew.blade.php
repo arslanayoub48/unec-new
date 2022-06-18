@@ -1,20 +1,22 @@
 @extends('website.layouts.websiteNew')
 
 @section("content")
-    <link href="{{ asset('frontend/assets/css/views_website/index.css') }}" rel="stylesheet" type="text/css" >
+    <link href="{{ asset('frontend/assets/css/views_website/index.css') }}" rel="stylesheet" type="text/css">
 
     <main>
-{{--        <!-- hero-section -->--}}
-{{--        <section class="hero">--}}
-{{--            <div class="container">--}}
-{{--            </div>--}}
-{{--        </section>--}}
+        {{--        <!-- hero-section -->--}}
+        {{--        <section class="hero">--}}
+        {{--            <div class="container">--}}
+        {{--            </div>--}}
+        {{--        </section>--}}
         <div class="banner-area ">
             <!--Banner Item Start-->
             <div class="video-main">
                 <div class="video-overlay"></div>
                 <div class="video-container">
-                    <iframe class="video-iframe" src="https://www.youtube.com/embed/wFWxuVU5z_k?controls=0&mute=1&autoplay=1&playlist=wFWxuVU5z_k&loop=1" frameborder="0"></iframe>
+                    <iframe class="video-iframe"
+                            src="https://www.youtube.com/embed/wFWxuVU5z_k?controls=0&mute=1&autoplay=1&playlist=wFWxuVU5z_k&loop=1"
+                            frameborder="0"></iframe>
                     <div id="text">
                         <div class="container edit" rel="content" field="hero-text">
                             <div class="banner-title text-left ">
@@ -302,7 +304,8 @@
                 <div class="title">
                     <div>
                         <h2>Xəbərlər</h2>
-                        <span>Bütün xəbərlər</span>
+                        <a href="/news"> <span>Bütün xəbərlər</span></a>
+
                     </div>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                         <option selected>Rubrika</option>
@@ -323,7 +326,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
+                                                <p class="card-text"><a href="/single-news">
                                                         UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
                                                         mərkəzidir.
                                                     </a>
@@ -339,7 +342,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
+                                                <p class="card-text"><a href="/single-news">
                                                         UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
                                                         mərkəzidir.
                                                     </a>
@@ -355,7 +358,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
+                                                <p class="card-text"><a href="/single-news">
                                                         UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
                                                         mərkəzidir.
                                                     </a>
@@ -371,7 +374,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">UNEC regionda iqtisad elmini dərindən
+                                                <p class="card-text"><a href="/single-news">UNEC regionda iqtisad elmini dərindən
                                                         öyrədən fundamental
                                                         tədris
                                                         mərkəzidir.</a>
@@ -400,7 +403,8 @@
                     <div class="col-lg-8">
                         <div class="title">
                             <h2>Elanlar</h2>
-                            <span class="d-none d-lg-block">Bütün elanlar</span>
+
+                            <a href="/news"><span class="d-none d-lg-block">Bütün elanlar</span></a>
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
@@ -412,7 +416,7 @@
                                                      src="assets/images/Elanlar-section/Rectangle 15.png"
                                                      alt="Card image cap">
                                                 <div class="card-body">
-                                                    <h5 class="card-text"><a href="#">
+                                                    <h5 class="card-text"><a href="/single-news">
                                                             UNEC regionda iqtisad elmini dərindən öyrədən fundamental
                                                             tədris
                                                             mərkəzidir.
@@ -435,7 +439,7 @@
                                                      src="assets/images/Elanlar-section/Rectangle 15.png"
                                                      alt="Card image cap">
                                                 <div class="card-body">
-                                                    <h5 class="card-text"><a href="#">
+                                                    <h5 class="card-text"><a href="/single-news">
                                                             UNEC regionda iqtisad elmini dərindən öyrədən fundamental
                                                             tədris
                                                             mərkəzidir.
@@ -458,7 +462,7 @@
                                                      src="assets/images/Elanlar-section/Rectangle 15.png"
                                                      alt="Card image cap">
                                                 <div class="card-body">
-                                                    <h5 class="card-text"><a href="#">UNEC regionda iqtisad elmini
+                                                    <h5 class="card-text"><a href="/single-news">UNEC regionda iqtisad elmini
                                                             dərindən öyrədən fundamental
                                                             tədris
                                                             mərkəzidir.</a>
@@ -488,8 +492,10 @@
                     <div class="col-lg-4">
                         <div class="tad">
                             <div class="title">
+
                                 <h2>Tədbirlər</h2>
-                                <span class="d-none d-lg-block">Bütün tədbirlər</span>
+                                <a href="/events"> <span class="d-none d-lg-block">Bütün tədbirlər</span></a>
+
                             </div>
                             <ul>
                                 <li>
@@ -498,8 +504,8 @@
                                         Sentyabr
                                     </div>
                                     <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.
-                                        </p>
+                                      <a href="/single-event">  <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir. </p> </a>
+
                                         <span>Keçiriləcəyi məkan</span>
                                     </div>
                                 </li>
@@ -509,8 +515,7 @@
                                         Sentyabr
                                     </div>
                                     <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.
-                                        </p>
+                                        <a href="/single-event">  <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir. </p> </a>
                                         <span>Keçiriləcəyi məkan</span>
                                     </div>
                                 </li>
@@ -520,8 +525,7 @@
                                         Sentyabr
                                     </div>
                                     <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.
-                                        </p>
+                                        <a href="/single-event">  <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir. </p> </a>
                                         <span>Keçiriləcəyi məkan</span>
                                     </div>
                                 </li>
@@ -531,8 +535,7 @@
                                         Sentyabr
                                     </div>
                                     <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.
-                                        </p>
+                                        <a href="/single-event">  <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir. </p> </a>
                                         <span>Keçiriləcəyi məkan</span>
                                     </div>
                                 </li>
