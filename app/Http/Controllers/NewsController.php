@@ -86,10 +86,18 @@ class NewsController extends Controller
         $request->session()->put("params", $params);
         return view("admin/datapage" , ["params" => $params] );
     }
-    public function show($slug){
-        $new = News::where("slug", $slug)->first();
-        $new->views += 1;
-        $new->save();
-        return view("website.static.new", ["new" => $new]);
+//    public function show($slug){
+//        $new = News::where("slug", $slug)->first();
+//        $new->views += 1;
+//        $new->save();
+//        return view("website.static.new", ["new" => $new]);
+//    }
+    public function show(){
+
+        return view("website.static.news.singleNews" );
+    }
+
+    public function index(){
+        return view("website.static.news.allNews" );
     }
 }

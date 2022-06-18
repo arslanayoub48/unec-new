@@ -6,7 +6,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
+
     <!--Title Here-->
     <title>Azərbaycan Dövlət İqtisad Universiteti</title>
     <!--Stylesheets-->
@@ -40,16 +40,16 @@
           <div class="contact-info" style="width:100%">
           <div class=" module module-menu " id="module-menu--1" data-mw-title="Menu" name="header_menu" template="top" data-type="menu" parent-module="menu" parent-module-id="module-menu--1">
 <div role="menu" id="" class="menu menu_5  menu-root menu-item-id-50 menu-item-parent-5">
-   
+
     <div class="topmenu">
     <?php echo \App\Models\Menu::tree('top'); ?>
     </div>
 </div>
-        
+
           </div>
           <!--Topbar Contact End-->
 
-         
+
         </div>
       </div>
       <!--Logo Bar Start-->
@@ -97,14 +97,14 @@
                <div class=" module module-menu " id="module-menu--2" data-mw-title="Menu" name="header_menu" template="navmenu" data-type="menu" parent-module="menu" parent-module-id="module-menu--2">
 
             <?php echo \App\Models\Menu::tree('main'); ?>
-              
-              
-              
+
+
+
 </div>
                 <!--Primary Navigation End-->
               </div>
             </div>
-            
+
           </div>
         </div>
         <div class="mobile-nav-container">
@@ -114,7 +114,7 @@
         </div>
       </div>
       <!--Navigation Bar End-->
-    </header>    
+    </header>
   
     @yield("content")
 

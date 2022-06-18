@@ -1,5 +1,5 @@
 
-@extends('website.layouts.website')
+@extends('website.layouts.websiteNew')
 
 @section("content")
       <!-- Breadcrumbs -->

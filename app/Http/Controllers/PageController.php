@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use App\Models\Page;
 use App\Models\Menu;
 use App\Models\Wlang;
+
 class PageController extends Controller
 {
-    public function list(Request $request){
+    public function list(Request $request)
+    {
         $data = [];
         $pages = Page::all();
-        foreach($pages as $page){
+        foreach ($pages as $page) {
             $sub = [];
             $sub[] = $page->id;
             $sub[] = $page->title;
-            $sub[] = "/".$page->slug;
+            $sub[] = "/" . $page->slug;
             $sub[] = $page->created_at;
             $data[] = $sub;
         }
@@ -30,7 +32,7 @@ class PageController extends Controller
                 "placeholder" => "Başlığı yazın.",
                 "required" => true,
                 "value" => ""
-            ],[
+            ], [
                 "text" => "",
                 "name" => "slug",
                 "type" => "slug",
@@ -39,7 +41,7 @@ class PageController extends Controller
                 "required" => true,
                 "value" => ""
             ]
-        ],
+            ],
             "cols" => [
                 "#",
                 "Başlıq",
@@ -55,7 +57,7 @@ class PageController extends Controller
                     "link" => "/dataPageAction?action=create",
                     "position" => "top"
                 ],
-                
+
                 [
                     "text" => "Bax",
                     "newtab" => true,
@@ -75,63 +77,78 @@ class PageController extends Controller
             ]
         ];
         $request->session()->put("params", $params);
-        return view("admin/datapage" , ["params" => $params] );
+        return view("admin/datapage", ["params" => $params]);
     }
-    public function contentbuilder(Request $request){
+
+    public function contentbuilder(Request $request)
+    {
         $id = $request->id;
         $page = Page::find($id);
-        if($page){
+        if ($page) {
             return view("admin.manage_pages", ["page" => $page]);
         }
         return view("errors.404");
     }
-    public function viewAdmin(Request $request){
+
+    public function viewAdmin(Request $request)
+    {
         $id = $request->id;
         $page = Page::find($id);
-        if($page){
+        if ($page) {
             return view("website.static.content", ["page" => $page]);
         }
         return view("errors.404");
     }
-    public function get(Request $request){
+
+    public function get(Request $request)
+    {
         $menu = Menu::where("link", $request->id)->first();
         $page = Page::find($request->id);
-        if($menu){
-            if($menu->page_id){
+        if ($menu) {
+            if ($menu->page_id) {
                 $page = Page::find($menu->page_id);
-                return view("website.page", ["page"=>$page]);
-            }else
+                return view("website.page", ["page" => $page]);
+            } else
                 return redirect()->to($menu->link);
-        }else if($page){
-            return view("website.page", ["page"=>$page]);
-        }else{
+        } else if ($page) {
+            return view("website.page", ["page" => $page]);
+        } else {
             return redirect()->to($request->id);
         }
     }
-    public function show($id){
-        if(view()->exists("website.dynamic.".$id))
-            return view("website.dynamic.".$id);
-        else{
-            $page = Page::where("slug", 'LIKE', '%'.$id.'%')->where("locale", Wlang::getCurrent())->first();
-            if($page){
+
+    public function show($id)
+    {
+        if (view()->exists("website.dynamic." . $id))
+            return view("website.dynamic." . $id);
+        else {
+
+            $page = Page::where("slug", 'LIKE', '%' . $id . '%')->where("locale", Wlang::getCurrent())->first();
+            if ($page) {
+
+
                 return view("website.static.content", ["page" => $page]);
             }
         }
         return view("errors.404");
     }
-    public function manage(){
+
+    public function manage()
+    {
         return view("admin.manage_pages");
     }
-    public function save(Request $request){
+
+    public function save(Request $request)
+    {
         $id = $request->id;
         $source = $request->source;
         $page = Page::find($id);
-        if($page){
-            $source=  str_replace('contenteditable="true"', '' , $source);
-            $source=  str_replace('data-click="true"', '' , $source);
+        if ($page) {
+            $source = str_replace('contenteditable="true"', '', $source);
+            $source = str_replace('data-click="true"', '', $source);
             $page->content = $source;
             $page->save();
-        }else{
+        } else {
             $page = new Page();
             $page->content = $source;
             $page->save();

@@ -56,4 +56,109 @@ class Menu extends Model
     
         return $model;
     }
+
+    public static function treeTop($location){
+        $menu = Menu::where('loc', $location)->where("locale", Wlang::getCurrent())->first();
+        if(!$menu) return false;
+        $content = $menu->content;
+        $content = json_decode($content);
+        $result = '<ul class="navbar-nav" style="flex-direction: row;">';
+        if(is_array($content)){
+            foreach($content[0] as $item){
+                $id = $item->id;
+                $item_menu = Menu::id($id);
+                $result.= '<li class="menu-toggled nav-item">
+            <a class="nav-link" href="'.$item_menu->slug.'">'.$item_menu->title.'</a>';
+                if(isset($item->children)){
+                    $result .= ' <div class="menu-content" style="width: 620px;">
+                                <div class="row" >
+                                    <div class="col" >
+                                        <ul class="row" >';
+                    foreach($item->children[0] as $child){
+                        $children = Menu::id($child->id);
+                        $result.= '<li  class="col-lg-4" > <a href="'.$children->slug.'">'.$children->title.'</a>';
+                        $result.= "</li>";
+                    }
+                    $result.= "</ul></div></div></div>";
+                }
+                $result.= "</li>";
+
+            }
+        }
+        $result.= "</ul>";
+        return $result;
+
+    }
+    public static function treeMain($location){
+        $menu = Menu::where('loc', $location)->where("locale", Wlang::getCurrent())->first();
+
+        if(!$menu) return false;
+        $content = $menu->content;
+        $content = json_decode($content);
+        $result = '<ul class="navbar-nav text-uppercase">';
+        if(is_array($content)){
+            foreach($content[0] as $item){
+                $id = $item->id;
+                $item_menu = Menu::id($id);
+                $result.= ' <li class="menu-toggled nav-item">
+            <a class="nav-link" href="'.$item_menu->slug.'">'.$item_menu->title.'</a> ';
+
+                if(isset($item->children)){
+
+                    $result .= '<div class="menu-content">
+                                    <div class="row"><div class="col">
+                                            <ul class="row">';
+                    foreach($item->children[0] as $child){
+                        $children = Menu::id($child->id);
+                        $result.= '<li class="col-lg-4"> <a href="'.$children->slug.'">'.$children->title.'</a>';
+                        $result.= "</li>";
+                    }
+                    $result.= "</ul></div></div></div>";
+                }
+                $result.= "</li>";
+
+            }
+        }
+        $result.= "</ul>";
+        return $result;
+
+    }
+
+
+
+    public static function treeLower($location){
+        $menu = Menu::where('loc', $location)->where("locale", Wlang::getCurrent())->first();
+
+        if(!$menu) return false;
+        $content = $menu->content;
+        $content = json_decode($content);
+        $result = '<ul class="navbar-nav">';
+        if(is_array($content)){
+            foreach($content[0] as $item){
+                $id = $item->id;
+                $item_menu = Menu::id($id);
+                $result.= '<li class="menu-toggled nav-item">
+                                <a class="nav-link" href="'.$item_menu->slug.'">'.$item_menu->title.'</a> ';
+
+                if(isset($item->children)){
+
+                    $result .= '<div class="menu-content">
+                                    <div class="row"><div class="col">
+                                            <ul class="row">';
+                    foreach($item->children[0] as $child){
+                        $children = Menu::id($child->id);
+                        $result.= '<li class="col-lg-4"> <a href="'.$children->slug.'">'.$children->title.'</a>';
+                        $result.= "</li>";
+                    }
+                    $result.= "</ul></div></div></div>";
+                }
+                $result.= "</li>";
+
+            }
+        }
+        $result.= "</ul>";
+        return $result;
+
+    }
+
 }
