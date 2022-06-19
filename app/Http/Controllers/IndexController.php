@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Menu;
+use App\Models\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Admin\Data\HubService;
@@ -21,8 +22,8 @@ class IndexController extends Controller
 
     public function index()
     {
-
-        return view("website.indexNew");
+        $news = News::orderBy("id","DESC")->where("status", "publish")->take(4)->get();
+        return view("website.indexNew")->with('news',$news);
     }
 
     function dataPageAction(Request $request)

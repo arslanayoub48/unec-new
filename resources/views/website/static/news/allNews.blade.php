@@ -1,6 +1,8 @@
 @extends('website.layouts.websiteNew')
 
 @section("content")
+
+
     <main>
         <section style="background: #fff" class="top-image-section">
             <div class="container">
@@ -35,171 +37,26 @@
                 </div>
                 <div class="card-group">
                     <div class="row" style="justify-content: center;">
+
+                        @foreach($news as $single_news)
                         <div class="col-lg-3 col-6">
                             <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
+                                <img class="card-img-top" style="width: 245px; height: 201px;" src="assets/images/{{$single_news->image}}" alt="Card image cap">
                                 <div class="card-body">
                                     <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
+                                    <p class="card-text"><a href="/single-news/{{$single_news->slug}}">
+                                           {{$single_news->title}}
                                         </a>
                                     </p>
-                                    <span>Aprel 04, 2022</span>
+                                    <span>
+                                        <?php
+                                        echo ucfirst(strftime("%B", strtotime($single_news->created_at))).' '.ucfirst(strftime("%C", strtotime($single_news->created_at))).','.ucfirst(strftime("%Y", strtotime($single_news->created_at)));
+                                        ?>
+                                        </span>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                            tədris
-                                            mərkəzidir.</a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                            tədris
-                                            mərkəzidir.</a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">
-                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.
-                                        </a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-6">
-                            <div class="card" style="margin-bottom:2rem;" style="margin-bottom:2rem;">
-                                <img class="card-img-top" src="assets/images/Xəbərlər-section/Rectangle 12.png" alt="Card image cap">
-                                <div class="card-body">
-                                    <span>Fakültə</span>
-                                    <p class="card-text"><a href="/single-news">UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                            tədris
-                                            mərkəzidir.</a>
-                                    </p>
-                                    <span>Aprel 04, 2022</span>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                         <!-- loading -->
                         <div class="loading" style="font-size:50px;--duration:2s;--num-dot:10;">
                             <div style="--index:0"></div>
@@ -218,4 +75,5 @@
             </div>
         </section>
     </main>
+
 @endsection

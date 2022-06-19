@@ -92,12 +92,31 @@ class NewsController extends Controller
 //        $new->save();
 //        return view("website.static.new", ["new" => $new]);
 //    }
-    public function show(){
+    public function show($slug){
 
-        return view("website.static.news.singleNews" );
+        $single_news = News::where("slug", $slug)->first();
+        $single_news->views += 1;
+        $single_news->save();
+
+        $previous_id = News::where('id', '<', $single_news->id)->max('id');
+        $next_id = News::where('id', '>', $single_news->id)->min('id');
+
+        if ($next_id==null){
+            $next_id = $previous_id-1;
+        }
+        if ($previous_id==null){
+            $previous_id = $next_id+1;
+        }
+        $previous_news = News::find($previous_id);
+        $next_news = News::find($next_id);
+
+        return view("website.static.news.singleNews", ["single_news" => $single_news, "previous_news" => $previous_news, "next_news" => $next_news]);
     }
 
     public function index(){
-        return view("website.static.news.allNews" );
+
+        $news = News::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish")->get();
+
+        return view("website.static.news.allNews" )->with('news',$news);
     }
 }

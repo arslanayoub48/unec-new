@@ -69,7 +69,7 @@ Route::get("/lang/{lang}", "LangController@change");
 Route::get("/image/{id}", "ImageController@show");
 //HELPERS
 
-Route::get("/single-news", "NewsController@show");
+Route::get("/single-news/{slug}", "NewsController@show");
 Route::get("/news", "NewsController@index");
 
 
