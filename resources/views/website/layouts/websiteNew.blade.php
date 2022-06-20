@@ -25,7 +25,6 @@
     <link href="{{ url('assets/style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ url('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css">
 
-
     <title>UNEC ADIU</title>
 
 </head>
@@ -115,7 +114,7 @@
                                                 $children = App\Models\Menu::id($child->id);
                                                 ?>
 
-                                                <li><a href="{{$children->slug }}">{{$children->title }}</a></li>
+                                                <a href="{{$children->slug }}"><li>{{$children->title }}</li></a>
                                             @endforeach
                                             <?php
                                             }
@@ -152,7 +151,7 @@
         <nav class="navbar-mobile">
             <div class="container">
                 <div class="logo">
-                    <a class="navbar-brand" href="#"><img src="{{url('assets/images/mobile-logo.svg')}}"
+                    <a class="navbar-brand" href="/"><img src="{{url('assets/images/mobile-logo.svg')}}"
                                                           alt="navbar-brand"></a>
                 </div>
                 <div class="toggle-menu ml-auto">
