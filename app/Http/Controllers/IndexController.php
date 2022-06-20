@@ -22,6 +22,7 @@ class IndexController extends Controller
 
     public function index()
     {
+
         $news = News::orderBy("id","DESC")->where("status", "publish")->take(4)->get();
         return view("website.indexNew")->with('news',$news);
     }

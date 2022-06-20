@@ -27,27 +27,45 @@
                         <div class="title">
                             <h2>{{$single_news->title}}</h2>
                         </div>
+                        <?php
 
+                        $count=1;
+                        $checked = count(json_decode($single_news->slider));
+
+                        $checked = round($checked/2);
+                        ?>
                             <div class="image-slider">
                                 <div id="slider">
-                                    <input type="radio" name="slider" id="s1">
-                                    <input type="radio" name="slider" id="s2">
-                                    <input type="radio" name="slider" id="s3" checked>
-                                    <input type="radio" name="slider" id="s4" >
-                                    <input type="radio" name="slider" id="s5">
-                                    <label for="s1" id="slide1">
-                                        <img  src="{{ asset('assets/images/Xəbər page/PuntaDelEste.png') }}" alt="image">
+                                    @foreach(json_decode($single_news->slider) as $slider)
+
+                                        <?php
+                                        $slider_data = App\Models\Gallery::find($slider);
+
+                                        ?>
+
+                                    <input type="radio" name="slider" id="s<?php echo $slider; $count++?>" <?php if($count == $checked){ echo "checked";} ?>>
+
+
+
+                                    @endforeach
+                                        <?php
+
+                                        $count=1;
+                                        ?>
+                                        @foreach(json_decode($single_news->slider) as $slider)
+
+                                        <?php
+                                        $slider_data = App\Models\Gallery::find($slider);
+
+                                        ?>
+
+
+
+                                    <label for="s<?php echo $slider ?>" id="slide<?php echo $count; $count++ ?>">
+                                        <img  src="{{asset('images')}}/{{$slider_data->image}}" alt="image">
                                     </label>
-                                    <label for="s2" id="slide2">
-                                        <img src="{{ asset('assets/images/Xəbər page/CasaPueblo.png') }}" alt="image">
-                                    </label>
-                                    <label for="s3" id="slide3">
-                                        <img src="{{ url('assets/images') }}/{{$single_news->image}}" alt="image">
-                                    </label>
-                                    <label for="s4" id="slide4">
-                                        <img src="{{ asset('assets/images/Xəbər page/FaroLaPaloma.png') }}" alt="image">
-                                    </label>
-                                    <label for="s5" id="slide5"><img src="{{ asset('assets/images/Xəbər page/ColoniaDelSacramento.png') }}" alt="image"></label>
+
+                                    @endforeach
                                 </div>
                         </div>
                         <div class="article">
@@ -57,7 +75,10 @@
                                     <div class="view" style="display: flex;"><img style="margin-right:.3rem;"
                                                                                   src="{{ asset('assets/images/Xəbər page/view.svg') }}" alt="view"><span>{{$single_news->views}}</span>
                                     </div>
-                                    <div><span>Rubrika</span></div>
+                                    <div><span><?php
+                                            $category_name = \App\Models\News_categories::find($single_news->category_id);
+                                            echo $category_name->title;
+                                            ?></span></div>
                                 </div>
                                 <div class="links d-none d-md-block col-lg-6 col-12">
                                     <a href="#"><img src="{{ asset('assets/images/Xəbər page/Frame.svg') }}" alt="twitter-icon"></a>

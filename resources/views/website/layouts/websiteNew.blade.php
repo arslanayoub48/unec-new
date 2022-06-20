@@ -15,16 +15,15 @@
 
     <!--=========================================   CSS ======================================================-->
 
-    <link rel="icon" href="{{ asset('images/favicon_io/android-chrome-192x192.png') }}" type="image/png">
-    <link rel="shortcut icon" href="{{ asset('images/favicon_io/favicon.ico') }}" type="image/ico">
+    <link rel="icon" href="{{ url('images/favicon_io/android-chrome-192x192.png') }}" type="image/png">
+    <link rel="shortcut icon" href="{{ url('images/favicon_io/favicon.ico') }}" type="image/ico">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="{{ asset('demos/style.css') }}">
-    <link href="{{ asset('assets/style.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css" >
-
+    <link rel="stylesheet" href="{{ url('demos/style.css') }}">
+    <link href="{{ url('assets/style.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ url('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css">
 
 
     <title>UNEC ADIU</title>
@@ -39,83 +38,96 @@
         <div class="top-header">
             <div class="container" style="position: relative;">
                 <div class="menu">
-                    <button class="toggle-btn"><img src="{{ asset('assets/images/icons/menu.svg') }}" alt="open-menu"> MENYU</button>
+                    <button class="toggle-btn"><img src="{{ url('assets/images/icons/menu.svg') }}" alt="open-menu">
+                        MENYU
+                    </button>
                 </div>
 
                 <div class="dropdown-nav">
                     <?php echo \App\Models\Menu::treeTop('top'); ?>
                 </div>
                 <ul class="icons">
-                    <li><a href="#"><img src="{{ asset('assets/images/icons/search.svg') }}" alt="search-icon" /></a></li>
-                    <li><a href="#"><img src="{{ asset('assets/images/icons/eye.svg') }}" alt="eye-icon" /></a></li>
+                    <li><a href="#"><img src="{{ url('assets/images/icons/search.svg') }}" alt="search-icon"/></a>
+                    </li>
+                    <li><a href="#"><img src="{{ url('assets/images/icons/eye.svg') }}" alt="eye-icon"/></a></li>
                     <li><a href="#">EN</a></li>
                 </ul>
             </div>
             <div class="container">
                 <div class="menu-toggle" id="menu-toggle" style="display: none;">
                     <div class="menu">
-                        <button class="toggle-btn"><img src="{{url('assets/images/close.svg')}}" alt="=close-menu"></button>
+                        <button class="toggle-btn"><img src="{{url('assets/images/close.svg')}}" alt="=close-menu">
+                        </button>
                     </div>
                     <div class="row">
                         <div class="col-6">
-                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                 aria-orientation="vertical">
                                 <div class="title-menu">
                                     <h2>BÜTÜN SAYT</h2><img src="{{url('assets/images/Frame.svg')}}" alt="menu">
                                 </div>
-                                <a class="nav-link active show" id="sidebar-menu-2-tab" data-toggle="pill" href="#sidebar-menu-2"
-                                   role="tab" aria-controls="sidebar-menu-2" aria-selected="false">SIdebar menu active 02</a>
-                                <a class="nav-link" id="sidebar-menu-3-tab" data-toggle="pill" href="#sidebar-menu-3" role="tab"
-                                   aria-controls="sidebar-menu-3" aria-selected="false">SIdebar menu 03</a>
-                                <a class="nav-link" id="sidebar-menu-4-tab" data-toggle="pill" href="#sidebar-menu-4" role="tab"
-                                   aria-controls="sidebar-menu-4" aria-selected="false">SIdebar menu 04</a>
-                                <a class="nav-link" id="sidebar-menu-5-tab" data-toggle="pill" href="#sidebar-menu-5" role="tab"
-                                   aria-controls="sidebar-menu-5" aria-selected="true">SIdebar menu 05</a>
-                                <a class="nav-link active show" id="sidebar-menu-6-tab" data-toggle="pill" href="#sidebar-menu-6"
-                                   role="tab" aria-controls="sidebar-menu-6" aria-selected="true">SIdebar menu active 06</a>
-                                <a class="nav-link" id="sidebar-menu-7-tab" data-toggle="pill" href="#sidebar-menu-7" role="tab"
-                                   aria-controls="sidebar-menu-7" aria-selected="true">SIdebar menu 07</a>
+                                <?php $menu = App\Models\Menu::where('loc', 'sidebar')->where("locale", App\Models\Wlang::getCurrent())->first();
+
+                                $content = $menu->content;
+                                $content = json_decode($content);
+
+                                ?>
+                                @foreach ($content[0] as $item)
+                                    <?php
+                                    $id = $item->id;
+                                    $item_menu = App\Models\Menu::id($id);
+
+                                    ?>
+                                    <a class="nav-link show ml-auto" id="<?php echo $item_menu->id ?>"
+                                       data-toggle="pill" href="#sidebar-menu-<?php echo $item_menu->id ?>"
+                                       role="tab" aria-controls="sidebar-menu-2"
+                                       aria-selected="false">{{ $item_menu->title  }}</a>
+
+                                @endforeach
+
+
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="tab-content" id="v-pills-tabContent">
-                                <div class="tab-pane fade active show" id="sidebar-menu-2" role="tabpanel"
-                                     aria-labelledby="sidebar-menu-2-tab">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="sidebar-menu-3" role="tabpanel" aria-labelledby="sidebar-menu-3-tab">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="sidebar-menu-4" role="tabpanel" aria-labelledby="sidebar-menu-4-tab">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="sidebar-menu-5" role="tabpanel" aria-labelledby="sidebar-menu-5-tab">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade active show" id="sidebar-menu-6" role="tabpanel"
-                                     aria-labelledby="sidebar-menu-6-tab">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                                <div class="tab-pane fade" id="sidebar-menu-7" role="tabpanel" aria-labelledby="sidebar-menu-7-tab">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
+                                <?php $menu = App\Models\Menu::where('loc', 'sidebar')->where("locale", App\Models\Wlang::getCurrent())->first();
+
+                                $content = $menu->content;
+                                $content = json_decode($content);
+
+                                ?>
+                                @foreach ($content[0] as $item)
+                                    <?php
+                                    $id = $item->id;
+                                    $item_menu = App\Models\Menu::id($id);
+
+                                    ?>
+                                    <div class="tab-pane fade" id="sidebar-menu-<?php echo $item_menu->id ?>" role="tabpanel"
+                                         aria-labelledby="sidebar-menu-2-tab">
+                                        <ul>
+                                            <?php
+                                            if (isset($item->children)) {
+
+                                            ?>
+                                            @foreach ($item->children[0] as $child)
+                                                <?php
+                                                $children = App\Models\Menu::id($child->id);
+                                                ?>
+
+                                                    <li><a href="{{$children->slug }}">{{$children->title }}</a></li>
+                                                @endforeach
+                                            <?php
+                                            }
+
+                                            ?>
+
+
+                                        </ul>
+                                    </div>
+
+                                @endforeach
+
+
                             </div>
                         </div>
                     </div>
@@ -139,11 +151,13 @@
         <nav class="navbar-mobile">
             <div class="container">
                 <div class="logo">
-                    <a class="navbar-brand" href="#"><img src="{{url('assets/images/mobile-logo.svg')}}" alt="navbar-brand"></a>
+                    <a class="navbar-brand" href="#"><img src="{{url('assets/images/mobile-logo.svg')}}"
+                                                          alt="navbar-brand"></a>
                 </div>
                 <div class="toggle-menu ml-auto">
-                    <button><img src="/assets/images/mobile-search.svg" alt="search-icon" /></button>
-                    <button class="toggle-menu-btn"><img src="{{url('assets/images/mobile-menu.svg')}}" alt="mobile-menu-icon" /></button>
+                    <button><img src="{{url('assets/images/mobile-search.svg')}}" alt="search-icon"/></button>
+                    <button class="toggle-menu-btn"><img src="{{url('assets/images/mobile-menu.svg')}}"
+                                                         alt="mobile-menu-icon"/></button>
                 </div>
             </div>
         </nav>
@@ -157,15 +171,112 @@
                     <div class="title-menu">
                         <h2>BÜTÜN SAYT</h2><img src="{{url('assets/images/Frame.svg')}}" alt="menu">
                     </div>
-                    <?php echo \App\Models\Menu::treeSidebar('sidebar'); ?>
+                    <div class="accordion" id="exampleAccordion">
+                        <div class="card">
+                            <div class="card-header" id="exItem2Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem2"
+                                        aria-expanded="true" aria-controls="exItem2">Sidebar menu active 02
+                                </button>
+                            </div>
+                            <div id="exItem2" class="collapse show" aria-labelledby="exItem2Header"
+                                 data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sidebar sub menu 01</li>
+                                        <li>Sidebar sub menu 02</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="exItem3Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem3"
+                                        aria-expanded="false" aria-controls="exItem3">Sidebar menu 03
+                                </button>
+                            </div>
+                            <div id="exItem3" class="collapse" aria-labelledby="exItem3Header"
+                                 data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sidebar sub menu 01</li>
+                                        <li>Sidebar sub menu 02</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="exItem4Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem4"
+                                        aria-expanded="false" aria-controls="exItem4">Sidebar menu 04
+                                </button>
+                            </div>
+                            <div id="exItem4" class="collapse" aria-labelledby="exItem4Header"
+                                 data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sidebar sub menu 01</li>
+                                        <li>Sidebar sub menu 02</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="exItem5Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem5"
+                                        aria-expanded="false" aria-controls="exItem5">Sidebar menu 05
+                                </button>
+                            </div>
+                            <div id="exItem5" class="collapse" aria-labelledby="exItem5Header"
+                                 data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sidebar sub menu 01</li>
+                                        <li>Sidebar sub menu 02</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="exItem6Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem6"
+                                        aria-expanded="true" aria-controls="exItem6">Sidebar menu active 06
+                                </button>
+                            </div>
+                            <div id="exItem6" class="collapse show" aria-labelledby="exItem6Header"
+                                 data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sidebar sub menu 01</li>
+                                        <li>Sidebar sub menu 02</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" id="exItem7Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem7"
+                                        aria-expanded="false" aria-controls="exItem7">Sidebar menu 07
+                                </button>
+                            </div>
+                            <div id="exItem7" class="collapse" aria-labelledby="exItem7Header"
+                                 data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul>
+                                        <li>Sidebar sub menu 01</li>
+                                        <li>Sidebar sub menu 02</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </header>
     <!-- main-content -->
-    @yield("content")
+@yield("content")
 
-    <!-- Footer -->
+<!-- Footer -->
     <footer class="position-relative mt-4w-100">
         <!-- sites-section  -->
         <div class="sites">
@@ -177,7 +288,8 @@
                                 <ul>
                                     <li><a href="https://www.president.az" target="_blank">www.president.az</a>
                                     </li>
-                                    <li><a href="https://www.mehriban-aliyeva.org" target="_blank">www.mehriban-aliyeva.org</a></li>
+                                    <li><a href="https://www.mehriban-aliyeva.org" target="_blank">www.mehriban-aliyeva.org</a>
+                                    </li>
                                     <li>
                                         <a href="https://www.president.az" target="_blank">www.president.az</a>
                                     </li>
@@ -220,9 +332,11 @@
                                         <a href="https://www.atgti.az" target="_blank">www.atgti.az</a>
                                     </li>
                                     <li>
-                                        <a href="https://www.virtualkarabakh.az" target="_blank">www.virtualkarabakh.az</a>
+                                        <a href="https://www.virtualkarabakh.az"
+                                           target="_blank">www.virtualkarabakh.az</a>
                                     </li>
-                                    <li><a href="https://www.ecosciences.edu.az" target="_blank">www.ecosciences.edu.az</a>
+                                    <li><a href="https://www.ecosciences.edu.az"
+                                           target="_blank">www.ecosciences.edu.az</a>
                                     </li>
                                     <li>
                                         <a href="https://www.polpred.com" target="_blank">www.polpred.com</a>
@@ -334,11 +448,16 @@
                         <img src="{{url('assets/images/footer/UNEC Radio.svg')}}" alt="UNEC">
                     </div>
                     <div class="icons">
-                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector.svg')}}" alt="twitter-icon"></a>
-                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (1).svg')}}" alt="facebook-icon"></a>
-                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (2).svg')}}" alt="linkedin-icon"></a>
-                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (3).svg')}}" alt="youtube-icon"></a>
-                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (4).svg')}}" alt="instagram-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector.svg')}}"
+                                                         alt="twitter-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (1).svg')}}"
+                                                         alt="facebook-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (2).svg')}}"
+                                                         alt="linkedin-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (3).svg')}}"
+                                                         alt="youtube-icon"></a>
+                        <a href="#" target="_blank"><img src="{{url('assets/images/footer/Vector (4).svg')}}"
+                                                         alt="instagram-icon"></a>
                     </div>
                 </div>
                 <div class="" style="float: left;">
@@ -361,7 +480,7 @@
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
 
-<script src="{{ asset('assets/main.js') }}" type="text/javascript"></script>
+<script src="{{ url('assets/main.js') }}" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
 <script>

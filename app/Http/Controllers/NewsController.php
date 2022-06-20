@@ -98,6 +98,7 @@ class NewsController extends Controller
         $single_news->views += 1;
         $single_news->save();
 
+
         $previous_id = News::where('id', '<', $single_news->id)->max('id');
         $next_id = News::where('id', '>', $single_news->id)->min('id');
 
