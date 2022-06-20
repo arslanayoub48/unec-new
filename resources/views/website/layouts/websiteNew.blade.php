@@ -78,7 +78,7 @@
                                     $item_menu = App\Models\Menu::id($id);
 
                                     ?>
-                                    <a class="nav-link show ml-auto" id="<?php echo $item_menu->id ?>"
+                                    <a class="nav-link show " id="<?php echo $item_menu->id ?>"
                                        data-toggle="pill" href="#sidebar-menu-<?php echo $item_menu->id ?>"
                                        role="tab" aria-controls="sidebar-menu-2"
                                        aria-selected="false">{{ $item_menu->title  }}</a>
@@ -102,7 +102,8 @@
                                     $item_menu = App\Models\Menu::id($id);
 
                                     ?>
-                                    <div class="tab-pane fade" id="sidebar-menu-<?php echo $item_menu->id ?>" role="tabpanel"
+                                    <div class="tab-pane fade" id="sidebar-menu-<?php echo $item_menu->id ?>"
+                                         role="tabpanel"
                                          aria-labelledby="sidebar-menu-2-tab">
                                         <ul>
                                             <?php
@@ -114,8 +115,8 @@
                                                 $children = App\Models\Menu::id($child->id);
                                                 ?>
 
-                                                    <li><a href="{{$children->slug }}">{{$children->title }}</a></li>
-                                                @endforeach
+                                                <li><a href="{{$children->slug }}">{{$children->title }}</a></li>
+                                            @endforeach
                                             <?php
                                             }
 
@@ -165,110 +166,60 @@
             <div class="container">
                 <div class="row">
                     <div class="menu" style="width: 100%;">
-                        <button class="toggle-menu-btn" style="float: right;"><img src="{{url('assets/images/close-mobile.svg')}}"
-                                                                                   alt="=close-menu"></button>
+                        <button class="toggle-menu-btn" style="float: right;"><img
+                                    src="{{url('assets/images/close-mobile.svg')}}"
+                                    alt="=close-menu"></button>
                     </div>
                     <div class="title-menu">
                         <h2>BÜTÜN SAYT</h2><img src="{{url('assets/images/Frame.svg')}}" alt="menu">
                     </div>
-                    <div class="accordion" id="exampleAccordion">
-                        <div class="card">
-                            <div class="card-header" id="exItem2Header">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem2"
-                                        aria-expanded="true" aria-controls="exItem2">Sidebar menu active 02
-                                </button>
-                            </div>
-                            <div id="exItem2" class="collapse show" aria-labelledby="exItem2Header"
-                                 data-parent="#exampleAccordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="exItem3Header">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem3"
-                                        aria-expanded="false" aria-controls="exItem3">Sidebar menu 03
-                                </button>
-                            </div>
-                            <div id="exItem3" class="collapse" aria-labelledby="exItem3Header"
-                                 data-parent="#exampleAccordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="exItem4Header">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem4"
-                                        aria-expanded="false" aria-controls="exItem4">Sidebar menu 04
-                                </button>
-                            </div>
-                            <div id="exItem4" class="collapse" aria-labelledby="exItem4Header"
-                                 data-parent="#exampleAccordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
+                    @foreach(App\Models\Menu::whereIn('loc', ['top','main','lower','sidebar'])->where("locale", App\Models\Wlang::getCurrent())->get() as $menu)
+                        <div class="accordion" id="exampleAccordion">
+                            <div class="card">
+                                <?php
+                                if (!$menu) return false;
+                                $content = $menu->content;
+                                $content = json_decode($content);
+                                if (is_array($content)) {
+
+                                ?>
+
+                                @foreach ($content[0] as $item)
+                                    <?php $id = $item->id;
+                                    $item_menu = App\Models\Menu::id($id);
+                                    ?>
+                                    <div class="card-header" id="exItem2Header">
+                                        <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                data-target="#exItem{{$item_menu->id}}"
+                                                aria-expanded="true"
+                                                aria-controls="exItem{{$item_menu->id}}">{{$item_menu->title}}
+                                        </button>
+                                    </div>
+
+                                    <?php    if (isset($item->children)) {
+                                    ?>
+
+                                    <div id="exItem{{$item_menu->id}}" class="collapse show"
+                                         aria-labelledby="exItem2Header"
+                                         data-parent="#exampleAccordion">
+                                        <div class="card-body">
+                                            <ul>
+                                                @foreach ($item->children[0] as $child)
+                                                    <?php  $children = App\Models\Menu::id($child->id); ?>
+
+                                                     <a href="{{$children->slug}}"><li>{{$children->title}}</li></a>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                                @endforeach
+
+                                <?php } ?>
                             </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="exItem5Header">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem5"
-                                        aria-expanded="false" aria-controls="exItem5">Sidebar menu 05
-                                </button>
-                            </div>
-                            <div id="exItem5" class="collapse" aria-labelledby="exItem5Header"
-                                 data-parent="#exampleAccordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                            </div>
                         </div>
-                        <div class="card">
-                            <div class="card-header" id="exItem6Header">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem6"
-                                        aria-expanded="true" aria-controls="exItem6">Sidebar menu active 06
-                                </button>
-                            </div>
-                            <div id="exItem6" class="collapse show" aria-labelledby="exItem6Header"
-                                 data-parent="#exampleAccordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" id="exItem7Header">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#exItem7"
-                                        aria-expanded="false" aria-controls="exItem7">Sidebar menu 07
-                                </button>
-                            </div>
-                            <div id="exItem7" class="collapse" aria-labelledby="exItem7Header"
-                                 data-parent="#exampleAccordion">
-                                <div class="card-body">
-                                    <ul>
-                                        <li>Sidebar sub menu 01</li>
-                                        <li>Sidebar sub menu 02</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
