@@ -126,6 +126,44 @@ class Menu extends Model
 
 
 
+    public static function treeSidebar($location){
+        $menu = Menu::where('loc', $location)->where("locale", Wlang::getCurrent())->first();
+
+        if(!$menu) return false;
+        $content = $menu->content;
+        $content = json_decode($content);
+        $result = '<div class="accordion" id="exampleAccordion">';
+        if(is_array($content)){
+            foreach($content[0] as $item){
+                $id = $item->id;
+                $item_menu = Menu::id($id);
+
+                $result.= '<div class="card-header" id="exItem2Header">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#'.$item_menu->slug.'"
+                                        aria-expanded="true" aria-controls="'.$item_menu->slug.'">'.$item_menu->title.'</button>
+                            </div>';
+
+                if(isset($item->children)){
+
+                    $result .= '<div id="'.$item_menu->slug.'" class="collapse" aria-labelledby="exItem2Header" data-parent="#exampleAccordion">
+                                <div class="card-body">
+                                    <ul class="row">';
+                    foreach($item->children[0] as $child){
+                        $children = Menu::id($child->id);
+                        $result.= '<li class="col-lg-4"> <a href="'.$children->slug.'">'.$children->title.'</a>';
+                        $result.= "</li>";
+                    }
+                    $result.= "</ul></div></div>";
+                }
+
+            }
+        }
+        $result.= "</div>";
+        return $result;
+
+    }
+
+
     public static function treeLower($location){
         $menu = Menu::where('loc', $location)->where("locale", Wlang::getCurrent())->first();
 
