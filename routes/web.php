@@ -77,7 +77,7 @@ Route::get("/news", "NewsController@index");
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
 
-Route::get("/events", function (){ return view("website.static.events" ); });
+//Route::get("/events", function (){ return view("website.static.events" ); });
 Route::get("/events", "EventsController@index");
 Route::get("/single-event", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");

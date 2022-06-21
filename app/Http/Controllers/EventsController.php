@@ -7,6 +7,7 @@ use App\Models\Events;
 use App\Models\Wlang;
 use App\Models\Meta;
 use App\Models\Events_categories;
+use Illuminate\Support\Facades\DB;
 
 class EventsController extends Controller
 {
@@ -176,7 +177,13 @@ class EventsController extends Controller
 
     public function index()
     {
-        return view("website.static.events.allEvents");
+
+        $events = Events::where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish")->select('*',DB::raw('DATE_FORMAT(created_at,"%M %Y") date'))
+            ->get()
+            ->groupBy('date');
+        $events = $events->toArray();
+
+        return view("website.static.events.allEvents")->with('events',$events );
     }
 
 

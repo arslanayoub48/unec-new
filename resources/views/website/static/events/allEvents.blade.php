@@ -30,358 +30,68 @@
                 <div id="eventCalender"></div>
                 <div class="row fixpadding">
                     <div class="col-12 col-lg-8" style="padding: 2rem 0;">
-                        <div class="date-item">
-                            <div class="date">
-                                <h2 id="eventCalenderResult">MAY 2022</h2>
+                        @foreach($events as $key => $data)
+                            <div class="date-item">
+
+                                <div class="date">
+                                    <h2 id="eventCalenderResult">{{$key}}</h2>
+                                </div>
+
+                                <div class="results">
+                                    <div class="result-item">
+                                        <div class="d-block d-lg-none">
+                                            <div class="row"
+                                                 style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
+                                                <div class="time">16:00</div>
+                                                <div class="" style="color: #9B51E0;">onlayn</div>
+                                            </div>
+                                        </div>
+                                        @foreach($data as $event)
+
+                                            <div class="date d-none d-lg-block">
+                                        <span>
+                                            <?php
+
+                                            echo date_parse_from_format('Y-m-d', $event['created_at'])['day'];;
+                                            ?></span>
+                                                <?php
+                                                echo preg_replace('/[0-9]+/', '', $key);
+                                                ?>
+
+                                            </div>
+                                            <div class="content">
+                                                <p>{{$event['title']}}</p>
+                                                <span>{{$event['address']}}</span>
+                                            </div>
+
+                                            <div class="d-block d-lg-none btn-group">
+                                                <div class="row">
+                                                    <a href="#">Rubrika</a>
+                                                    <a href="#">Təsnifat</a>
+                                                    <a href="#">Dil</a>
+                                                </div>
+                                            </div>
+                                            <div class="name d-none d-lg-block">
+                                                <?php
+                                                if ($event['event_type'] == 0) {
+                                                    echo "online";
+                                                } else {
+                                                    echo "in place";
+                                                }
+                                                ?>
+                                            </div>
+
+
+                                        @endforeach
+
+                                    </div>
+
+                                </div>
+
                             </div>
-                            <div class="results">
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="date-item">
-                            <div class="date">
-                                <h2>İYUN 2022</h2>
-                            </div>
-                            <div class="results">
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                                <div class="result-item">
-                                    <div class="d-block d-lg-none">
-                                        <div class="row" style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
-                                            <div class="time">16:00</div>
-                                            <div class="" style="color: #9B51E0;">onlayn</div>
-                                        </div>
-                                    </div>
-                                    <div class="date d-none d-lg-block">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                    <div class="d-block d-lg-none btn-group">
-                                        <div class="row">
-                                            <a href="#">Rubrika</a>
-                                            <a href="#">Təsnifat</a>
-                                            <a href="#">Dil</a>
-                                        </div>
-                                    </div>
-                                    <div class="name d-none d-lg-block">
-                                        Keçirilmə forması (onlayn)
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+
+
                         <div class="loading" style="font-size:50px;--duration:2s;--num-dot:10;">
                             <div style="--index:0"></div>
                             <div style="--index:1"></div>
@@ -398,7 +108,7 @@
                     <div class="col-lg-4 d-none d-lg-block">
                         <form class="filter">
                             <div class="subscribe">
-                                <input placeholder="Email daxil edin" type="email" name="email" id="email" />
+                                <input placeholder="Email daxil edin" type="email" name="email" id="email"/>
                                 <input type="submit" value="ABUNƏ OLUN">
                             </div>
                             <div class="title">
