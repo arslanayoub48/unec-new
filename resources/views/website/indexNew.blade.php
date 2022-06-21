@@ -322,8 +322,12 @@
                                     @foreach($news as $single_news)
                                         <div class="col-lg-3 col-6">
                                             <div class="card">
+                                                <?php
+                                                $gallery_image = App\Models\Gallery::find($single_news->image);
+
+                                                ?>
                                                 <img class="card-img-top" style="width: 245px; height: 201px;"
-                                                     src="assets/images/{{$single_news->image}}"
+                                                     src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
                                                      alt="Card image cap">
                                                 <div class="card-body">
                                                     <span>Fakültə</span>
