@@ -459,53 +459,37 @@
                                 <a href="/events"> <span class="d-none d-lg-block">Bütün tədbirlər</span></a>
 
                             </div>
-                            <ul>
-                                <li>
-                                    <div class="date">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <a href="/single-event"><p>UNEC regionda iqtisad elmini dərindən öyrədən
-                                                fundamental tədris mərkəzidir. </p></a>
 
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <a href="/single-event"><p>UNEC regionda iqtisad elmini dərindən öyrədən
-                                                fundamental tədris mərkəzidir. </p></a>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <a href="/single-event"><p>UNEC regionda iqtisad elmini dərindən öyrədən
-                                                fundamental tədris mərkəzidir. </p></a>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="date">
-                                        <span>04</span>
-                                        Sentyabr
-                                    </div>
-                                    <div class="content">
-                                        <a href="/single-event"><p>UNEC regionda iqtisad elmini dərindən öyrədən
-                                                fundamental tədris mərkəzidir. </p></a>
-                                        <span>Keçiriləcəyi məkan</span>
-                                    </div>
-                                </li>
+                            <ul>
+                                @foreach(App\Models\Events::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish")->take(4)->get() as $single_event)
+                                    <li>
+                                        <div class="date">
+                                        <span>
+                                            <?php
+
+                                            echo date_parse_from_format('Y-m-d', $single_event->created_at)['day'];;
+                                            ?></span>
+                                            <?php
+                                            echo date("F", strtotime($single_event->created_at));
+                                            ?>
+                                        </div>
+                                        <div class="content">
+                                            <a href="/single-event/{{$single_event->slug}}">
+                                                <p>{{$single_event->title}} </p></a>
+
+                                            <span>
+                                            <?php
+                                                if ($single_event['event_type'] == 0) {
+                                                    echo "online";
+                                                } else {
+                                                    echo "in place";
+                                                }
+                                                ?></span>
+                                        </div>
+                                    </li>
+                                @endforeach
                             </ul>
+
                             <div class="title">
                                 <span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
                             </div>

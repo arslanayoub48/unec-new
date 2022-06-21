@@ -60,7 +60,7 @@
 
                                             </div>
                                             <div class="content">
-                                                <p>{{$event['title']}}</p>
+                                                <a href="/single-event/{{$event['slug']}}"> <p>{{$event['title']}}</p></a>
                                                 <span>{{$event['address']}}</span>
                                             </div>
 

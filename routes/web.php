@@ -79,7 +79,7 @@ Route::get("/advertisements", function (){ return view("website.static.advertise
 
 //Route::get("/events", function (){ return view("website.static.events" ); });
 Route::get("/events", "EventsController@index");
-Route::get("/single-event", "EventsController@show");
+Route::get("/single-event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');

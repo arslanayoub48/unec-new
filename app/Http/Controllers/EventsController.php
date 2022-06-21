@@ -169,10 +169,10 @@ class EventsController extends Controller
         return view("filters.events", ["filter" => $filter]);
     }
 
-    public function show()
+    public function show($slug)
     {
-
-        return view("website.static.events.singleEvent");
+        $event = Events::where('slug',$slug)->first();
+        return view("website.static.events.singleEvent")->with('event',$event);
     }
 
     public function index()
