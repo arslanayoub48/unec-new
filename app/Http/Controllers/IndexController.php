@@ -13,6 +13,7 @@ use App\Services\Admin\Data\TagsService;
 use App\Models\Tags;
 use App\Models\Wlang;
 use DateTime;
+use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
@@ -24,9 +25,11 @@ class IndexController extends Controller
     public function index()
     {
 
+        $languages = DB::table('lang')->get();
+
         $news = News::orderBy("id","DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
-        return view("website.indexNew")->with('news',$news)->with('advertisements',$advertisements);
+        return view("website.indexNew")->with('news',$news)->with('advertisements',$advertisements)->with('languages',$languages);
     }
 
     function dataPageAction(Request $request)

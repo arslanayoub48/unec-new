@@ -136,4 +136,5 @@ class AdvertisementsController extends Controller
 
 
     }
+
 }
