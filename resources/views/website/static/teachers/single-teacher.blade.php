@@ -1,4 +1,6 @@
 
+@extends('website.layouts.websiteNew')
+
 @section("content")
 
     <main style="background-color:#fff">
@@ -40,16 +42,17 @@
                                 </div>
                                 <div class="Contacts">
                                     <h2>Контакты</h2>
-                                    <span>email@unec.edu.az</span>
-                                    <span>+99412 1845 1023</span>
+                                    {!! $teacher->contact_info !!}
+                                    {{-- <span>email@unec.edu.az</span>
+                                    <span>+99412 1845 1023</span> --}}
                                     <span>Потаповский пер., д. 16, стр. 10, каб. 211</span>
                                 </div>
                                 <ul>
-                                    <li>SPIN РИНЦ: <span>5586-0326</span></li>
-                                    <li>ORCID: <span>0000-0002-1251-432X</span></li>
-                                    <li>ResearcherID: <span>K-5364-2015</span></li>
-                                    <li>Scopus AuthorID: <span>55862160400</span></li>
-                                    <li>Google Scholar: <span></span></li>
+                                    <li>SPIN РИНЦ: <span>{{ $teacher->orcid_id }}</span></li>
+                                    <li>ORCID: <span>{{ $teacher->orcid_id }}</span></li>
+                                    <li>ResearcherID: <span>{{ $teacher->scopus_id }}</span></li>
+                                    <li>Scopus AuthorID: <span>{{ $teacher->scopus_id }}</span></li>
+                                    <li>Google Scholar: <span>{{ $teacher->google_scholar }}</span></li>
                                 </ul>
                                 <div class="interests d-none d-lg-block">
                                     <h2>Профессиональные интересы</h2>
@@ -72,7 +75,7 @@
                         <div class="col-lg-8 col-12">
                             <div class="user-info">
                                 <div class="info d-none d-lg-block">
-                                    <h2>Абалмасова Екатерина Сергеевна</h2>
+                                    <h2>{{ $teacher->name }}</h2>
                                     <span>Elmi adı, Vezifəsi</span>
                                 </div>
                                 <div class="tabs">
