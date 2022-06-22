@@ -75,6 +75,8 @@ Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", "AdvertisementsController@index");
+
+
 Route::get("/advertisement/tag/{tag}", "AdvertisementsController@tagFilter");
 //Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
 
@@ -83,4 +85,13 @@ Route::get("/events", "EventsController@index");
 Route::get("/single-event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 
+
+Route::get("/professions", function() {  return view("website.static.professions.allProfessions");});
+Route::get("/single-profession", function() {   return view("website.static.professions.singleProfession");});
+
+
+
 Route::get('/{any}', "PageController@show")->where('any', '.*');
+
+
+

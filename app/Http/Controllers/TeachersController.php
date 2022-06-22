@@ -90,4 +90,5 @@ class TeachersController extends Controller
         $filter = Teachers::filter($request)->get();
         return view("filters.teachers", ["filter" => $filter]);
     }
+
 }

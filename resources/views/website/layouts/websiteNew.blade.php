@@ -49,7 +49,10 @@
                     <li><a href="#"><img src="{{ url('assets/images/icons/search.svg') }}" alt="search-icon"/></a>
                     </li>
                     <li><a href="#"><img src="{{ url('assets/images/icons/eye.svg') }}" alt="eye-icon"/></a></li>
-                    <li><a href="#">EN</a></li>
+@foreach($languages as $language)
+
+                    <li><a href="#">{{$language->slug}}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="container">
