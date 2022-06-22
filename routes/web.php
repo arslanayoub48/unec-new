@@ -71,11 +71,14 @@ Route::get("/image/{id}", "ImageController@show");
 
 Route::get("/single-news/{slug}", "NewsController@show");
 Route::get("/news", "NewsController@index");
+Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
 
 
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
-Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
+Route::get("/advertisements", "AdvertisementsController@index");
+Route::get("/advertisement/tag/{tag}", "AdvertisementsController@tagFilter");
+//Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
 
 //Route::get("/events", function (){ return view("website.static.events" ); });
 Route::get("/events", "EventsController@index");

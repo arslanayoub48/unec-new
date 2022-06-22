@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisements;
 use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\News_categories;
@@ -119,5 +120,23 @@ class NewsController extends Controller
         $news = News::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish")->get();
 
         return view("website.static.news.allNews" )->with('news',$news);
+    }
+
+    public function tagFilter($requestTag){
+        $news_array=[];
+        $all_news = News::where("locale", \App\Models\Wlang::getCurrent())->get();
+
+        foreach ($all_news as $single_news){
+            foreach (json_decode($single_news->tags) as $tag){
+                if ($tag == $requestTag){
+                    $news_array[]=$single_news->id;
+                }
+            }
+        }
+        $news = News::whereIn("id", $news_array)->get();
+
+        return view("website.static.news.allNews", ["news" => $news]);
+
+
     }
 }

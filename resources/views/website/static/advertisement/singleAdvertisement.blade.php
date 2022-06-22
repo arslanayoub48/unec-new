@@ -9,7 +9,7 @@
                         <h2>XƏBƏRLƏR</h2>
                         <span class="d-lg-block d-none">İkİncİ başlıq</span>
                     </div>
-                    <img src="{{url('assets/images/Xeberler page/image 1.png')}}" alt="image">
+                    <img src="{{ asset('assets/images/Xeberler page/image 1.png') }}" alt="image">
                 </div>
             </div>
         </section>
@@ -25,19 +25,19 @@
                 <div class="row">
                     <div class="col-12 col-lg-8">
                         <div class="title">
-                            <h2>{{$single_news->title}}</h2>
+                            <h2>{{$advertisement->title}}</h2>
                         </div>
                         <?php
 
                         $count = 1;
-                        $checked = count(json_decode($single_news->slider));
+                        $checked = count(json_decode($advertisement->slider));
 
                         $checked = round($checked / 2);
-                        $sliders = $single_news->slider
+                        $sliders = $advertisement->slider
                         ?>
                         <div class="image-slider">
                             <div id="slider">
-                                @foreach(json_decode($single_news->slider) as $slider)
+                                @foreach(json_decode($advertisement->slider) as $slider)
 
                                     <?php
                                     $slider_data = App\Models\Gallery::find($slider);
@@ -56,13 +56,12 @@
 
                                 $count = 1;
                                 ?>
-                                @foreach(json_decode($single_news->slider) as $slider)
+                                @foreach(json_decode($advertisement->slider) as $slider)
 
                                     <?php
                                     $slider_data = App\Models\Gallery::find($slider);
 
                                     ?>
-
 
 
                                     <label for="s<?php echo $slider ?>" id="slide<?php echo $count; $count++ ?>">
@@ -78,12 +77,9 @@
                             <div class="info">
                                 <div class="info-article col-lg-6 col-12">
                                     <div class="date">04 may 2022</div>
-                                    <div class="view" style="display: flex;"><img style="margin-right:.3rem;"
-                                                                                  src="{{ asset('assets/images/Xəbər page/view.svg') }}"
-                                                                                  alt="view"><span>{{$single_news->views}}</span>
-                                    </div>
+
                                     <div><span><?php
-                                            $category_name = \App\Models\News_categories::find($single_news->category_id);
+                                            $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
                                             echo $category_name->title;
                                             ?></span></div>
                                 </div>
@@ -103,18 +99,20 @@
                             <article>
                                 <span>
                                        <?php
-                                    echo $single_news->info;
+                                    echo $advertisement->info;
                                     ?>
                                 </span>
 
                             </article>
                         </div>
                         <ul class="btn-group">
-                            @foreach(json_decode($single_news->tags) as $tag)
+                            @foreach(json_decode($advertisement->tags) as $tag)
 
-                                <li><a href="/news/tag/{{$tag}}">{{$tag}}</a></li>
+                                <a href="/advertisement/tag/{{$tag}}"><li>{{$tag}}</li></a>
 
                             @endforeach
+
+
                         </ul>
                         <div class="pagination">
                             <div class="row">
@@ -122,20 +120,20 @@
 
                                 <div class="col-lg-6 col-12">
                                     <div class="prev-article">
-                                        <a href="/single-news/{{$previous_news->slug}}" class="prev-icon"><img
+                                        <a href="/advertisement/{{$previous_advertisement->slug}}" class="prev-icon"><img
                                                     src="{{ asset('assets/images/Xəbər page/prev.svg') }}"
                                                     alt="prev-icon"></a>
                                         <img class="card-img-left" style="height: 200px; width: 200px;"
 
                                              <?php
-                                             $slider_data = App\Models\Gallery::find($previous_news->image);
+                                             $slider_data = App\Models\Gallery::find($previous_advertisement->image);
 
                                              ?>
                                              src="{{asset('images')}}/{{$slider_data->image}}"
                                              alt="Card image cap">
                                         <div class="card-body">
-                                            <a href="/single-news/{{$previous_news->slug}}"
-                                               class="card-title">{{$previous_news->title}}</a>
+                                            <a href="/advertisement/{{$previous_advertisement->slug}}"
+                                               class="card-title">{{$previous_advertisement->title}}</a>
                                         </div>
                                     </div>
                                 </div>
@@ -143,17 +141,17 @@
                                 <div class="col-lg-6 col-12">
                                     <div class="next-article">
                                         <div class="card-body">
-                                            <a href="/single-news/{{$next_news->slug}}" class="card-title"
-                                               style="display: block;text-align: right;line-height: 23px;">{{$next_news->title}}</a>
+                                            <a href="/advertisement/{{$next_advertisement->slug}}" class="card-title"
+                                               style="display: block;text-align: right;line-height: 23px;">{{$next_advertisement->title}}</a>
                                         </div>
                                         <img class="card-img-left" style="height: 200px; width: 200px;"
                                              <?php
-                                             $slider_data = App\Models\Gallery::find($next_news->image);
+                                             $slider_data = App\Models\Gallery::find($next_advertisement->image);
 
                                              ?>
                                              src="{{asset('images')}}/{{$slider_data->image}}"
                                              alt="Card image cap">
-                                        <a href="/single-news/{{$next_news->slug}}" class="next-icon"><img
+                                        <a href="/advertisement/{{$next_advertisement->slug}}" class="next-icon"><img
                                                     src="{{ asset('assets/images/Xəbər page/next.svg') }}"
                                                     alt="next-icon"></a>
 

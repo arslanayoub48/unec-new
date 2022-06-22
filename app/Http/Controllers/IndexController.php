@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Advertisements;
 use App\Models\Menu;
 use App\Models\News;
 use Illuminate\Http\Request;
@@ -24,7 +25,8 @@ class IndexController extends Controller
     {
 
         $news = News::orderBy("id","DESC")->where("status", "publish")->take(4)->get();
-        return view("website.indexNew")->with('news',$news);
+        $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
+        return view("website.indexNew")->with('news',$news)->with('advertisements',$advertisements);
     }
 
     function dataPageAction(Request $request)

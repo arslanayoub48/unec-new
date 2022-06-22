@@ -96,6 +96,7 @@
                                         <a href="#"><img src="{{asset('assets/images/Xəbər page/Vector.svg')}}" alt="instagram-icon"></a>
                                     </div>
                                 </div>
+
                             </div>
                             <article>
                                 <?php  echo $event->info; ?>

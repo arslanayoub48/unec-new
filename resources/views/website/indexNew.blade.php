@@ -330,7 +330,14 @@
                                                      src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
                                                      alt="Card image cap">
                                                 <div class="card-body">
-                                                    <span>Fakültə</span>
+                                                    <?php
+
+                                                    $category = App\Models\News_categories::find($single_news->category_id);
+
+                                                    ?>
+
+                                                    <span><?php echo $category->title; ?></span>
+
                                                     <p class="card-text"><a href="/single-news/{{$single_news->slug}}">
                                                             {{$single_news->title}}
                                                         </a>
@@ -365,87 +372,52 @@
                         <div class="title">
                             <h2>Elanlar</h2>
 
-                            <a href="/news"><span class="d-none d-lg-block">Bütün elanlar</span></a>
+                            <a href="/advertisements"><span class="d-none d-lg-block">Bütün elanlar</span></a>
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
+<?php $active=false; ?>
                                 <div class="carousel-inner w-100" role="listbox">
-                                    <div class="carousel-item active">
+                                    @foreach($advertisements as $advertisement)
+                                    <div class="carousel-item <?php if(!$active){echo "active"; $active=true;} ?>">
                                         <div class="col-lg-4 col-md-6 col-12">
                                             <div class="card">
-                                                <img class="card-img-top"
-                                                     src="assets/images/Elanlar-section/Rectangle 15.png"
+                                                <?php
+                                                $gallery_image = App\Models\Gallery::find($advertisement->image);
+                                                ?>
+                                                <img style="width: 230px; height: 170px;" class="card-img-top"
+                                                     src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
                                                      alt="Card image cap">
                                                 <div class="card-body">
-                                                    <h5 class="card-text"><a href="/single-news">
-                                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                                            tədris
-                                                            mərkəzidir.
+                                                    <h5 class="card-text"><a href="/advertisement/{{$advertisement->slug}}">
+                                                            {{$advertisement->title}}
                                                         </a>
                                                     </h5>
                                                     <div class="">
-                                                        <a href="#">#UNEC</a>
-                                                        <a href="#">#Elan</a>
+                                                        @foreach(json_decode($advertisement->tags) as $tag)
+                                                        <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
+
+                                                        @endforeach
                                                     </div>
-                                                    <p>Fakültə | teqlər | rubrikalar</p>
+                                                    <p><?php
+                                                        $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
+                                                        echo $category_name->title;
+                                                        ?></p>
                                                     <span>04 May 2022</span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <div class="card">
-                                                <img class="card-img-top"
-                                                     src="assets/images/Elanlar-section/Rectangle 15.png"
-                                                     alt="Card image cap">
-                                                <div class="card-body">
-                                                    <h5 class="card-text"><a href="/single-news">
-                                                            UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                                            tədris
-                                                            mərkəzidir.
-                                                        </a>
-                                                    </h5>
-                                                    <div class="">
-                                                        <a href="#">#UNEC</a>
-                                                        <a href="#">#Elan</a>
-                                                    </div>
-                                                    <p>Fakültə | teqlər | rubrikalar</p>
-                                                    <span>04 May 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="carousel-item">
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <div class="card">
-                                                <img class="card-img-top"
-                                                     src="assets/images/Elanlar-section/Rectangle 15.png"
-                                                     alt="Card image cap">
-                                                <div class="card-body">
-                                                    <h5 class="card-text"><a href="/single-news">UNEC regionda iqtisad
-                                                            elmini
-                                                            dərindən öyrədən fundamental
-                                                            tədris
-                                                            mərkəzidir.</a>
-                                                    </h5>
-                                                    <div class="">
-                                                        <a href="#">#UNEC</a>
-                                                        <a href="#">#Elan</a>
-                                                    </div>
-                                                    <p>Fakültə | teqlər | rubrikalar</p>
-                                                    <span>04 May 2022</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+
+                                    @endforeach
                                 </div>
                                 <ol class="carousel-indicators">
-                                    <li data-target="#elanlarCarousel" data-slide-to="0" class="active"></li>
-                                    <li data-target="#elanlarCarousel" data-slide-to="1"></li>
-                                    <li data-target="#elanlarCarousel" data-slide-to="2"></li>
-                                    <li data-target="#elanlarCarousel" data-slide-to="3"></li>
+                                    <?php $active=false; $i=0;?>
+                                        @foreach($advertisements as $advertisement)
+                                    <li data-target="#elanlarCarousel" data-slide-to="<?php echo $i; $i++?>" class=" <?php if(!$active){echo "active"; $active=true;}?>"></li>
+                                        @endforeach
                                 </ol>
+
                             </div>
                         </div>
                         <div class="title"><span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
