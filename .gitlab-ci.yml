@@ -1,30 +1,31 @@
-image: php:latest
-services:
-  - mysql:latest
-
-variables:
-  MYSQL_DATABASE: unec_db
-  MYSQL_ROOT_PASSWORD: secret
- 
-cache:
-  paths:
-    - vendor/
-    - node_modules/
+stages:
+- build_image
+- deploy
 
 
-before_script:
-  - apt-get update -yqq
-  - apt-get install gnupg -yqq
-  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
-  - apt-get install git nodejs libcurl4-gnutls-dev libicu-dev libmcrypt-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libpq-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev -yqq
-  - docker-php-ext-install mbstring pdo_mysql curl json intl gd xml zip bz2 opcache
-  - pecl install xdebug
-  - docker-php-ext-enable xdebug
-  - curl -sS https://getcomposer.org/installer | php
-  - php composer.phar install
-  - cp .env.testing .env
-  - php artisan key:generate
-  - php artisan config:cache
-  - php artisan migrate
-  - php artisan db:seed
-  - php artisan serve --host 0.0.0.0 --port 8000
+.build: &build_tpl
+  image: docker:latest
+  services:
+  - docker:dind
+
+build_image:
+  <<: *build_tpl
+  stage: build_image
+  script:
+  - docker build -t ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG:-${CI_COMMIT_REF_SLUG}}
+    --build-arg APP_NAME="\"${CI_PROJECT_TITLE}\""
+    --build-arg GITLAB_USER=gitlab-ci-token
+    --build-arg GITLAB_PASS=${CI_BUILD_TOKEN}
+    ${CI_PROJECT_DIR}
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+  - docker push ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG:-${CI_COMMIT_REF_SLUG}}
+
+
+deploy_image:
+  <<: *build_tpl
+  stage: deploy
+  script:
+    - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN $CI_REGISTRY
+    - docker compose pull
+    - docker compose up -d
+    - docker image prune -a -f
