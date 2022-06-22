@@ -1,7 +1,6 @@
-@extends('website.layouts.website')
+@extends('website.layouts.websiteNew')
 
 @section("content")
-
 <br>
 <br>
 <br>
@@ -841,7 +840,7 @@ h1.logo a{
   font:20px/42px 'heuristicaregular';
   color:#fff;
   margin-bottom: 10px;
-} 
+}
 .m_banner_btn {
   height: 42px;
   background: #DFB000;
@@ -4865,7 +4864,7 @@ text-transform:uppercase;
 
 </style>
 <div class="container">
-    <?php echo $page->content; ?> 
+    <?php echo $page->content; ?>
 </div>
 <br>
 <br>

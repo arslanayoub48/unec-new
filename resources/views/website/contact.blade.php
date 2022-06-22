@@ -1,7 +1,7 @@
 
 
 
-@extends('website.layouts.website')
+@extends('website.layouts.websiteNew')
 
 @section("content")
 <section class="breadcrumbs-custom-inset">
