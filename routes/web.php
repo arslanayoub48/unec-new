@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\MenuController as menuController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -72,7 +73,6 @@ Route::get("/news", "NewsController@index");
 Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
 
-
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", "AdvertisementsController@index");
 
@@ -85,13 +85,15 @@ Route::get("/events", "EventsController@index");
 Route::get("/single-event/{slug}", "EventsController@show");
 Route::post("/events/filter", "EventsController@filter");
 
-
-Route::get("/professions", function() {  return view("website.static.professions.allProfessions");});
-Route::get("/single-profession", function() {   return view("website.static.professions.singleProfession");});
-
+Route::get("/professions", function () {
+    return view("website.static.professions.allProfessions");
+});
+Route::get("/single-profession", function () {
+    return view("website.static.professions.singleProfession");
+});
+Route::get("/empty-page", function () {
+    return view("website.static.emptyPage");
+});
 
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');
-
-
-

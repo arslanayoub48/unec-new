@@ -344,7 +344,7 @@
                                                     </p>
                                                     <span>
                                                          <?php
-                                                        echo ucfirst(strftime("%B", strtotime($single_news->created_at))) . ' ' . ucfirst(strftime("%C", strtotime($single_news->created_at))) . ',' . ucfirst(strftime("%Y", strtotime($single_news->created_at)));
+                                                        echo date('d', strtotime($single_news->created_at)) . ' ' . date('M', strtotime($single_news->created_at)) . ',' . date('Y', strtotime($single_news->created_at));
                                                         ?>
                                         </span>
                                                 </div>
@@ -376,46 +376,59 @@
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
-<?php $active=false; ?>
+                                <?php $active = false; ?>
                                 <div class="carousel-inner w-100" role="listbox">
                                     @foreach($advertisements as $advertisement)
-                                    <div class="carousel-item <?php if(!$active){echo "active"; $active=true;} ?>">
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <div class="card">
-                                                <?php
-                                                $gallery_image = App\Models\Gallery::find($advertisement->image);
-                                                ?>
-                                                <img style="width: 230px; height: 170px;" class="card-img-top"
-                                                     src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
-                                                     alt="Card image cap">
-                                                <div class="card-body">
-                                                    <h5 class="card-text"><a href="/advertisement/{{$advertisement->slug}}">
-                                                            {{$advertisement->title}}
-                                                        </a>
-                                                    </h5>
-                                                    <div class="">
-                                                        @foreach(json_decode($advertisement->tags) as $tag)
-                                                        <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
+                                        <div class="carousel-item <?php if (!$active) {
+                                            echo "active";
+                                            $active = true;
+                                        } ?>">
+                                            <div class="col-lg-4 col-md-6 col-12">
+                                                <div class="card">
+                                                    <?php
+                                                    $gallery_image = App\Models\Gallery::find($advertisement->image);
+                                                    ?>
+                                                    <img style="width: 230px; height: 170px;" class="card-img-top"
+                                                         src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
+                                                         alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <h5 class="card-text"><a
+                                                                    href="/advertisement/{{$advertisement->slug}}">
+                                                                {{$advertisement->title}}
+                                                            </a>
+                                                        </h5>
+                                                        <div class="">
+                                                            @foreach(json_decode($advertisement->tags) as $tag)
+                                                                <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
 
-                                                        @endforeach
+                                                            @endforeach
+                                                        </div>
+                                                        <p><?php
+                                                            $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
+                                                            echo $category_name->title;
+                                                            ?></p>
+                                                        <span>
+                                                        <?php
+                                                            echo date('d', strtotime($advertisement->created_at)) . ' ' . date('M', strtotime($advertisement->created_at)) . ' ' . date('Y', strtotime($advertisement->created_at));
+
+                                                            ?>
+                                                    </span>
                                                     </div>
-                                                    <p><?php
-                                                        $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
-                                                        echo $category_name->title;
-                                                        ?></p>
-                                                    <span>04 May 2022</span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
                                     @endforeach
                                 </div>
                                 <ol class="carousel-indicators">
-                                    <?php $active=false; $i=0;?>
-                                        @foreach($advertisements as $advertisement)
-                                    <li data-target="#elanlarCarousel" data-slide-to="<?php echo $i; $i++?>" class=" <?php if(!$active){echo "active"; $active=true;}?>"></li>
-                                        @endforeach
+                                    <?php $active = false; $i = 0;?>
+                                    @foreach($advertisements as $advertisement)
+                                        <li data-target="#elanlarCarousel" data-slide-to="<?php echo $i; $i++?>"
+                                            class=" <?php if (!$active) {
+                                                echo "active";
+                                                $active = true;
+                                            }?>"></li>
+                                    @endforeach
                                 </ol>
 
                             </div>
@@ -485,7 +498,7 @@
                                 <div class="row">
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="assets/images/Faktlar-section/Vector.svg"
+                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector.svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">18.200</h5>
@@ -495,7 +508,7 @@
                                     </div>
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="assets/images/Faktlar-section/Vector (1).svg"
+                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector (1).svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">403</h5>
@@ -505,7 +518,7 @@
                                     </div>
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="assets/images/Faktlar-section/Vector (2).svg"
+                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector (2).svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">10</h5>
@@ -515,7 +528,7 @@
                                     </div>
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="assets/images/Faktlar-section/Vector (3).svg"
+                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector (3).svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">23</h5>
@@ -538,40 +551,40 @@
                     <p>Sosial hesablarımızla tanış olun</p>
                 </div>
                 <div class="images-group">
-                    <div><img src="assets/images/sosial-section/Rectangle 7875.png" alt="image">
-                        <img class="icon" src="assets/images/sosial-section/insta.svg" alt="icon">
+                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7875.png')}}" alt="image">
+                        <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                     </div>
-                    <div><img src="assets/images/sosial-section/Rectangle 7876.png" alt="image">
-                        <img class="icon" src="assets/images/sosial-section/insta.svg" alt="icon">
+                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7876.png')}}" alt="image">
+                        <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                     </div>
                     <div class="images">
-                        <div><img src="assets/images/sosial-section/Rectangle 7878.png" class="w-100" alt="image">
-                            <img class="icon" src="assets/images/sosial-section/insta.svg" alt="icon">
+                        <div><img src="{{url('assets/images/sosial-section/Rectangle 7878.png')}}" class="w-100" alt="image">
+                            <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                         </div>
                         <div class="d-flex">
-                            <div><img src="assets/images/sosial-section/Rectangle 7879.png" class="w-100"
+                            <div><img src="{{url('assets/images/sosial-section/Rectangle 7879.png')}}" class="w-100"
                                       style="min-height: 102%;"
                                       alt="image">
-                                <img class="icon" src="assets/images/sosial-section/insta.svg" alt="icon">
+                                <img class="icon" src="{{url('assets/images/Faktlar-section/Vector (3).svg')}}" alt="icon">
                             </div>
-                            <div><img src="assets/images/sosial-section/Rectangle 7880.png" class="w-100"
+                            <div><img src="{{url('assets/images/sosial-section/Rectangle 7880.png')}}" class="w-100"
                                       style="min-height: 102%;"
                                       alt="image">
-                                <img class="icon" src="assets/images/sosial-section/insta.svg" alt="icon">
+                                <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                             </div>
                         </div>
                     </div>
-                    <div><img src="assets/images/sosial-section/Rectangle 7877.png" alt="image">
-                        <img class="icon" src="assets/images/sosial-section/insta.svg" alt="icon">
+                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7877.png')}}" alt="image">
+                        <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
 
                     </div>
                 </div>
                 <div class="social-icons text-center">
-                    <a href="#"><img src="assets/images/sosial-section/Frame.svg" alt="twitter-icon"></a>
-                    <a href="#"><img src="assets/images/sosial-section/Frame (1).svg" alt="facebook-icon"></a>
-                    <a href="#"><img src="assets/images/sosial-section/Frame (2).svg" alt="linkedin-icon"></a>
-                    <a href="#"><img src="assets/images/sosial-section/Frame (3).svg" alt="youtube-icon"></a>
-                    <a href="#"><img src="assets/images/sosial-section/Frame (4).svg" alt="instagram-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame.svg')}}" alt="twitter-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (1).svg')}}" alt="facebook-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (2).svg')}}" alt="linkedin-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (3).svg')}}" alt="youtube-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (4).svg')}}" alt="instagram-icon"></a>
                 </div>
             </div>
         </section>
@@ -590,46 +603,46 @@
                 </div>
                 <div class="horizontal-scroll">
                     <div class="horizontal-scroll__item">
-                        <img src="assets/images/Tələbələrin-section/Rectangle 7881.png" alt="image">
+                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7881.png')}}" alt="image">
                         <div class="cover">
                             <div class="content">
-                                <img src="assets/images/Tələbələrin-section/video.svg" alt="play">
+                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
                                 <h5>UNEC-də tədris neçə dildə aparılır?</h5>
                             </div>
                         </div>
                     </div>
                     <div class="horizontal-scroll__item">
-                        <img src="assets/images/Tələbələrin-section/Rectangle 7882.png" alt="image">
+                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7882.png')}}" alt="image">
                         <div class="cover">
                             <div class="content">
-                                <img src="assets/images/Tələbələrin-section/video.svg" alt="play">
+                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
                                 <h5>UNEC-də tədris neçə dildə aparılır?</h5>
                             </div>
                         </div>
                     </div>
                     <div class="horizontal-scroll__item">
-                        <img src="assets/images/Tələbələrin-section/Rectangle 7883.png" alt="image">
+                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7883.png')}}" alt="image">
                         <div class="cover">
                             <div class="content">
-                                <img src="assets/images/Tələbələrin-section/video.svg" alt="play">
+                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
                                 <h5>UNEC-də tədris neçə dildə aparılır?</h5>
                             </div>
                         </div>
                     </div>
                     <div class="horizontal-scroll__item">
-                        <img src="assets/images/Tələbələrin-section/Rectangle 7884.png" alt="image">
+                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7884.png')}}" alt="image">
                         <div class="cover">
                             <div class="content">
-                                <img src="assets/images/Tələbələrin-section/video.svg" alt="play">
+                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
                                 <h5>UNEC-də tədris neçə dildə aparılır?</h5>
                             </div>
                         </div>
                     </div>
                     <div class="horizontal-scroll__item">
-                        <img src="assets/images/Tələbələrin-section/Rectangle 7885.png" alt="image">
+                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7885.png')}}" alt="image">
                         <div class="cover">
                             <div class="content">
-                                <img src="assets/images/Tələbələrin-section/video.svg" alt="play">
+                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
                                 <h5>UNEC-də tədris neçə dildə aparılır?</h5>
                             </div>
                         </div>
@@ -648,7 +661,7 @@
                                 <div class="carousel-item active">
                                     <div class="card">
                                         <span>FƏXRİ DOKTORLAR</span>
-                                        <img class="card-img-top" src="assets/images/FƏXRİ-section/Rectangle 7888.png"
+                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
                                              alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Ad Soyad</h5>
@@ -679,7 +692,7 @@
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="card middle-card">
-                            <img class="card-img-top" src="assets/images/FƏXRİ-section/file-e1628411134371 1.png"
+                            <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/file-e1628411134371 1.png')}}"
                                  alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title">HEYDƏR ƏLİYEVİN İQTİSADİ İRSİ</h5>
@@ -692,7 +705,7 @@
                                 <div class="carousel-item active">
                                     <div class="card">
                                         <span>FƏXRİ DOKTORLAR</span>
-                                        <img class="card-img-top" src="assets/images/FƏXRİ-section/Rectangle 7888.png"
+                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
                                              alt="Card image cap">
                                         <div class="card-body">
                                             <h5 class="card-title">Ad Soyad</h5>
