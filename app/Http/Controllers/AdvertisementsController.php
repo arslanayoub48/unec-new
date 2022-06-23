@@ -124,11 +124,13 @@ class AdvertisementsController extends Controller
         $all_advertisments = Advertisements::where("locale", \App\Models\Wlang::getCurrent())->get();
 
         foreach ($all_advertisments as $advertisment){
-            foreach (json_decode($advertisment->tags) as $tag){
-                if ($tag == $requestTag){
-                    $advertisment_array[]=$advertisment->id;
+            if(json_decode($advertisment->tags)){
+            foreach (json_decode($advertisment->tags) as $tag) {
+                if ($tag == $requestTag) {
+                    $advertisment_array[] = $advertisment->id;
                 }
             }
+        }
         }
         $advertisements = Advertisements::whereIn("id", $advertisment_array)->get();
 
