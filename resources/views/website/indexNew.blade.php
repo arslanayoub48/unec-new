@@ -344,7 +344,7 @@
                                                     </p>
                                                     <span>
                                                          <?php
-                                                        echo ucfirst(strftime("%B", strtotime($single_news->created_at))) . ' ' . ucfirst(strftime("%C", strtotime($single_news->created_at))) . ',' . ucfirst(strftime("%Y", strtotime($single_news->created_at)));
+                                                        echo date('d', strtotime($single_news->created_at)) . ' ' . date('M', strtotime($single_news->created_at)) . ',' . date('Y', strtotime($single_news->created_at));
                                                         ?>
                                         </span>
                                                 </div>
@@ -376,46 +376,59 @@
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
-<?php $active=false; ?>
+                                <?php $active = false; ?>
                                 <div class="carousel-inner w-100" role="listbox">
                                     @foreach($advertisements as $advertisement)
-                                    <div class="carousel-item <?php if(!$active){echo "active"; $active=true;} ?>">
-                                        <div class="col-lg-4 col-md-6 col-12">
-                                            <div class="card">
-                                                <?php
-                                                $gallery_image = App\Models\Gallery::find($advertisement->image);
-                                                ?>
-                                                <img style="width: 230px; height: 170px;" class="card-img-top"
-                                                     src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
-                                                     alt="Card image cap">
-                                                <div class="card-body">
-                                                    <h5 class="card-text"><a href="/advertisement/{{$advertisement->slug}}">
-                                                            {{$advertisement->title}}
-                                                        </a>
-                                                    </h5>
-                                                    <div class="">
-                                                        @foreach(json_decode($advertisement->tags) as $tag)
-                                                        <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
+                                        <div class="carousel-item <?php if (!$active) {
+                                            echo "active";
+                                            $active = true;
+                                        } ?>">
+                                            <div class="col-lg-4 col-md-6 col-12">
+                                                <div class="card">
+                                                    <?php
+                                                    $gallery_image = App\Models\Gallery::find($advertisement->image);
+                                                    ?>
+                                                    <img style="width: 230px; height: 170px;" class="card-img-top"
+                                                         src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
+                                                         alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <h5 class="card-text"><a
+                                                                    href="/advertisement/{{$advertisement->slug}}">
+                                                                {{$advertisement->title}}
+                                                            </a>
+                                                        </h5>
+                                                        <div class="">
+                                                            @foreach(json_decode($advertisement->tags) as $tag)
+                                                                <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
 
-                                                        @endforeach
+                                                            @endforeach
+                                                        </div>
+                                                        <p><?php
+                                                            $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
+                                                            echo $category_name->title;
+                                                            ?></p>
+                                                        <span>
+                                                        <?php
+                                                            echo date('d', strtotime($advertisement->created_at)) . ' ' . date('M', strtotime($advertisement->created_at)) . ' ' . date('Y', strtotime($advertisement->created_at));
+
+                                                            ?>
+                                                    </span>
                                                     </div>
-                                                    <p><?php
-                                                        $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
-                                                        echo $category_name->title;
-                                                        ?></p>
-                                                    <span>04 May 2022</span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
                                     @endforeach
                                 </div>
                                 <ol class="carousel-indicators">
-                                    <?php $active=false; $i=0;?>
-                                        @foreach($advertisements as $advertisement)
-                                    <li data-target="#elanlarCarousel" data-slide-to="<?php echo $i; $i++?>" class=" <?php if(!$active){echo "active"; $active=true;}?>"></li>
-                                        @endforeach
+                                    <?php $active = false; $i = 0;?>
+                                    @foreach($advertisements as $advertisement)
+                                        <li data-target="#elanlarCarousel" data-slide-to="<?php echo $i; $i++?>"
+                                            class=" <?php if (!$active) {
+                                                echo "active";
+                                                $active = true;
+                                            }?>"></li>
+                                    @endforeach
                                 </ol>
 
                             </div>
