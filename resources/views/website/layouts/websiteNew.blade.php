@@ -51,7 +51,7 @@
                     <li><a href="#"><img src="{{ url('assets/images/icons/eye.svg') }}" alt="eye-icon"/></a></li>
                     @foreach(Illuminate\Support\Facades\DB::table('lang')->get() as $language)
 
-                    <li><a href="#">{{$language->slug}}</a></li>
+                    <li><a href="#"><?php echo strtoupper($language->slug) ?></a></li>
                     @endforeach
                 </ul>
             </div>
