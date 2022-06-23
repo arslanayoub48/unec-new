@@ -52,8 +52,6 @@ Route::prefix("admin")->group(function () {
     Route::get("/view", "PageController@viewAdmin")->middleware('auth');
     Route::get("/contentbuilder", "PageController@contentbuilder")->middleware('auth');
     Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);
-
-
 });
 Route::get('/dataPageAction', "IndexController@dataPageAction")->middleware('auth');
 Route::post('/dataPageAction', "IndexController@dataPageActionPost")->middleware('auth');
@@ -64,7 +62,8 @@ Route::post('login/', ['as' => 'login', 'uses' => 'UsersController@login']);
 
 //Route::get("/staff/{slug}", "TeachersController@teacher");
 //Route::get("/staff", function() {return view("website.static.muellimler");});
-Route::get("/single-staff", "TeachersController@show");
+Route::get("/staff/tag/{tag}", "TeachersController@tagFilter")->name('teacher_tag');
+Route::get("/single-staff/{slug}", "TeachersController@show")->name('single_staff');
 Route::get("/staff", "TeachersController@index");
 Route::post("/staff/filter", "TeachersController@filter");
 Route::get("/lang/{lang}", "LangController@change");
@@ -78,8 +77,6 @@ Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", "AdvertisementsController@index");
-
-
 Route::get("/advertisement/tag/{tag}", "AdvertisementsController@tagFilter");
 //Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
 
@@ -100,4 +97,3 @@ Route::get("/empty-page", function () {
 
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');
-
