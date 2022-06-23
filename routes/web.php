@@ -89,6 +89,7 @@ Route::post("/events/filter", "EventsController@filter");
 
 Route::get("/professions", function() {  return view("website.static.professions.allProfessions");});
 Route::get("/single-profession", function() {   return view("website.static.professions.singleProfession");});
+Route::get("/empty-page", function() {   return view("website.static.emptyPage");});
 
 
 
