@@ -110,11 +110,13 @@
                             </article>
                         </div>
                         <ul class="btn-group">
-                            @foreach(json_decode($single_news->tags) as $tag)
+                            @if(json_decode($single_news->tags))
+                                @foreach(json_decode($single_news->tags) as $tag)
 
-                                <li><a href="/news/tag/{{$tag}}">{{$tag}}</a></li>
+                                    <li><a href="/news/tag/{{$tag}}">{{$tag}}</a></li>
 
-                            @endforeach
+                                @endforeach
+                            @endif
                         </ul>
                         <div class="pagination">
                             <div class="row">

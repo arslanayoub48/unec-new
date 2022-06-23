@@ -397,10 +397,12 @@
                                                             </a>
                                                         </h5>
                                                         <div class="">
+                                                            @if(json_decode($advertisement->tags))
                                                             @foreach(json_decode($advertisement->tags) as $tag)
                                                                 <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
 
                                                             @endforeach
+                                                            @endif
                                                         </div>
                                                         <p><?php
                                                             $category_name = \App\Models\Advertisements_categories::find($advertisement->category_id);
