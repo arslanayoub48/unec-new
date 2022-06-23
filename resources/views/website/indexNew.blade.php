@@ -20,7 +20,7 @@
                     <div id="text">
                         <div class="container edit" rel="content" field="hero-text">
                             <div class="banner-title text-left ">
-                                <h5>UNEC-lə xəyallarınıza doğru hər <br> gün bir addım yaxınlaşın</h5>
+                                <h5>{{ __('index.dream') }}<br> {{ __('index.l_in_1') }}</h5>
                             </div>
 
                         </div>
@@ -48,8 +48,7 @@
                                     <div class="content">
                                         <img class="d-block" src="assets/images/unec-2-section/Rectangle 12.png"
                                              alt="item-image">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.</p>
+                                        <p>{{ __('index.l_in_2') }}</p>
                                     </div>
                                 </div>
                             </div>

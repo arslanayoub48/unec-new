@@ -78,6 +78,14 @@ class TeachersController extends Controller
                 throw new Exception('Data not Found!');
             }
 
+            $t = json_decode($teacher->tags);
+            if ($t) {
+                $teacher->tags_details   = Tags::whereIn('id', $t)->get()->toArray();
+            } else {
+                $teacher->tags_details = [];
+            }
+
+
             $data['teacher'] = $teacher;
             return view("website.static.teachers.single-teacher")->with($data);
         } catch (\Exception $e) {
@@ -90,5 +98,4 @@ class TeachersController extends Controller
         $filter = Teachers::filter($request)->get();
         return view("filters.teachers", ["filter" => $filter]);
     }
-
 }

@@ -134,7 +134,11 @@
                                                 <div class="row">
                                                     <a href="{{ route('single_staff', $teacher->slug) }}">
                                                     <div class="col-lg-12 col-3">
-                                                        <img src="assets/images/person.png" alt="person">
+                                                        <?php
+                                                        $gallery_image = App\Models\Gallery::find($teacher->image);            
+                                                        ?>
+
+                                                        <img src="{{ asset('images/'. $gallery_image->image) }}" alt="person">
                                                     </div>
                                                     </a>
                                                     <div class="col-9 info" style="display: flex; align-items: center;">

@@ -31,7 +31,15 @@
                     <div class="row">
                         <div class="col-lg-4 col-12">
                             <div class="user">
-                                <div class="image"><img src="assets/images/person.png" alt="person"></div>
+
+                                <div class="image">
+                                    <?php
+                                    $gallery_image = App\Models\Gallery::find($teacher->image);            
+                                    ?>
+
+                                    <img src="{{ asset('images/'. $gallery_image->image) }}" alt="person">
+
+                                    </div>
                                 <div class="name d-block d-lg-none">
                                     <h2>Абалмасова Екатерина Сергеевна</h2>
                                     <span>Elmi adı, Vezifəsi</span>
@@ -45,21 +53,23 @@
                                     {!! $teacher->contact_info !!}
                                     {{-- <span>email@unec.edu.az</span>
                                     <span>+99412 1845 1023</span> --}}
-                                    <span>Потаповский пер., д. 16, стр. 10, каб. 211</span>
+                                    {{-- <span>Потаповский пер., д. 16, стр. 10, каб. 211</span> --}}
                                 </div>
                                 <ul>
                                     <li>SPIN РИНЦ: <span>{{ $teacher->orcid_id }}</span></li>
                                     <li>ORCID: <span>{{ $teacher->orcid_id }}</span></li>
                                     <li>ResearcherID: <span>{{ $teacher->scopus_id }}</span></li>
                                     <li>Scopus AuthorID: <span>{{ $teacher->scopus_id }}</span></li>
-                                    <li>Google Scholar: <span>{{ $teacher->google_scholar }}</span></li>
+                                    <li>Google Scholar: <span><a class="text-primary" href="{ $teacher->google_scholar }}" >click here</a></span></li>
                                 </ul>
                                 <div class="interests d-none d-lg-block">
                                     <h2>Профессиональные интересы</h2>
                                     <ul>
-                                        <li><a href="#">Экономика</a></li>
-                                        <li><a href="#">Образования</a></li>
-                                        <li><a href="#">финансирование вузов</a></li>
+                                        @if( $teacher->tags_details )
+                                        @foreach( $teacher->tags_details as $tag )
+                                            <li><a href="#">{{ $tag['name'] }}</a></li>
+                                        @endforeach
+                                        @endif
                                     </ul>
                                 </div>
                                 <div class="ctrl d-none d-lg-block">
@@ -80,30 +90,7 @@
                                 </div>
                                 <div class="tabs">
                                     <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="Домашняя-tab" data-toggle="tab" href="#Домашняя" role="tab"
-                                               aria-controls="Домашняя" aria-selected="false">Домашняя страница</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link active" id="Преподавание-tab" data-toggle="tab" href="#Преподавание"
-                                               role="tab" aria-controls="Преподавание" aria-selected="true">Преподавание</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="исследования-tab" data-toggle="tab" href="#исследования" role="tab"
-                                               aria-controls="исследования" aria-selected="false">Публикации и исследования</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="Опыт-tab" data-toggle="tab" href="#Опыт" role="tab" aria-controls="Опыт"
-                                               aria-selected="false">Опыт работы</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="Прочее-tab" data-toggle="tab" href="#Прочее" role="tab"
-                                               aria-controls="Прочее" aria-selected="false">Прочее</a>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <a class="nav-link" id="новостях-tab" data-toggle="tab" href="#новостях" role="tab"
-                                               aria-controls="новостях" aria-selected="false">В новостях</a>
-                                        </li>
+                                        {!! $teacher->short_about !!}
                                     </ul>
                                     <div class="tab-content" id="myTabContent">
                                         <div class="tab-pane fade show active" id="Домашняя" role="tabpanel"
@@ -111,350 +98,8 @@
                                             <h2>Полномочия / обязанности</h2>
                                             <h3 class="d-none d-lg-block">Домашняя страница</h3>
                                             <ul>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1985</span>
-                                                    </div>
-                                                    <p>Кандидат экономических наук: специальность 08.00.13 «Математические и инструментальные
-                                                        методы экономики»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1879</span>
-                                                    </div>
-                                                    <p>Специалитет: Московский государственный университет им. М.В. Ломоносова, специальность
-                                                        «Экономическая кибернетика»,
-                                                        квалификация «экономист-математик»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1980</span>
-                                                    </div>
-                                                    <p>XXIII Ясинская (Апрельская) международная научная конференция по проблемам развития
-                                                        экономики и общества (Москва).
-                                                        Доклад: Спрос на высшее образования в «пандемийный» 2020: что изменилось, и что это значит
-                                                        в
-                                                        контексте госполитики</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1982</span>
-                                                    </div>
-                                                    <p>XVIII международная научно-практическая конференция «Тенденции развития образования»
-                                                        Глобальные вызовы и неравные
-                                                        возможности (Москва). Доклад: Новые механизмы финансирования школьного образования</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1984</span>
-                                                    </div>
-                                                    <p>"XXII Апрельская международная научная конференция по проблемам развития экономики и
-                                                        общества" (Москва). Доклад:
-                                                        Социальная поддержка семей с детьми дошкольного возраста в контексте международных
-                                                        сравнений
-                                                    </p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type word_.svg" alt="icon file type word_">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane fade" id="Преподавание" role="tabpanel" aria-labelledby="Преподавание-tab">
-                                            <h2>Полномочия / обязанности</h2>
-                                            <h3 class="d-none d-lg-block">Преподавание</h3>
-                                            <ul>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1985</span>
-                                                    </div>
-                                                    <p>Кандидат экономических наук: специальность 08.00.13 «Математические и инструментальные
-                                                        методы экономики»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1879</span>
-                                                    </div>
-                                                    <p>Специалитет: Московский государственный университет им. М.В. Ломоносова, специальность
-                                                        «Экономическая кибернетика»,
-                                                        квалификация «экономист-математик»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1980</span>
-                                                    </div>
-                                                    <p>XXIII Ясинская (Апрельская) международная научная конференция по проблемам развития
-                                                        экономики и общества (Москва).
-                                                        Доклад: Спрос на высшее образования в «пандемийный» 2020: что изменилось, и что это значит
-                                                        в
-                                                        контексте госполитики</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1982</span>
-                                                    </div>
-                                                    <p>XVIII международная научно-практическая конференция «Тенденции развития образования»
-                                                        Глобальные вызовы и неравные
-                                                        возможности (Москва). Доклад: Новые механизмы финансирования школьного образования</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1984</span>
-                                                    </div>
-                                                    <p>"XXII Апрельская международная научная конференция по проблемам развития экономики и
-                                                        общества" (Москва). Доклад:
-                                                        Социальная поддержка семей с детьми дошкольного возраста в контексте международных
-                                                        сравнений
-                                                    </p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type word_.svg" alt="icon file type word_">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane fade" id="исследования" role="tabpanel" aria-labelledby="исследования-tab">
-                                            <h2>Полномочия / обязанности</h2>
-                                            <h3 class="d-none d-lg-block">Публикации и исследования</h3>
-                                            <ul>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1985</span>
-                                                    </div>
-                                                    <p>Кандидат экономических наук: специальность 08.00.13 «Математические и инструментальные
-                                                        методы экономики»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1879</span>
-                                                    </div>
-                                                    <p>Специалитет: Московский государственный университет им. М.В. Ломоносова, специальность
-                                                        «Экономическая кибернетика»,
-                                                        квалификация «экономист-математик»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1980</span>
-                                                    </div>
-                                                    <p>XXIII Ясинская (Апрельская) международная научная конференция по проблемам развития
-                                                        экономики и общества (Москва).
-                                                        Доклад: Спрос на высшее образования в «пандемийный» 2020: что изменилось, и что это значит
-                                                        в
-                                                        контексте госполитики</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1982</span>
-                                                    </div>
-                                                    <p>XVIII международная научно-практическая конференция «Тенденции развития образования»
-                                                        Глобальные вызовы и неравные
-                                                        возможности (Москва). Доклад: Новые механизмы финансирования школьного образования</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1984</span>
-                                                    </div>
-                                                    <p>"XXII Апрельская международная научная конференция по проблемам развития экономики и
-                                                        общества" (Москва). Доклад:
-                                                        Социальная поддержка семей с детьми дошкольного возраста в контексте международных
-                                                        сравнений
-                                                    </p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type word_.svg" alt="icon file type word_">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane fade" id="Опыт" role="tabpanel" aria-labelledby="Опыт-tab">
-                                            <h2>Полномочия / обязанности</h2>
-                                            <h3 class="d-none d-lg-block">Опыт работы</h3>
-                                            <ul>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1985</span>
-                                                    </div>
-                                                    <p>Кандидат экономических наук: специальность 08.00.13 «Математические и инструментальные
-                                                        методы экономики»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1879</span>
-                                                    </div>
-                                                    <p>Специалитет: Московский государственный университет им. М.В. Ломоносова, специальность
-                                                        «Экономическая кибернетика»,
-                                                        квалификация «экономист-математик»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1980</span>
-                                                    </div>
-                                                    <p>XXIII Ясинская (Апрельская) международная научная конференция по проблемам развития
-                                                        экономики и общества (Москва).
-                                                        Доклад: Спрос на высшее образования в «пандемийный» 2020: что изменилось, и что это значит
-                                                        в
-                                                        контексте госполитики</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1982</span>
-                                                    </div>
-                                                    <p>XVIII международная научно-практическая конференция «Тенденции развития образования»
-                                                        Глобальные вызовы и неравные
-                                                        возможности (Москва). Доклад: Новые механизмы финансирования школьного образования</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1984</span>
-                                                    </div>
-                                                    <p>"XXII Апрельская международная научная конференция по проблемам развития экономики и
-                                                        общества" (Москва). Доклад:
-                                                        Социальная поддержка семей с детьми дошкольного возраста в контексте международных
-                                                        сравнений
-                                                    </p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type word_.svg" alt="icon file type word_">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane fade" id="Прочее" role="tabpanel" aria-labelledby="Прочее-tab">
-                                            <h2>Полномочия / обязанности</h2>
-                                            <h3 class="d-none d-lg-block">Прочее</h3>
-                                            <ul>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1985</span>
-                                                    </div>
-                                                    <p>Кандидат экономических наук: специальность 08.00.13 «Математические и инструментальные
-                                                        методы экономики»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1879</span>
-                                                    </div>
-                                                    <p>Специалитет: Московский государственный университет им. М.В. Ломоносова, специальность
-                                                        «Экономическая кибернетика»,
-                                                        квалификация «экономист-математик»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1980</span>
-                                                    </div>
-                                                    <p>XXIII Ясинская (Апрельская) международная научная конференция по проблемам развития
-                                                        экономики и общества (Москва).
-                                                        Доклад: Спрос на высшее образования в «пандемийный» 2020: что изменилось, и что это значит
-                                                        в
-                                                        контексте госполитики</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1982</span>
-                                                    </div>
-                                                    <p>XVIII международная научно-практическая конференция «Тенденции развития образования»
-                                                        Глобальные вызовы и неравные
-                                                        возможности (Москва). Доклад: Новые механизмы финансирования школьного образования</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1984</span>
-                                                    </div>
-                                                    <p>"XXII Апрельская международная научная конференция по проблемам развития экономики и
-                                                        общества" (Москва). Доклад:
-                                                        Социальная поддержка семей с детьми дошкольного возраста в контексте международных
-                                                        сравнений
-                                                    </p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type word_.svg" alt="icon file type word_">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div class="tab-pane fade" id="новостях" role="tabpanel" aria-labelledby="новостях-tab">
-                                            <h2>Полномочия / обязанности</h2>
-                                            <h3 class="d-none d-lg-block">В новостях</h3>
-                                            <ul>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1985</span>
-                                                    </div>
-                                                    <p>Кандидат экономических наук: специальность 08.00.13 «Математические и инструментальные
-                                                        методы экономики»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1879</span>
-                                                    </div>
-                                                    <p>Специалитет: Московский государственный университет им. М.В. Ломоносова, специальность
-                                                        «Экономическая кибернетика»,
-                                                        квалификация «экономист-математик»</p>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1980</span>
-                                                    </div>
-                                                    <p>XXIII Ясинская (Апрельская) международная научная конференция по проблемам развития
-                                                        экономики и общества (Москва).
-                                                        Доклад: Спрос на высшее образования в «пандемийный» 2020: что изменилось, и что это значит
-                                                        в
-                                                        контексте госполитики</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1982</span>
-                                                    </div>
-                                                    <p>XVIII международная научно-практическая конференция «Тенденции развития образования»
-                                                        Глобальные вызовы и неравные
-                                                        возможности (Москва). Доклад: Новые механизмы финансирования школьного образования</p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type pdf_.svg" alt="icon file type pdf">
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <div class="date">
-                                                        <span>1984</span>
-                                                    </div>
-                                                    <p>"XXII Апрельская международная научная конференция по проблемам развития экономики и
-                                                        общества" (Москва). Доклад:
-                                                        Социальная поддержка семей с детьми дошкольного возраста в контексте международных
-                                                        сравнений
-                                                    </p>
-                                                    <a href="#">
-                                                        <img src="assets/images/icon _file type word_.svg" alt="icon file type word_">
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                            </ul>                             
+                                        </div>                                                                            
                                     </div>
                                 </div>
                             </div>

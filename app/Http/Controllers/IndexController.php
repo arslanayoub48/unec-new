@@ -27,16 +27,15 @@ class IndexController extends Controller
 
         $languages = DB::table('lang')->get();
 
-        $news = News::orderBy("id","DESC")->where("status", "publish")->take(4)->get();
+        $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
-        return view("website.indexNew")->with('news',$news)->with('advertisements',$advertisements)->with('languages',$languages);
+        return view("website.indexNew")->with('news', $news)->with('advertisements', $advertisements)->with('languages', $languages);
     }
 
     function dataPageAction(Request $request)
     {
         $hub = new HubService();
         return $hub->handle($request);
-
     }
 
     public function dataPageActionPost(Request $request)
@@ -55,12 +54,7 @@ class IndexController extends Controller
     {
         if (Auth::check()) {
             return redirect()->to("/admin");
-
         }
         return view("admin/login");
-
-
     }
-
-
 }

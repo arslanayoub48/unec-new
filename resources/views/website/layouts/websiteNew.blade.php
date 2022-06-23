@@ -38,7 +38,7 @@
             <div class="container" style="position: relative;">
                 <div class="menu">
                     <button class="toggle-btn"><img src="{{ url('assets/images/icons/menu.svg') }}" alt="open-menu">
-                        MENYU
+                        {{ __('index.l_in_3') }}
                     </button>
                 </div>
 
