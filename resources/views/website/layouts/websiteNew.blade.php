@@ -337,7 +337,7 @@
                         <div class="newsletter-input">
                             <img src="{{url('assets/images/footer/Vector (5).svg')}}" alt="icon">
                             <input type="email" class="icon" name="email" id="email" placeholder="Email daxil edin">
-                            <span>UNEC-in yenilikləri haqqinda ilk məlumat almaq üçün abunə olun</span>
+                            <span>{{ __('index.41') }}</span>
                         </div>
                     </form>
                 </div>
