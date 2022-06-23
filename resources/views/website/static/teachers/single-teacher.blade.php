@@ -11,7 +11,7 @@
                         <h2>ƏMƏKDAŞ VƏ MÜƏLLİMLƏR</h2>
                         <span class="d-lg-block d-none">İkİncİ başlıq</span>
                     </div>
-                    <img src="assets/images/Xeberler page/image 1.png" alt="image">
+                    <img src="{{asset('assets/images/Xeberler page/image 1.png') }}" alt="image">
                 </div>
             </div>
         </section>
@@ -60,7 +60,7 @@
                                     <li>ORCID: <span>{{ $teacher->orcid_id }}</span></li>
                                     <li>ResearcherID: <span>{{ $teacher->scopus_id }}</span></li>
                                     <li>Scopus AuthorID: <span>{{ $teacher->scopus_id }}</span></li>
-                                    <li>Google Scholar: <span><a class="text-primary" href="{ $teacher->google_scholar }}" >click here</a></span></li>
+                                    <li>Google Scholar: <span><a class="text-primary" href="{{ $teacher->google_scholar }}" >click here</a></span></li>
                                 </ul>
                                 <div class="interests d-none d-lg-block">
                                     <h2>Профессиональные интересы</h2>
