@@ -98,4 +98,27 @@ class TeachersController extends Controller
         $filter = Teachers::filter($request)->get();
         return view("filters.teachers", ["filter" => $filter]);
     }
+
+
+    public function tagFilter($tag)
+    {
+        try {
+
+            $data['teachers'] = [];
+            $teachers = Teachers::all();
+            if ($teachers) {
+                foreach ($teachers as $teacher) {
+                    $t = json_decode($teacher->tags);
+                    if ($t && in_array($tag, $t)) {
+                        $teacher->tags_details   = Tags::whereIn('id', $t)->get()->toArray();
+                        $data['teachers'][] = $teacher;
+                    }
+                }
+            }
+
+            return view("website.static.teachers.index")->with($data);
+        } catch (\Exception $e) {
+            return  redirect()->back()->with('error',  $this->error);
+        }
+    }
 }

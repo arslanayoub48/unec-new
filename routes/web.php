@@ -61,6 +61,7 @@ Route::post('login/', ['as' => 'login', 'uses' => 'UsersController@login']);
 
 //Route::get("/staff/{slug}", "TeachersController@teacher");
 //Route::get("/staff", function() {return view("website.static.muellimler");});
+Route::get("/staff/tag/{tag}", "TeachersController@tagFilter")->name('teacher_tag');
 Route::get("/single-staff/{slug}", "TeachersController@show")->name('single_staff');
 Route::get("/staff", "TeachersController@index");
 Route::post("/staff/filter", "TeachersController@filter");
@@ -75,8 +76,6 @@ Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
 Route::get("/advertisement/{slug}", "AdvertisementsController@show");
 Route::get("/advertisements", "AdvertisementsController@index");
-
-
 Route::get("/advertisement/tag/{tag}", "AdvertisementsController@tagFilter");
 //Route::get("/advertisements", function (){ return view("website.static.advertisements" ); });
 

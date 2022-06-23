@@ -125,7 +125,7 @@
                                                                                   alt="search-icon"></span></button>
                         </form>                      
                         <div class="users-list">
-                            @if( $teachers->count()  )                        
+                            @if( count ( $teachers )  )                        
                             @foreach( $teachers as $teacher )                            
                                 <div class="user">
                                     <div class="row">
@@ -167,14 +167,14 @@
                                                     </li>
                                                     <li>Аналитик: 
                                                             {{-- Short About --}}
-                                                        {!! $teacher->istecrubesi  !!}
-                                                    </li>
+                                                            {{-- {{ $teacher->about }}                                                         --}}
+                                                    </li>                                                  
                                                 </ul>
                                                 <ul class="tag-group">
                                                     <div class="row">                                                      
                                                         @if( $teacher->tags_details )
                                                             @foreach( $teacher->tags_details as $tag )
-                                                                <li><a href="#">{{ $tag['name'] }}</a></li>
+                                                                <li><a href="{{ route('teacher_tag', $tag['id']) }}">{{ $tag['name'] }}</a></li>
                                                             @endforeach
                                                         @endif                                                        
                                                     </div>

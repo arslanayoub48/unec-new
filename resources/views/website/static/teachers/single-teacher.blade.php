@@ -98,6 +98,7 @@
                                             <h2>Полномочия / обязанности</h2>
                                             <h3 class="d-none d-lg-block">Домашняя страница</h3>
                                             <ul>
+                                                {!! $teacher->about  !!}
                                             </ul>                             
                                         </div>                                                                            
                                     </div>
