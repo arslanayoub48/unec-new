@@ -12,6 +12,7 @@ deploy:
   <<: *build_tpl
   stage: deploy
   script:
+    - mkdir /home/Unec
     - cd /home/Unec
     - git pull https://gitlab.com/pektiyaz/unec-new.git master 
     - cd docker
