@@ -8,8 +8,8 @@
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>ƏMƏKDAŞ VƏ MÜƏLLİMLƏR</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{  __('index.74') }}</h2>
+                        <span class="d-lg-block d-none">{{  __('index.51') }}</span>
                     </div>
                     <img src="{{asset('assets/images/Xeberler page/image 1.png') }}" alt="image">
                 </div>

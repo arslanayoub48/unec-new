@@ -66,7 +66,7 @@ Route::get("/staff/tag/{tag}", "TeachersController@tagFilter")->name('teacher_ta
 Route::get("/single-staff/{slug}", "TeachersController@show")->name('single_staff');
 Route::get("/staff", "TeachersController@index");
 Route::post("/staff/filter", "TeachersController@filter");
-Route::get("/lang/{lang}", "LangController@change");
+Route::get("/lang/{lang}", "LangController@change")->name('lang.change');
 Route::get("/image/{id}", "ImageController@show");
 //HELPERS
 

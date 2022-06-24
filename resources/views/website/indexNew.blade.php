@@ -40,8 +40,7 @@
                                     <div class="content">
                                         <img class="d-block" src="assets/images/unec-2-section/Rectangle 11.png"
                                              alt="item-image">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.</p>
+                                        <p>{{ __('index.l_in_4') }}</p>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -58,7 +57,7 @@
                                 <div class="content">
                                     <img class="d-block" src="assets/images/unec-2-section/Rectangle 13.png"
                                          alt="item-image">
-                                    <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
+                                    <p>{{ __('index.l_in_4') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -85,31 +84,31 @@
                     <div class="row">
                         <div class="card">
                             <img src="/assets/images/unec-group/Vector.svg" alt="icon">
-                            <h2>Müəllİm KABİNETİ</h2>
+                            <h2>{{ __('index.l_in_5') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Frame.svg" alt="icon">
-                            <h2>tələbə KABİNETİ</h2>
+                            <h2>{{ __('index.l_in_6') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Vector (1).svg" alt="icon">
-                            <h2>Fakültələr</h2>
+                            <h2>{{ __('index.l_in_7') }}</h2>
                         </div>
                         <div class="card">
-                            <img src="/assets/images/unec-group/Vector (2).svg" alt="icon">
-                            <h2>kafedralar</h2>
+                            <img src="/assets/images/unec-group/Vector (2).svg" alt="icon">                            
+                            <h2>{{ __('index.l_in_8') }}</h2>
                         </div>
                         <div class="card">
-                            <img src="/assets/images/unec-group/Frame (1).svg" alt="icon">
-                            <h2>İxtİsaslar</h2>
+                            <img src="/assets/images/unec-group/Frame (1).svg" alt="icon">                            
+                            <h2>{{ __('index.l_in_9') }}</h2>
                         </div>
                         <div class="card">
-                            <img src="/assets/images/unec-group/Frame (2).svg" alt="icon">
-                            <h2>əməkdaşlar</h2>
+                            <img src="/assets/images/unec-group/Frame (2).svg" alt="icon">                            
+                            <h2>{{ __('index.l_in_10') }}</h2>
                         </div>
                         <div class="card hidden">
                             <img src="/assets/images/unec-group/Frame (3).svg" alt="icon">
-                            <h2>Karyera mərkəzİ</h2>
+                            <h2>{{ __('index.l_in_11') }}</h2>
                         </div>
                     </div>
                 </div>
@@ -120,31 +119,14 @@
             <div class="container">
                 <div class="row">
                     <div class="content-col col-4">
-                        <h2>UNEC - GƏLƏCƏYİN UNİVERSİTETİ</h2>
-                        <p style="opacity: 45%;">UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                            mərkəzidir.
-                            Universitetdə tədris prosesi
-                            və
-                            kadr
-                            hazırlığı Amerika və Avropa təhsil sisteminə uyğundur.</p>
-                        <p style="opacity: 45%;">İxtisaslar bakalavriat, magistratura və doktorantura təhsil pillələri
-                            üzrə
-                            azərbaycan, ingilis, rus və
-                            türk
-                            dillərində
-                            tədris edilir.</p>
-                        <p style="opacity: 45%;">Tələbələr universiteti iki və daha çox ixtisas üzrə (dual major) bitirə
-                            və
-                            müxtəlif
-                            mübadilə
-                            proqramlarında
-                            iştirak edə
-                            bilərlər.</p>
-                        <p style="opacity: 62%;"><b>Davamlı inkişaf yolunda bizimlə birgə addımlayın!
-                                Gələcək hədəflərimizə birlikdə nail olaq!</b></p>
+                        <h2>{{ __('index.l_in_12') }}</h2>
+                        <p style="opacity: 45%;">{{ __('index.l_in_13') }}</p>
+                        <p style="opacity: 45%;">{{ __('index.l_in_14') }}</p>
+                        <p style="opacity: 45%;">{{ __('index.l_in_15') }}</p>
+                        <p style="opacity: 45%;">{{ __('index.l_in_16') }}</p>                                                         
                         <div style="margin-top: 2rem;">
-                            <span>UNEC REKTORU</span>
-                            <span>PROF. ƏDALƏT MURADOV</span>
+                            <span>{{ __('index.l_in_18') }}</span>
+                            <span>{{ __('index.l_in_19') }}</span>
                         </div>
                     </div>
                     <div class="col-8" style="padding: 0 0 0 1rem;">
@@ -159,9 +141,8 @@
                                                 <img class="d-block"
                                                      src="assets/images/unec-2-section/Rectangle 11.png"
                                                      alt="item-image">
-                                                <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                                    tədris
-                                                    mərkəzidir.</p>
+                                                <p> {{ __('index.l_in_20') }}  </p>
+
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -169,9 +150,7 @@
                                                 <img class="d-block"
                                                      src="assets/images/unec-2-section/Rectangle 11.png"
                                                      alt="item-image">
-                                                <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                                    tədris
-                                                    mərkəzidir.</p>
+                                                <p>{{ __('index.l_in_20') }}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -179,9 +158,8 @@
                                                 <img class="d-block"
                                                      src="assets/images/unec-2-section/Rectangle 11.png"
                                                      alt="item-image">
-                                                <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental
-                                                    tədris
-                                                    mərkəzidir.</p>
+                                                <p>{{ __('index.l_in_20') }}</p>
+
                                             </div>
                                         </div>
 
@@ -216,10 +194,9 @@
                 <div class="row">
                     <div class="col-12 col-lg-2">
                         <blockquote>
-                            “Rəqəmsal iqtisadiyyat: müasir çağırışlar və real imkanlar” mövzusunda II beynəlxalq
-                            konfrans
+                            {{ __('index.l_in_21') }}                            
                         </blockquote>
-                        <span class="d-none d-lg-block">Bütün bölmələr</span>
+                        <span class="d-none d-lg-block">{{ __('index.l_in_22') }}</span>
                     </div>
                     <div class="card-group col-12 col-lg-10">
                         <div id="myCarousel" class="carousel slide w-100" data-interval="false">
@@ -231,10 +208,9 @@
                                                  src="assets/images/rəqəmsal-section/Rectangle 14.png"
                                                  alt="Card image cap">
                                             <div class="card-body">
-                                                <span>Fakültə</span>
+                                                <span>{{ __('index.l_in_23') }}</span>
                                                 <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
+                                                    {{ __('index.l_in_20') }}                 
                                                     </a>
                                                 </p>
                                                 <span>Aprel 04, 2022</span>
@@ -251,8 +227,7 @@
                                             <div class="card-body">
                                                 <span>Fakültə</span>
                                                 <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
+                                                    {{ __('index.l_in_20') }}                
                                                     </a>
                                                 </p>
                                                 <span>Aprel 04, 2022</span>
@@ -269,8 +244,7 @@
                                             <div class="card-body">
                                                 <span>Fakültə</span>
                                                 <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
+                                                    {{ __('index.l_in_20') }}                
                                                     </a>
                                                 </p>
                                                 <span>Aprel 04, 2022</span>
@@ -287,8 +261,7 @@
                                             <div class="card-body">
                                                 <span>Fakültə</span>
                                                 <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
+                                                    {{ __('index.l_in_20') }}                
                                                     </a>
                                                 </p>
                                                 <span>Aprel 04, 2022</span>
@@ -304,7 +277,7 @@
                                 <li data-target="#myCarousel" data-slide-to="3"></li>
                             </ol>
                         </div>
-                        <span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
+                        <span class="d-block d-lg-none ml-auto">  {{ __('index.l_in_22') }}</span>
                     </div>
                 </div>
             </div>
@@ -314,8 +287,8 @@
             <div class="container">
                 <div class="title">
                     <div>
-                        <h2>Xəbərlər</h2>
-                        <a href="/news"> <span>Bütün xəbərlər</span></a>
+                        <h2>{{ __('index.l_in_24') }}</h2>
+                        <a href="/news"> <span>{{ __('index.l_in_22') }}</span></a>
 
                     </div>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -357,7 +330,7 @@
                                                          <?php
                                                         echo date('d', strtotime($single_news->created_at)) . ' ' . date('M', strtotime($single_news->created_at)) . ',' . date('Y', strtotime($single_news->created_at));
                                                         ?>
-                                        </span>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -381,9 +354,9 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="title">
-                            <h2>Elanlar</h2>
+                            <h2>{{ __('index.advertisements') }}</h2>
 
-                            <a href="/advertisements"><span class="d-none d-lg-block">Bütün elanlar</span></a>
+                            <a href="/advertisements"><span class="d-none d-lg-block">{{ __('index.all_advertisements') }}</span></a>
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
@@ -446,7 +419,7 @@
 
                             </div>
                         </div>
-                        <div class="title"><span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
+                        <div class="title"><span class="d-block d-lg-none ml-auto">{{ __('index.l_in_22') }}</span>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -454,7 +427,7 @@
                             <div class="title">
 
                                 <h2>Tədbirlər</h2>
-                                <a href="/events"> <span class="d-none d-lg-block">Bütün tədbirlər</span></a>
+                                <a href="/events"> <span class="d-none d-lg-block">{{ __('index.l_in_23') }}</span></a>
 
                             </div>
 
@@ -489,7 +462,7 @@
                             </ul>
 
                             <div class="title">
-                                <span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
+                                <span class="d-block d-lg-none ml-auto">{{ __('index.l_in_22') }}</span>
                             </div>
                         </div>
                     </div>
@@ -502,9 +475,9 @@
                 <div class="faktlar-border">
                     <div class="row">
                         <div class="col-lg-4 col-12 title">
-                            <span>Faktlar</span>
+                            <span>{{ __('index.l_in_27') }}</span>
                             <h2>UNEC</h2>
-                            <h3>Rəqəmlərlə</h3>
+                            <h3>{{ __('index.l_in_28') }}</h3>
                         </div>
                         <div class="col-lg-8 col-12">
                             <div class="card-group">
@@ -516,7 +489,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">18.200</h5>
-                                                <span>Tələbə sayı</span>
+                                                <span>{{ __('index.l_in_29') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -527,7 +500,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">403</h5>
-                                                <span>Professor və dosent</span>
+                                                <span>{{ __('index.l_in_30') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -538,7 +511,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">10</h5>
-                                                <span>Fakültə</span>
+                                                <span>{{ __('index.l_in_23') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -549,7 +522,7 @@
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">23</h5>
-                                                <span>Kafedra</span>
+                                                <span>{{ __('index.l_in_31') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -564,8 +537,8 @@
         <section class="sosial">
             <div class="container">
                 <div class="title text-center">
-                    <h2>#UNEC kəşf et</h2>
-                    <p>Sosial hesablarımızla tanış olun</p>
+                    <h2>{{ __('index.32') }}</h2>
+                    <p>{{ __('index.33') }}</p>
                 </div>
                 <div class="images-group">
                     <div><img src="{{url('assets/images/sosial-section/Rectangle 7875.png')}}" alt="image">
@@ -616,11 +589,10 @@
                 <div class="title">
                     <div class="left">
                         <h2>UNEC</h2>
-                        <span>Tələbələrin dili ilə</span>
+                        <span>{{ __('index.l_in_26') }}</span>
                     </div>
                     <div class="right">
-                        <p>Ən çox sorüşülan suallara
-                            tələbərimizin cavablan</p>
+                        <p>{{ __('index.34') }}</p>
                     </div>
                 </div>
                 <div class="horizontal-scroll">
@@ -629,7 +601,7 @@
                         <div class="cover">
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
+                                <h5>{{ __('index.35') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -638,7 +610,7 @@
                         <div class="cover">
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
+                                <h5>{{ __('index.35') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -647,7 +619,7 @@
                         <div class="cover">
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
+                                <h5>{{ __('index.35') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -656,7 +628,7 @@
                         <div class="cover">
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
+                                <h5>{{ __('index.35') }}</h5>
                             </div>
                         </div>
                     </div>
@@ -665,12 +637,12 @@
                         <div class="cover">
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
+                                <h5>{{ __('index.35') }}</h5>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="#" class="d-block d-md-none text-center">Dİgər suallar</a>
+                <a href="#" class="d-block d-md-none text-center">{{ __('index.36') }}</a>
             </div>
         </section>
         <!-- FƏXRİ-section -->
@@ -681,16 +653,13 @@
                         <div id="faxricarousel" class="carousel slide" data-interval="false">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <div class="card">
-                                        <span>FƏXRİ DOKTORLAR</span>
-                                        <img class="card-img-top"
-                                             src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
-                                             alt="Card image cap">
+                                   <div class="card">
+                                        <span>{{ __('index.37') }}</span>
+                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
                                         <div class="card-body">
-                                            <h5 class="card-title">Ad Soyad</h5>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Etiam eu turpis
-                                                molestie
+                                            <h5 class="card-title">{{ __('index.38') }}</h5>
+                                            <p class="card-text">
+                                                {{ __('index.39') }}
                                             </p>
                                         </div>
                                     </div>
@@ -719,24 +688,21 @@
                                  src="{{url('assets/images/FƏXRİ-section/file-e1628411134371 1.png')}}"
                                  alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">HEYDƏR ƏLİYEVİN İQTİSADİ İRSİ</h5>
+                                <h5 class="card-title">{{ __('index.40') }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-12">
-                        <div id="faxricarousel2" class="carousel slide" data-interval="false">
+                        <div id="faxricarousel" class="carousel slide" data-interval="false">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="card">
-                                        <span>FƏXRİ DOKTORLAR</span>
-                                        <img class="card-img-top"
-                                             src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
-                                             alt="Card image cap">
+                                        <span>{{ __('index.37') }}</span>
+                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
                                         <div class="card-body">
-                                            <h5 class="card-title">Ad Soyad</h5>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Etiam eu turpis
-                                                molestie
+                                            <h5 class="card-title">{{ __('index.38') }}</h5>
+                                            <p class="card-text">
+                                                {{ __('index.39') }}
                                             </p>
                                         </div>
                                     </div>
@@ -752,10 +718,10 @@
                                 </div>
                             </div>
                             <ol class="carousel-indicators">
-                                <li data-target="#faxricarousel2" data-slide-to="0" class="active"></li>
-                                <li data-target="#faxricarousel2" data-slide-to="1"></li>
-                                <li data-target="#faxricarousel2" data-slide-to="2"></li>
-                                <li data-target="#faxricarousel2" data-slide-to="3"></li>
+                                <li data-target="#faxricarousel" data-slide-to="0" class="active"></li>
+                                <li data-target="#faxricarousel" data-slide-to="1"></li>
+                                <li data-target="#faxricarousel" data-slide-to="2"></li>
+                                <li data-target="#faxricarousel" data-slide-to="3"></li>
                             </ol>
                         </div>
                     </div>

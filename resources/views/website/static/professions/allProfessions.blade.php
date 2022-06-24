@@ -7,8 +7,8 @@
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>ƏMƏKDAŞ VƏ MÜƏLLİMLƏR</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{ __('index.74') }}</h2>
+                        <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
                     <img src="assets/images/Xeberler page/image 1.png" alt="image" />
                 </div>
@@ -19,7 +19,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">UNEC</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Əməkdaş və müəllimlər</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('index.74') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -45,15 +45,15 @@
                                 <ul class="nav nav-pills d-none d-lg-flex" id="pills-tab" role="tablist">
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link active" id="pills-Subbakalavr-tab" data-toggle="pill" href="#pills-Subbakalavr"
-                                           role="tab" aria-controls="pills-Subbakalavr" aria-selected="true">Subbakalavr</a>
+                                           role="tab" aria-controls="pills-Subbakalavr" aria-selected="true">{{ __('index.75') }}</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" id="pills-Bakalavr-tab" data-toggle="pill" href="#pills-Bakalavr" role="tab"
-                                           aria-controls="pills-Bakalavr" aria-selected="false">Bakalavr</a>
+                                           aria-controls="pills-Bakalavr" aria-selected="false">{{ __('index.76') }}</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" id="pills-Magistr-tab" data-toggle="pill" href="#pills-Magistr" role="tab"
-                                           aria-controls="pills-Magistr" aria-selected="false">Magistr</a>
+                                           aria-controls="pills-Magistr" aria-selected="false"> {{ __('index.77') }}</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" id="pills-MBA-tab" data-toggle="pill" href="#pills-MBA" role="tab"
@@ -61,11 +61,11 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" id="pills-Doktorantura-tab" data-toggle="pill" href="#pills-Doktorantura"
-                                           role="tab" aria-controls="pills-Doktorantura" aria-selected="false">Doktorantura</a>
+                                           role="tab" aria-controls="pills-Doktorantura" aria-selected="false">{{ __('index.78') }}</a>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <a class="nav-link" id="pills-Əlavə-tab" data-toggle="pill" href="#pills-Əlavə" role="tab"
-                                           aria-controls="pills-Əlavə" aria-selected="false">Əlavə təhsil</a>
+                                           aria-controls="pills-Əlavə" aria-selected="false"> {{ __('index.79') }}</a>
                                     </li>
                                 </ul>
                             </div>
@@ -86,9 +86,7 @@
                                                 </div>
                                                 <div class="col-12 col-lg-6">
                                                     <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
+                                                        <div class="col-3"><span>2 годаОчная</span>
                                                         </div>
                                                         <div class="col-6">
                                                             <p>65 бюджетных
@@ -102,262 +100,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        </li>                                                                            
                                     </ul>
                                     <ul>
-                                        <h2 class="search-count">07.00.00 АРХИТЕКТУРА</h2>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="w-100">
-                                            <div class="row">
-                                                <div class="col-12 col-lg-6">
-                                                    <h2>Управление пространственным развитием городов
-                                                    </h2>
-                                                    <p>
-                                                        Москва Высшая школа урбанистики имени А.А. Высоковского
-                                                    </p>
-                                                </div>
-                                                <div class="col-12 col-lg-6">
-                                                    <div class="row">
-                                                        <div class="col-3">
-                                <span>2 года
-                                  Очная</span>
-                                                        </div>
-                                                        <div class="col-6">
-                                                            <p>65 бюджетных
-                                                                15 платных
-                                                                3 платных места для иностранцев</p>
-                                                        </div>
-                                                        <div class="col-3">
-                                                            <span>2500</span>
-                                                            <p>manat illik</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
+                                        <h2 class="search-count">07.00.00 АРХИТЕКТУРА</h2>                                                                   
                                     </ul>
                                 </div>
                                 <div class="tab-pane fade" id="pills-Bakalavr" role="tabpanel" aria-labelledby="pills-Bakalavr-tab">2
