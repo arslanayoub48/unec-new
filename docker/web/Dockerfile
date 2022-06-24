@@ -5,4 +5,4 @@ RUN docker-php-ext-install \
     && a2enmod \
     rewrite
 
-RUN chmod +x /run.sh
+RUN chmod +x ./run.sh
