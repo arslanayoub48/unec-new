@@ -24,7 +24,11 @@ services:
     volumes:
       - ../:/var/www/html
     working_dir: /var/www/html
-    command: composer install && chmod -R 777 storage && chmod -R 777 bootstrap && php artisan config:cache
+    command: composer install
+
+    artisan:
+      working_dir: /var/www/html
+      command: 'chmod -R 777 storage'
   
 
   
