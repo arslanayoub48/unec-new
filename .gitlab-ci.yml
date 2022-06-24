@@ -1,18 +1,18 @@
 stages:
-  deploy
-  clear
+  - deploy
+  - clear
 
 deploy:
   stage: deploy
   script:
-    cd /home 
-    git pull https://gitlab.com/pektiyaz/unec-new.git master 
-    cd docker
-    docker-compose up -d
+    - cd /home 
+    - git pull https://gitlab.com/pektiyaz/unec-new.git master 
+    - cd docker
+    - docker-compose up -d
 
 clear:
   stage: clear
   script:
-    cd /home/docker
-    docker-compose app exec php artisan config:cache
+    - cd /home/docker
+    - docker-compose app exec php artisan config:cache
 
