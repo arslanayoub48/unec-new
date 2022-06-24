@@ -8,7 +8,7 @@ stages:
   services:
   - docker:dind
 
-build_image:
+build_image: 
   <<: *build_tpl
   stage: build_image
   script:
