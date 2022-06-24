@@ -25,11 +25,10 @@ class IndexController extends Controller
     public function index()
     {
 
-        $languages = DB::table('lang')->get();
 
-        $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
-        $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
-        return view("website.indexNew")->with('news', $news)->with('advertisements', $advertisements)->with('languages', $languages);
+        $data['news'] = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
+        $data['advertisements'] = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
+        return view("website.indexNew")->with($data);
     }
 
     function dataPageAction(Request $request)

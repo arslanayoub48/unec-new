@@ -319,7 +319,7 @@
                                                          <?php
                                                         echo date('d', strtotime($single_news->created_at)) . ' ' . date('M', strtotime($single_news->created_at)) . ',' . date('Y', strtotime($single_news->created_at));
                                                         ?>
-                                        </span>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
