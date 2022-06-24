@@ -34,7 +34,6 @@ services:
       - /bin/bash
       - -c
       - |
-        mv .env.deploy .env
         chmod -R 777 storage
         chmod -R 777 bootstrap
         composer install
