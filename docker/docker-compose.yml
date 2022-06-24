@@ -22,7 +22,7 @@ services:
   adminer:
     image: adminer
     restart: always
-    posts:
+    ports:
       - 6080:8080
 
   composer:
