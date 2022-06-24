@@ -24,11 +24,7 @@ services:
     volumes:
       - ../:/var/www/html
     working_dir: /var/www/html
-    command: composer install
-
-  artisan:
-    working_dir: /var/www/html
-    command: 'chmod -R 777 storage'
+    command:  /bin/sh -c "run.sh"
   
 
   
