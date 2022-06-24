@@ -276,7 +276,7 @@
             <div class="container">
                 <div class="title">
                     <div>
-                        <h2>{{ __('index.l_in_24') }}<</h2>
+                        <h2>{{ __('index.l_in_24') }}</h2>
                         <a href="/news"> <span>{{ __('index.l_in_22') }}</span></a>
 
                     </div>

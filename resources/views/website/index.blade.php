@@ -15,7 +15,7 @@
             <div id="text">
             <div class="container edit" rel="content" field="hero-text">
               <div class="banner-title text-left ">
-                <h5>UNEC-lə xəyallarınıza doğru hər <br> gün bir addım yaxınlaşın</h5>
+                <h5>{{ __('index.dream') }} <br> {{ __('index.l_in_1') }}</h5>
               </div>
 
             </div>
@@ -411,11 +411,11 @@
       <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-2" style="background-color:#fff; border-radius:12px; padding-top: 8px;">
-          <h5 class="text-black text-center">FƏXRİ DOKTORLAR</h5>
+          <h5 class="text-black text-center">{{ __('index.37') }}</h5>
           <!-- SLIDER MICROWEBER -->
         </div>
         <div class="col-md-6" style="background-color:#fff; border-radius:12px;margin-left:4px; margin-right:5px; padding-top: 20px;">
-          <h5 class="text-black text-center">HEYDƏR ƏLİYEVİN İQTİSADİ İRSİ</h5>
+          <h5 class="text-black text-center">{{ __('index.40') }}</h5>
           <br><br>
           <img src="https://test.unec.edu.az/application/uploads/2021/12/h.aliyev-e1638636038313.png" alt="" style="
     height: 210px;

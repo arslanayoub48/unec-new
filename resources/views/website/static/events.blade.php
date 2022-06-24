@@ -13,7 +13,7 @@
        
     <div class="row">
         <div class="col-md-12 m-auto">
-            <h1 class="text-center">Bütün tədbirlər</h1>
+            <h1 class="text-center">{{ __('index.l_in_25') }}</h1>
             <p>Kalendar</p>
             <a href="/events">Filteri təmizlə</a>
         </div>

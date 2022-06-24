@@ -7,8 +7,8 @@
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>ƏMƏKDAŞ VƏ MÜƏLLİMLƏR</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{ __('index.74') }}</h2>
+                        <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
                     <img src="assets/images/Xeberler page/image 1.png" alt="image">
                 </div>
@@ -452,7 +452,7 @@
                         <form class="filter">
                             <h2>FİLTERLƏR</h2>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Tədris binaları</label>
+                                <label for="exampleFormControlSelect1"> {{ __('index.71') }}</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>Bütün</option>
                                     <option>2</option>
@@ -462,7 +462,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect2">Kafedra</label>
+                                <label for="exampleFormControlSelect2">{{ __('index.l_in_31') }}</label>
                                 <select class="form-control" id="exampleFormControlSelect2">
                                     <option>Bütün</option>
                                     <option>2</option>
@@ -507,7 +507,7 @@
                                        aria-label="Search">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect6">Dillər üzrə</label>
+                                <label for="exampleFormControlSelect6">{{ __('index.73') }}</label>
                                 <select multiple class="form-control" id="exampleFormControlSelect6"
                                         style="box-shadow: none;margin-top: 0.5rem;background-image: none;">
                                     <option>Bütün</option>
@@ -519,10 +519,9 @@
                                 </select>
                             </div>
                             <div class="CTRL">
-                                <h2 class="text-left">CTRL + Enter</h2>
-                                <p>Mətində orfoqrafik səhf tapdınız?
-                                    Məlumatı seçin və Ctrl+Enter klavişlərini sıxın və bu haqda bizə məlumat verin.</p>
-                                <span>Təşəkkür edirik!</span>
+                                <h2 class="text-left">{{ __('index.64') }}</h2>
+                                <p>{{ __('index.65') }}</p>
+                                <span>{{ __('index.66') }}</span>
                             </div>
                         </form>
                     </div>

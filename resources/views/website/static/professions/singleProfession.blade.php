@@ -9,8 +9,8 @@
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>ƏMƏKDAŞ VƏ MÜƏLLİMLƏR</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{ __('index.74') }}</h2>
+                        <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
                     <img src="assets/images/Xeberler page/image 1.png" alt="image">
                 </div>
@@ -21,7 +21,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">UNEC</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Əməkdaş və müəllimlər</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('index.74') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -32,11 +32,11 @@
                 <div class="row fixpadding">
                     <div class="col-12 col-lg-8">
                         <div class="left">
-                            <h2>Beynəlxalq ticarət və logistika ixtisası</h2>
+                            <h2>{{ __('index.80') }}</h2>
                             <img src="assets/images/Desktop-4/ColoniaDelSacramento.png" alt="post-image" />
                             <div class="info">
                                 <div class="info-article">
-                                    <div><span>Rubrika</span></div>
+                                    <div><span>{{ __('index.81') }}</span></div>
                                 </div>
                                 <div class="links">
                                     <a href="#"><img src="assets/images/Xəbər page/Frame.svg" alt="twitter-icon"></a>
@@ -47,23 +47,7 @@
                                 </div>
                             </div>
                             <article>
-                                <p>Beynəlxalq ticarət və logistika ixtisası dünya dövlətləri arasında yaranan iqtisadi münasibətlərin
-                                    xüsusi bir tipi olan
-                                    beynəlxalq ticarətin təşkilini, müxtəlif sistemlərdə müasir informasiya-kompüter texnologiyaları
-                                    vasitəsilə
-                                    maddi-material axınlarının, informasiya, maliyyə və insan resurslarının planlaşdırılmasını və idarə
-                                    olunmasını təmin
-                                    eləyən mütəxəssis hazırlayır. Məzunlar XXI əsrin ən tələb olunan peşəsi olan logistika ixtisasına
-                                    yiyələnərək maddi və
-                                    informasiya axınlarının idarə olunmasını təmin edir, eyni zamanda, təchizat zəncirlərinin idarə
-                                    olunması, beynəlxalq
-                                    nəqliyyat əməliyyatlarının təşkili, dünya nəqliyyat bazarının fəaliyyətinin nəzəri əsasları üzrə
-                                    bacarıqlara malik
-                                    olurlar. Xarici təchizat və tərəfdaşlarla işləməli olacaq məzunlar beynəlxalq iqtisadiyyatın
-                                    logistik inkişaf
-                                    istiqamətlərini, beynəlxalq biznesin logistik strukturlarını, beynəlxalq logistika menecmentini,
-                                    logistika xidmətlərini,
-                                    beynəlxalq logistika fəaliyyətinin hüquqi təminatını və s. bilmək imkanını əldə edirlər.
+                                <p>
                                 </p>
                             </article>
                             <div class="accordion" id="accordionExample">
