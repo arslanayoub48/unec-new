@@ -1,55 +1,64 @@
-version: '3.5'
-
-x-env: &env
-    TZ: 'Asia/Baku'
-
-x-backend: &backend
-    image: https://gitlab.com/pektiyaz/unec-new:master
-    restart: unless-stopped
-    environment:
-      <<: *env
-      IMG_URL: 'http://212.193.54.230:5111'
-      DB_CONNECTION: 'mysql'
-      DB_HOST: 'db.app.local'
-      DB_DATABASE: 'unec_db'
-      DB_USER: 'root'
-      DB_PASSWORD: ''
-      LOG_LEVEL: 'debug'
-      APP_KEY: Kxi8y3P0iR892vq0fGksBhM36tNedF7A
-    volumes:
-    - /etc/localtime:/etc/localtime:ro
-    links:
-    - db:db.app.local
-    depends_on:
-    - db
-
-
+version: '2.0'
 services:
-  db:
-    image: mariadb:10.6
-    container_name: mysql
+ 
+  #PHP Service
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: cloudsigma.com/php
+    container_name: app
+    restart: unless-stopped
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/html/
+    volumes:
+      - ./:/var/www/html/
+      - ./php/laravel.ini:/usr/local/etc/php/conf.d/laravel.ini
+    networks:
+      - app-network
+ 
+  #Nginx Service
+  webserver:
+    image: nginx:alpine
+    container_name: webserver
     restart: unless-stopped
     tty: true
     ports:
-      - 3306:3306
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./:/var/www/html/
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+ 
+  #MySQL Service
+  db:
+    image: mysql:5.7.32
+    container_name: db
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_DATABASE: unec_db
-      MYSQL_USER: unec_user
-      MYSQL_PASSWORD: 
-      MYSQL_ROOT_PASSWORD:
+      MYSQL_ROOT_PASSWORD: @password!
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
-
-  scheduler:
-    <<: *backend
-    command: 'php artisan serve --host 0.0.0.0 --post 8000'
-    healthcheck:
-      disable: true
-
-  api:
-    <<: *backend
-    ports:
-    - 5111:3000/tcp
-    depends_on:
-    - db
-    - scheduler
+    volumes:
+      - dbdata:/var/lib/mysql/
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+    networks:
+      - app-network
+ 
+#Docker Networks
+networks:
+  app-network:
+    driver: bridge
+#Volumes
+volumes:
+  dbdata:
+    driver: local
