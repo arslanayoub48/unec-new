@@ -655,7 +655,7 @@
                                 <div class="carousel-item active">
                                    <div class="card">
                                         <span>{{ __('index.37') }}</span>
-                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
+                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('index.38') }}</h5>
                                             <p class="card-text">
