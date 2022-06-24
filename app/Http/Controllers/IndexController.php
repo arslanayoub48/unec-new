@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Advertisements;
 use App\Models\Menu;
 use App\Models\News;
+use App\Models\TagsFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Services\Admin\Data\HubService;
@@ -24,11 +25,13 @@ class IndexController extends Controller
 
     public function index()
     {
-
-
+        $data['filteredNews'] = TagsFilter::getTagsData('news');
+        //$data['filteredAds'] = TagsFilter::getTagsData('ads');
+        $data['filteredEvents'] = TagsFilter::getTagsData('events');        
         $data['news'] = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
-        $data['advertisements'] = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
-        return view("website.indexNew")->with($data);
+        $data['advertisements'] = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();        
+      
+       return view("website.indexNew")->with($data);                  
     }
 
     function dataPageAction(Request $request)
@@ -56,4 +59,6 @@ class IndexController extends Controller
         }
         return view("admin/login");
     }
+
+
 }
