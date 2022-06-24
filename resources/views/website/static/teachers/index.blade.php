@@ -130,15 +130,15 @@
                                 <div class="user">
                                     <div class="row">
                                         <div class="col-lg-3 col-12">
-                                            <div class="left">
-                                                <div class="row">
+                                            <div class="left" style="margin-left: -50px;">
+                                                <div class="row" >
                                                     <a href="{{ route('single_staff', $teacher->slug) }}">
                                                     <div class="col-lg-12 col-3">
                                                         <?php
                                                         $gallery_image = App\Models\Gallery::find($teacher->image);            
                                                         ?>
 
-                                                        <img src="{{ asset('images/'. $gallery_image->image) }}" alt="person">
+                                                        <img  src="{{ asset('images/'. $gallery_image->image) }}" alt="person">
                                                     </div>
                                                     </a>
                                                     <div class="col-9 info" style="display: flex; align-items: center;">
