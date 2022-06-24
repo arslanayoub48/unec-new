@@ -2,7 +2,7 @@ stages:
 - build_image
 - deploy
 services:
-- name: docker:dind
+- name: docker:18-dind
   entrypoint: ["dockerd-entrypoint.sh", "--tls=false"]
 
 build_image: 
