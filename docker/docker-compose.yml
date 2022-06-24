@@ -6,10 +6,10 @@ services:
     environment:
       - APACHE_RUN_USER=www-data
     volumes:
-      - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
+      - ../:/var/www/html
     ports:
       - 80:80
-    working_dir: ${APP_PATH_CONTAINER}
+    working_dir: /var/www/html
 
   db:
     image: mariadb
@@ -17,13 +17,13 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
-      - ${DB_PATH_HOST}:/var/lib/mysql
+      - ./database:/var/lib/mysql
   
   composer:
     image: composer
     volumes:
-      - ${APP_PATH_HOST}:${APP_PATH_CONTAINER}
-    working_dir: ${APP_PATH_CONTAINER}
+      - ../:/var/www/html
+    working_dir: /var/www/html
     command: composer install
 
     

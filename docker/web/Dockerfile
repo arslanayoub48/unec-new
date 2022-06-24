@@ -1,6 +1,6 @@
-FROM php:7.4-apache
+FROM php:7.2-apache
 
-RUN docker-ext-install \
+RUN docker-php-ext-install \
     pdo_mysql \
     && a2enmod \
     rewite
