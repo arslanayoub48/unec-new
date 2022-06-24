@@ -2,17 +2,26 @@ stages:
   - deploy
   - clear
 
+.build: &build_tpl
+  image: docker:latest
+  services:
+  - docker:dind
+
+
 deploy:
+  <<: *build_tpl
   stage: deploy
   script:
-    - cd /home 
+    - cd /home/Unec
     - git pull https://gitlab.com/pektiyaz/unec-new.git master 
     - cd docker
     - docker-compose up -d
 
 clear:
+  <<: *build_tpl
   stage: clear
   script:
-    - cd /home/docker
+    - cd /home/Unec/docker
     - docker-compose app exec php artisan config:cache
+    - docker image prune -a -f
 
