@@ -38,40 +38,38 @@
                 <div class="card-group">
                     <div class="row" style="justify-content: center;">
 
-                        @foreach($news as $single_news)
-                            <div class="col-lg-3 col-6">
-                                <div class="card" style="margin-bottom:2rem;">
+                        @foreach($advertisements as $advertisement)
+                        <div class="col-lg-3 col-6">
+                            <div class="card" style="margin-bottom:2rem;">
+                                <?php
+                                $gallery_image = App\Models\Gallery::find($advertisement->image);
+
+                                ?>
+                                <img class="card-img-top" style="width: 245px; height: 201px;" src="{{url('images/')}}/<?php echo $gallery_image->image ?>" alt="Card image cap">
+                                <div class="card-body">
+
                                     <?php
-                                    $gallery_image = App\Models\Gallery::find($single_news->image);
+
+                                    $category = App\Models\Advertisements_categories::find($advertisement->category_id);
 
                                     ?>
-                                    <img class="card-img-top" style="width: 245px; height: 201px;"
-                                         src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
-                                         alt="Card image cap">
-                                    <div class="card-body">
 
+                                    <span><?php echo $category->title; ?></span>
+                                    <p class="card-text"><a href="/advertisement/{{$advertisement->slug}}">
+                                           {{$advertisement->title}}
+                                        </a>
+                                    </p>
+                                    <span>
                                         <?php
 
-                                        $category = App\Models\News_categories::find($single_news->category_id);
-
+                                        echo date('d', strtotime($advertisement->created_at)).'-'.date('M', strtotime($advertisement->created_at)).'-'.date('Y', strtotime($advertisement->created_at));
                                         ?>
-
-                                        <span><?php echo $category->title; ?></span>
-                                        <p class="card-text"><a href="/single-news/{{$single_news->slug}}">
-                                                {{$single_news->title}}
-                                            </a>
-                                        </p>
-                                        <span>
-                                        <?php
-                                            echo date('d', strtotime($single_news->created_at)).'-'.date('M', strtotime($single_news->created_at)).'-'.date('Y', strtotime($single_news->created_at));
-
-                                         ?>
                                         </span>
-                                    </div>
                                 </div>
                             </div>
-                    @endforeach
-                    <!-- loading -->
+                        </div>
+                        @endforeach
+                        <!-- loading -->
                         <div class="loading" style="font-size:50px;--duration:2s;--num-dot:10;">
                             <div style="--index:0"></div>
                             <div style="--index:1"></div>

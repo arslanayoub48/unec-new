@@ -32,8 +32,7 @@ class EventsController extends Controller
             "editcols" => [
                 ["text" => "Başlıq", "name" => "title", "type" => "text", "placeholder" => "", "required" => "false", "value" => ""],
                 ["text" => "Məlumat", "name" => "info", "type" => "ckeditor", "placeholder" => "", "required" => "false", "value" => ""],
-                ["text" => "Ətraflı", "name" => "more", "type" => "ckeditor", "placeholder" => "", "required" => "false", "value" => ""]
-                , [
+                ["text" => "Ətraflı", "name" => "more", "type" => "ckeditor", "placeholder" => "", "required" => "false", "value" => ""], [
                     "text" => "Slider şəkilləri (Shortcode: [slider])",
                     "type" => "multifiles",
                     "name" => "slider",
@@ -42,7 +41,8 @@ class EventsController extends Controller
                     "value" => "",
                 ],
 
-                ["text" => "",
+                [
+                    "text" => "",
                     "name" => "slug",
                     "slug" => "title",
                     "type" => "hidden",
@@ -51,7 +51,8 @@ class EventsController extends Controller
                     "value" => ""
                 ],
 
-                ["text" => "",
+                [
+                    "text" => "",
                     "name" => "author",
                     "type" => "hidden",
                     "placeholder" => "",
@@ -60,7 +61,8 @@ class EventsController extends Controller
                 ],
 
 
-                ["text" => "Tədbirin başlama tarixi",
+                [
+                    "text" => "Tədbirin başlama tarixi",
                     "name" => "start_at",
                     "type" => "date",
                     "placeholder" => "",
@@ -78,7 +80,8 @@ class EventsController extends Controller
                     "value" => ""
                 ],
 
-                ["text" => "Tədbirin bitmə tarixi",
+                [
+                    "text" => "Tədbirin bitmə tarixi",
                     "name" => "end_at",
                     "type" => "date",
                     "placeholder" => "",
@@ -86,7 +89,8 @@ class EventsController extends Controller
                     "value" => ""
                 ],
 
-                ["text" => "Tədbirin keçiriləcəyi ünvan",
+                [
+                    "text" => "Tədbirin keçiriləcəyi ünvan",
                     "name" => "address",
                     "type" => "text",
                     "placeholder" => "",
@@ -94,7 +98,8 @@ class EventsController extends Controller
                     "value" => ""
                 ],
 
-                ["text" => "Tədbirin keçiriləcəyi dil",
+                [
+                    "text" => "Tədbirin keçiriləcəyi dil",
                     "name" => "event_language",
                     "type" => "multiselect",
                     "placeholder" => "",
@@ -104,7 +109,8 @@ class EventsController extends Controller
                     "value" => ""
                 ],
 
-                ["text" => "Tədbirin keçiriləcəyi tədris binası",
+                [
+                    "text" => "Tədbirin keçiriləcəyi tədris binası",
                     "name" => "korpus",
                     "type" => "select",
                     "selectdata" => Meta::multi(0, "tedris") ?? "Təyin olunmayıb",
@@ -114,7 +120,8 @@ class EventsController extends Controller
                     "value" => ""
                 ],
 
-                ["text" => "Tədbirin keçiriləcəyi forma",
+                [
+                    "text" => "Tədbirin keçiriləcəyi forma",
                     "name" => "event_type",
                     "selectdata" => [["id" => 0, "text" => "Əyahi"], ["id" => 1, "text" => "Distant"]],
                     "selectdatacol" => "text",
@@ -159,10 +166,10 @@ class EventsController extends Controller
         $request->session()->put("params", $params);
         return view("admin/datapage", ["params" => $params]);
     }
-//    public function show($slug){
-//        $event = Events::where("slug", $slug)->first();
-//        return view("website.static.event", ["event" => $event]);
-//    }
+    //    public function show($slug){
+    //        $event = Events::where("slug", $slug)->first();
+    //        return view("website.static.event", ["event" => $event]);
+    //    }
     public function filter(Request $request)
     {
         $filter = Events::filter($request)->get();
@@ -171,20 +178,18 @@ class EventsController extends Controller
 
     public function show($slug)
     {
-        $event = Events::where('slug',$slug)->first();
-        return view("website.static.events.singleEvent")->with('event',$event);
+        $event = Events::where('slug', $slug)->first();
+        return view("website.static.events.singleEvent")->with('event', $event);
     }
 
     public function index()
     {
 
-        $events = Events::where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish")->select('*',DB::raw('DATE_FORMAT(created_at,"%M %Y") date'))
+        $events = Events::where("locale", \App\Models\Wlang::getCurrent())->where("status", "publish")->select('*', DB::raw('DATE_FORMAT(created_at,"%M %Y") date'))
             ->get()
             ->groupBy('date');
         $events = $events->toArray();
 
-        return view("website.static.events.allEvents")->with('events',$events );
+        return view("website.static.events.allEvents")->with('events', $events);
     }
-
-
 }

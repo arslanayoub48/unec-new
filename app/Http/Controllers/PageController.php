@@ -119,6 +119,7 @@ class PageController extends Controller
 
     public function show($id)
     {
+
         if (view()->exists("website.dynamic." . $id))
             return view("website.dynamic." . $id);
         else {
@@ -126,8 +127,7 @@ class PageController extends Controller
             $page = Page::where("slug", 'LIKE', '%' . $id . '%')->where("locale", Wlang::getCurrent())->first();
             if ($page) {
 
-
-                return view("website.static.content", ["page" => $page]);
+                return view("website.dynamic.content", ["page" => $page]);
             }
         }
         return view("errors.404");

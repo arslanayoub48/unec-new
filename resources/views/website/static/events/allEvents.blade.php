@@ -52,7 +52,7 @@
                                         <span>
                                             <?php
 
-                                            echo date_parse_from_format('Y-m-d', $event['created_at'])['day'];;
+                                            echo date_parse_from_format('Y-m-d', $event['created_at'])['day'];
                                             ?></span>
                                                 <?php
                                                 echo preg_replace('/[0-9]+/', '', $key);

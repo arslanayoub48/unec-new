@@ -10,7 +10,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital@1&display=swap" rel="stylesheet">
+    <link href="{{ url('https://fonts.googleapis.com/css2?family=Libre+Franklin:ital@1&display=swap') }}" rel="stylesheet">
 
 
     <!--=========================================   CSS ======================================================-->
@@ -18,9 +18,9 @@
     <link rel="icon" href="{{ url('images/favicon_io/android-chrome-192x192.png') }}" type="image/png">
     <link rel="shortcut icon" href="{{ url('images/favicon_io/favicon.ico') }}" type="image/ico">
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    <link rel="stylesheet" href="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css') }}"
           integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{{ url('//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ url('demos/style.css') }}">
     <link href="{{ url('assets/style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ url('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css">
@@ -38,7 +38,7 @@
             <div class="container" style="position: relative;">
                 <div class="menu">
                     <button class="toggle-btn"><img src="{{ url('assets/images/icons/menu.svg') }}" alt="open-menu">
-                        MENYU
+                        {{ __('index.l_in_3') }}
                     </button>
                 </div>
 
@@ -49,7 +49,10 @@
                     <li><a href="#"><img src="{{ url('assets/images/icons/search.svg') }}" alt="search-icon"/></a>
                     </li>
                     <li><a href="#"><img src="{{ url('assets/images/icons/eye.svg') }}" alt="eye-icon"/></a></li>
-                    <li><a href="#">EN</a></li>
+                    @foreach(Illuminate\Support\Facades\DB::table('lang')->get() as $language)
+
+                    <li><a href="#"><?php echo strtoupper($language->slug) ?></a></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="container">
@@ -422,16 +425,16 @@
     </footer>
 </div>
 <!--=========================================  JAVASCRIPT ===============================================-->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+<script src="{{ url('https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js')}}"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+<script src="{{ url('https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js')}}"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
         crossorigin="anonymous"></script>
 
 <script src="{{ url('assets/main.js') }}" type="text/javascript"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+<script src="{{url('https://code.jquery.com/jquery-3.6.0.js')}}"></script>
+<script src="{{url('https://code.jquery.com/ui/1.13.1/jquery-ui.js')}}"></script>
 <script>
     $(function () {
         $("#datepicker").datepicker({

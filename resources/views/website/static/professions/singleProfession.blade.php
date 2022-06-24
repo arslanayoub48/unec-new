@@ -2,6 +2,8 @@
 
 @section("content")
 
+
+
     <main style="background-color:#fff;margin-bottom: 10rem">
         <section class="top-image-section">
             <div class="container">
@@ -10,7 +12,7 @@
                         <h2>ƏMƏKDAŞ VƏ MÜƏLLİMLƏR</h2>
                         <span class="d-lg-block d-none">İkİncİ başlıq</span>
                     </div>
-                    <img src="{{asset('assets/images/Xeberler page/image 1.png')}}" alt="image">
+                    <img src="assets/images/Xeberler page/image 1.png" alt="image">
                 </div>
             </div>
         </section>
@@ -28,89 +30,49 @@
         <section class="bey-section">
             <div class="container">
                 <div class="row fixpadding">
-                    <div class="col-md-12 col-lg-8">
+                    <div class="col-12 col-lg-8">
                         <div class="left">
-                            <h2>{{$event->title}}</h2>
-
-                            <?php
-
-                            $count = 1;
-                            $checked = count(json_decode($event->slider));
-
-                            $checked = round($checked / 2);
-                            $sliders = $event->slider
-                            ?>
-                            <div class="image-slider">
-                                <div id="slider">
-                                    @foreach(json_decode($event->slider) as $slider)
-
-                                        <?php
-                                        $slider_data = App\Models\Gallery::find($slider);
-
-                                        ?>
-
-                                        <input type="radio" name="slider"
-                                               id="s<?php echo $slider; $count++?>" <?php if ($count == $checked) {
-                                            echo "checked";
-                                        } ?>>
-
-
-
-                                    @endforeach
-                                    <?php
-
-                                    $count = 1;
-                                    ?>
-                                    @foreach(json_decode($event->slider) as $slider)
-
-                                        <?php
-                                        $slider_data = App\Models\Gallery::find($slider);
-
-                                        ?>
-
-
-
-                                        <label for="s<?php echo $slider ?>" id="slide<?php echo $count; $count++ ?>">
-
-                                            <img src="{{asset('images')}}/{{$slider_data->image}}" alt="image">
-
-                                        </label>
-
-                                    @endforeach
+                            <h2>Beynəlxalq ticarət və logistika ixtisası</h2>
+                            <img src="assets/images/Desktop-4/ColoniaDelSacramento.png" alt="post-image" />
+                            <div class="info">
+                                <div class="info-article">
+                                    <div><span>Rubrika</span></div>
                                 </div>
-                            </div>
-                            <div class="article">
-                                <div class="info">
-                                    <div class="info-article col-lg-6 col-12">
-
-                                        <div><span><?php
-                                                $category_name = \App\Models\Events_categories::find($event->category_id);
-                                                echo $category_name->title;
-                                                ?></span></div>
-                                    </div>
-                                    <div class="links">
-                                        <a href="#"><img src="{{asset('assets/images/Xəbər page/Frame.svg')}}" alt="twitter-icon"></a>
-                                        <a href="#"><img src="{{asset('assets/images/Xəbər page/Frame (1).svg')}}" alt="facebook-icon"></a>
-                                        <a href="#"><img src="{{asset('assets/images/Xəbər page/Frame (2).svg')}}" alt="linkedin-icon"></a>
-                                        <a href="#"><img src="{{asset('assets/images/Xəbər page/Frame (3).svg')}}" alt="youtube-icon"></a>
-                                        <a href="#"><img src="{{asset('assets/images/Xəbər page/Vector.svg')}}" alt="instagram-icon"></a>
-                                    </div>
+                                <div class="links">
+                                    <a href="#"><img src="assets/images/Xəbər page/Frame.svg" alt="twitter-icon"></a>
+                                    <a href="#"><img src="assets/images/Xəbər page/Frame (1).svg" alt="facebook-icon"></a>
+                                    <a href="#"><img src="assets/images/Xəbər page/Frame (2).svg" alt="linkedin-icon"></a>
+                                    <a href="#"><img src="assets/images/Xəbər page/Frame (3).svg" alt="youtube-icon"></a>
+                                    <a href="#"><img src="assets/images/Xəbər page/Vector.svg" alt="instagram-icon"></a>
                                 </div>
-
                             </div>
                             <article>
-                                <?php  echo $event->info; ?>
-                                <?php  echo $event->more; ?>
-
+                                <p>Beynəlxalq ticarət və logistika ixtisası dünya dövlətləri arasında yaranan iqtisadi münasibətlərin
+                                    xüsusi bir tipi olan
+                                    beynəlxalq ticarətin təşkilini, müxtəlif sistemlərdə müasir informasiya-kompüter texnologiyaları
+                                    vasitəsilə
+                                    maddi-material axınlarının, informasiya, maliyyə və insan resurslarının planlaşdırılmasını və idarə
+                                    olunmasını təmin
+                                    eləyən mütəxəssis hazırlayır. Məzunlar XXI əsrin ən tələb olunan peşəsi olan logistika ixtisasına
+                                    yiyələnərək maddi və
+                                    informasiya axınlarının idarə olunmasını təmin edir, eyni zamanda, təchizat zəncirlərinin idarə
+                                    olunması, beynəlxalq
+                                    nəqliyyat əməliyyatlarının təşkili, dünya nəqliyyat bazarının fəaliyyətinin nəzəri əsasları üzrə
+                                    bacarıqlara malik
+                                    olurlar. Xarici təchizat və tərəfdaşlarla işləməli olacaq məzunlar beynəlxalq iqtisadiyyatın
+                                    logistik inkişaf
+                                    istiqamətlərini, beynəlxalq biznesin logistik strukturlarını, beynəlxalq logistika menecmentini,
+                                    logistika xidmətlərini,
+                                    beynəlxalq logistika fəaliyyətinin hüquqi təminatını və s. bilmək imkanını əldə edirlər.
+                                </p>
                             </article>
-
                             <div class="accordion" id="accordionExample">
                                 <div class="card">
                                     <div class="card-header" id="headingOne">
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                                                     data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-                                                Yüksək ixtisaslı müəllim heyəti <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}"
+                                                Yüksək ixtisaslı müəllim heyəti <img src="assets/images/Desktop-4/Subtract.svg"
                                                                                      alt="Subtract icon">
                                             </button>
                                         </h2>
@@ -118,7 +80,7 @@
                                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -134,7 +96,7 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                     data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                                Müasir təhsil texnologiyaları <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}"
+                                                Müasir təhsil texnologiyaları <img src="assets/images/Desktop-4/Subtract.svg"
                                                                                    alt="Subtract icon">
                                             </button>
                                         </h2>
@@ -142,7 +104,7 @@
                                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -158,7 +120,7 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                                                     data-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                                Karyera imkanları <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}" alt="Subtract icon">
+                                                Karyera imkanları <img src="assets/images/Desktop-4/Subtract.svg" alt="Subtract icon">
                                             </button>
                                         </h2>
                                     </div>
@@ -166,7 +128,7 @@
                                          data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -175,7 +137,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -183,7 +145,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -192,7 +154,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -200,7 +162,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -215,7 +177,7 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                     data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                                İkili diplom proqramları <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}" alt="Subtract icon">
+                                                İkili diplom proqramları <img src="assets/images/Desktop-4/Subtract.svg" alt="Subtract icon">
                                             </button>
                                         </h2>
                                     </div>
@@ -223,7 +185,7 @@
                                          data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-2"><img src="{{asset('assets/images/Desktop-4/accordion-img.png" alt="accordion-img')}}" />
+                                                <div class="col-2"><img src="assets/images/Desktop-4/accordion-img.png" alt="accordion-img" />
                                                 </div>
                                                 <div class="col-10">
                                                     <p>Logistik şöbənin
@@ -238,7 +200,7 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
                                                     data-target="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
-                                                Mübadilə proqramları <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}" alt="Subtract icon">
+                                                Mübadilə proqramları <img src="assets/images/Desktop-4/Subtract.svg" alt="Subtract icon">
                                             </button>
                                         </h2>
                                     </div>
@@ -249,7 +211,7 @@
                                                 olunan Avropa və Türkiyə
                                                 universitetində bir semester həm oxuya, həm də səyahət edə bilərsiniz</h3>
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -258,7 +220,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -276,14 +238,14 @@
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                     data-target="#collapsesix" aria-expanded="false" aria-controls="collapsesix">
                                                 Təhsil proqramının strukturu
-                                                3 blokdan ibarətdir <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}" alt="Subtract icon">
+                                                3 blokdan ibarətdir <img src="assets/images/Desktop-4/Subtract.svg" alt="Subtract icon">
                                             </button>
                                         </h2>
                                     </div>
                                     <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -299,7 +261,7 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                     data-target="#collapseseven" aria-expanded="false" aria-controls="collapseseven">
-                                                Təqaüd <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}" alt="Subtract icon">
+                                                Təqaüd <img src="assets/images/Desktop-4/Subtract.svg" alt="Subtract icon">
                                             </button>
                                         </h2>
                                     </div>
@@ -307,7 +269,7 @@
                                          data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -323,7 +285,7 @@
                                         <h2 class="mb-0">
                                             <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
                                                     data-target="#collapseeight" aria-expanded="false" aria-controls="collapseeight">
-                                                2020/2021-ci ilin keçid balları <img src="{{asset('assets/images/Desktop-4/Subtract.svg')}}"
+                                                2020/2021-ci ilin keçid balları <img src="assets/images/Desktop-4/Subtract.svg"
                                                                                      alt="Subtract icon">
                                             </button>
                                         </h2>
@@ -332,7 +294,7 @@
                                          data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="row">
-                                                <div class="col-md-2 col-4"><img src="{{asset('assets/images/Desktop-4/accordion-img.png')}}"
+                                                <div class="col-md-2 col-4"><img src="assets/images/Desktop-4/accordion-img.png"
                                                                                  alt="accordion-img" />
                                                 </div>
                                                 <div class="col-md-10 col-8">
@@ -404,5 +366,4 @@
             </div>
         </section>
     </main>
-
 @endsection
