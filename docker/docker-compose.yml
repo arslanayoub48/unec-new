@@ -26,9 +26,9 @@ services:
     working_dir: /var/www/html
     command: composer install
 
-    artisan:
-      working_dir: /var/www/html
-      command: 'chmod -R 777 storage'
+  artisan:
+    working_dir: /var/www/html
+    command: 'chmod -R 777 storage'
   
 
   
