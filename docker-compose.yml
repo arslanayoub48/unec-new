@@ -1,51 +1,23 @@
 version: '3'
 services:
-
-  #PHP Service
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: digitalocean.com/php
-    container_name: app
-    restart: unless-stopped
-    tty: true
-    environment:
-      SERVICE_NAME: app
-      SERVICE_TAGS: dev
-    working_dir: /var/www
+ database:
+    image: mysql:latest
+    container_name: "Mysql"
+    restart: "no"
+    volumes:
+      - ./docker/database/init:/docker-entrypoint-initdb.d
+      - database:/var/lib/mysql
     networks:
-      - app-network
-
-  #Nginx Service
-  webserver:
-    image: nginx:alpine
-    container_name: webserver
-    restart: unless-stopped
-    tty: true
+      - laravel
     ports:
-      - "80:80"
-      - "443:443"
-    networks:
-      - app-network
-
-  #MySQL Service
-  db:
-    image: mysql:5.7.22
-    container_name: db
-    restart: unless-stopped
-    tty: true
-    ports:
-      - "3306:3306"
+      - 3306:3306
     environment:
       MYSQL_DATABASE: unec_db
-      MYSQL_ROOT_PASSWORD: '@password!'
-      SERVICE_TAGS: dev
-      SERVICE_NAME: mysql
-    networks:
-      - app-network
-
-#Docker Networks
-networks:
-  app-network:
-    driver: bridge
+      MYSQL_USER: root
+      MYSQL_PASSWORD: ''
+      MYSQL_ROOT_PASSWORD: ''
+    command: --default-authentication-plugin=mysql_native_password
+  app:
+    container_name: laravel
+    command: './docker/run.sh'
+  
