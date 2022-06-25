@@ -131,59 +131,46 @@
                     </div>
                     <div class="col-8" style="padding: 0 0 0 1rem;">
                         <div id="carouselExampleIndicators2" class="carousel slide" data-interval="false">
-                            <div class="carousel-inner" style="height: 400px;">
-
-                                <div class="carousel-item active">
-                                    <div class="row">
-
-                                        <div class="col-md-4">
-                                            <div class="content">
-                                                <img class="d-block"
-                                                     src="assets/images/unec-2-section/Rectangle 11.png"
-                                                     alt="item-image">
-                                                <p> {{ __('index.l_in_20') }}  </p>
-
+                            <div class="carousel-inner" style="height: 400px;">                                
+                               <?php 
+                                    $counter = 0; 
+                                    $i = 0;                                                
+                                ?>                                        
+                                    @while( $i < count( $filteredNews ) )         
+                                        <?php $datanews =  array_slice($filteredNews, $i, 3); ?>                                                                            
+                                        <div class="carousel-item {{ $i == 0 ?  'active' : '' }}">
+                                            <div class="row">
+                                                @if( $datanews )
+                                                    @foreach( $datanews as $n )
+                                                    <div class="col-md-4">
+                                                        <div class="content">
+                                                            @if( $n['image'] )
+                                                            @php
+                                                            $image = App\Models\Gallery::find($n['image']);
+                                                            @endphp  
+                                                            <div style="width:230px; height:200px; background-image:url({{ asset('images/' . $image->image ) }}); background-repeat: no-repeat;background-position: center;"></div>                                                                                                                      
+                                                            @endif
+                                                            <p> <a href="{{ route('single-news', $n['slug']) }}" >{{ $n['title'] }}</a></p>
+                                                        </div>
+                                                    </div>      
+                                                    @endforeach
+                                                @endif                                         
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="content">
-                                                <img class="d-block"
-                                                     src="assets/images/unec-2-section/Rectangle 11.png"
-                                                     alt="item-image">
-                                                <p>{{ __('index.l_in_20') }}</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="content">
-                                                <img class="d-block"
-                                                     src="assets/images/unec-2-section/Rectangle 11.png"
-                                                     alt="item-image">
-                                                <p>{{ __('index.l_in_20') }}</p>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-
-
-                                <div class="carousel-item">2
-                                </div>
-                                <div class="carousel-item">
-                                    2
-                                </div>
-                                <div class="carousel-item">
-                                    4
-                                </div>
+                                        <?php $i = $i+3; $counter++;  ?>                                    
+                                    @endwhile                                    
+                                                     
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="3"></li>
-                            </ol>
-                        </div>
+                            @if( $counter ) 
+                                <ol class="carousel-indicators">
+                                    @php($i = 0)                                                                   
+                                    @while( $i < $counter )
+                                        <li data-target="#carouselExampleIndicators2" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>
+                                        @php( $i++)
+                                    @endwhile                                                                   
+                                </ol>
+                            @endif
+                        </div>                
                     </div>
                 </div>
             </div>

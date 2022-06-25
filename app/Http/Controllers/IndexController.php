@@ -25,14 +25,13 @@ class IndexController extends Controller
 
     public function index()
     {
-        $filteredNews = TagsFilter::getTagsData('news');
+        $filteredNews = TagsFilter::getTagsData('news')->toArray();
         //$data['filteredAds'] = TagsFilter::getTagsData('ads');
-        $filteredEvents = TagsFilter::getTagsData('events');
 
+        $filteredEvents = TagsFilter::getTagsData('events');
         $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
-      
-       return view("website.indexNew",["filteredNews"=>$filteredNews,"filteredEvents"=>$filteredEvents,"news"=>$news,"advertisements"=>$advertisements]);
+        return view("website.indexNew", ["filteredNews" => $filteredNews, "filteredEvents" => $filteredEvents, "news" => $news, "advertisements" => $advertisements]);
     }
 
     function dataPageAction(Request $request)
@@ -60,6 +59,4 @@ class IndexController extends Controller
         }
         return view("admin/login");
     }
-
-
 }
