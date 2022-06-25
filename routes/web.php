@@ -83,7 +83,7 @@ Route::get("/lang/{lang}", "LangController@change")->name('lang.change');
 Route::get("/image/{id}", "ImageController@show");
 //HELPERS
 
-Route::get("/single-news/{slug}", "NewsController@show")->name('single-news');
+Route::get("/single-news/{slug}", "NewsController@show");
 Route::get("/news", "NewsController@index");
 Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
