@@ -151,6 +151,7 @@
                                                             <div style="width:230px; height:200px; background-image:url({{ asset('images/' . $image->image ) }}); background-repeat: no-repeat;background-position: center;"></div>                                                                                                                      
                                                             @endif
                                                             <p> <a href="/single-news/{{$n['slug']}}" >{{ $n['title'] }}</a></p>
+
                                                         </div>
                                                     </div>      
                                                     @endforeach

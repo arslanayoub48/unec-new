@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get("/news", "NewsController@list")->name('admin.news');
     Route::get("/news_categories", "News_categoriesController@list")->name('admin.news_categories');
 
-    // Event Section
+    // Event SectionEventsController
     Route::get("/events", "EventsController@list")->name('admin.events');
     Route::get("/events_categories", "Events_categoriesController@list")->name('admin.events_categories');
 
@@ -83,7 +83,9 @@ Route::get("/lang/{lang}", "LangController@change")->name('lang.change');
 Route::get("/image/{id}", "ImageController@show");
 //HELPERS
 
-Route::get("/single-news/{slug}", "NewsController@show");
+
+Route::get("/single-news/{slug}", "NewsController@show")->name('single_news');
+
 Route::get("/news", "NewsController@index");
 Route::get("/news/tag/{tag}", "NewsController@tagFilter");
 
