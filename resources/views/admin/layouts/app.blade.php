@@ -29,6 +29,7 @@
     <link href="/build/css/custom.css?20" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <style>
       html{
         zoom:.9;
@@ -431,5 +432,7 @@ function removeImage(id, name = null){
 
   </script>
    
+   @yield('custom_js')
+
   </body>
 </html>

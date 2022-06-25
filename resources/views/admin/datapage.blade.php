@@ -19,18 +19,23 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                     @if(isset($params["actions"]))
-                    @foreach($params["actions"] as $action )
-                        @if(!isset($action["position"]) || $action["position"] != "top") 
-                          @continue
-                        @endif
-                        <a  class="btn btn-success" href="{{$action['link']}}">
-                                  <i class="{{$action['icon']}}"></i>
-                                  {{$action["text"]}}
-                              </a>
-                      
-                      @endforeach
-                  </ul>
+                      @foreach($params["actions"] as $action )
+                          @if(!isset($action["position"]) || $action["position"] != "top") 
+                            @continue
+                          @endif
+                          <a  class="btn btn-success" href="{{$action['link']}}">
+                              <i class="{{$action['icon']}}"></i>
+                              {{$action["text"]}}
+                          </a>                      
+                      @endforeach                  
                     @endif
+                    
+                    @if($showmodel)
+                      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modelId">
+                        Add New
+                      </button>
+                    @endif
+
                 </div>
               </div>
 
@@ -177,59 +182,121 @@
                             </tr>
                         @endforeach
                       </tbody>
-                    </table>
-					
-					
+                    </table>							
                   </div>
-                  </div>
-                  </div>
-                  </div>
+        </div>
+    </div>
+</div>
 
-              <script>
-                 setTimeout(() => {
-                  $("#reservation").attr("onchange", "DateFilter(this.value)")
-                 }, 300);
-                  function doAction(id, action,func){
-                      if(action == "remove"){
-                          $.post("/dataPageAction", {_token: '{{ csrf_token() }}', id, action})
-                          window.location.reload();
-                      }
-                      if(action == "redirect"){
-                          window.location.href = func+"&id=" + id;
-                      }
-                      
-                      if(action == "custom"){
-                          $.post("/dataPageAction", {_token: '{{ csrf_token() }}', id, action,cmd:func})
-                          window.location.reload();
-                      }
-                      if(action == "create"){
-                          window.location.href = "/dataPageAction&action=create";
-                      }
-                  }
-                  function removeElement(url){
-                    Swal.fire({
-                        title: 'Are you sure?',
-                        text: "You won't be able to revert this!",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: 'Yes, delete it!'
-                      }).then((result) => {
-                        if (result.isConfirmed) {
-                          window.location.href = url;
-                        }
-                      });
-      
-                  }
-                  function DateFilter(value){
-                    var datearray = value.split('-');
-                    var start_at = datearray[0];
-                    var end_at = datearray[1];
-                    start_at = start_at.replace(" ", "");
-                    end_at = end_at.replace(" ", "");
-                    window.location.href = '/dataPageAction?action=filter&start_at='+start_at+'&end_at='+end_at
-                  }
-              </script>
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+  <div class="modal-dialog" role="document">    
+    <div class="modal-content">
+        <form   action="">       
+          <div class="modal-header">
+              <h5 class="modal-title">Add New</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+              <div class="form-group">
+                <label for="">Add Tags By multiselect</label>
+                <select class="form-control tagsselect" name="tags[]" ata-role="tagsinput"  multiple="multiple">
+                  <option value="tag-1">tag-1</option>
+                  <option value="tag-2">tag-2</option>
+                  <option value="tag-3">tag-3</option>
+                  <option value="tag-4">tag-4</option>
+                  <option value="tag-5">tag-5</option>
+                  <option value="tag-6">tag-6</option>
+                  <option value="tag-7">tag-7</option>
+                  <option value="tag-8">tag-8</option>                                    
+                </select>               
+              </div>            
+              Use as your need and remove other one.
+              <div class="form-group">  
+                <label for="">Add Tags by Input</label>
+                <input type="text" class="form-control" data-role="tagsinput" name="tags" id="" value="Amsterdam,Washington,Sydney,Beijing,Cairo">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+              </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+@section('custom_js')
+<link href="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" rel="stylesheet">
+<script src="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
+
+
+<script>
+  
+$(document).ready(function () {
+
+$('.tagsinput,.tagsselect').tagsinput({
+    tagClass: 'label label-primary'
+  });
+
+});
+
+</script>
+
+
+
+@endsection
+
+<script>
+  setTimeout(() => {
+    $("#reservation").attr("onchange", "DateFilter(this.value)")
+  }, 300);
+    function doAction(id, action,func){
+        if(action == "remove"){
+            $.post("/dataPageAction", {_token: '{{ csrf_token() }}', id, action})
+            window.location.reload();
+        }
+        if(action == "redirect"){
+            window.location.href = func+"&id=" + id;
+        }
+        
+        if(action == "custom"){
+            $.post("/dataPageAction", {_token: '{{ csrf_token() }}', id, action,cmd:func})
+            window.location.reload();
+        }
+        if(action == "create"){
+            window.location.href = "/dataPageAction&action=create";
+        }
+    }
+    function removeElement(url){
+      Swal.fire({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.href = url;
+          }
+        });
+
+    }
+    function DateFilter(value){
+      var datearray = value.split('-');
+      var start_at = datearray[0];
+      var end_at = datearray[1];
+      start_at = start_at.replace(" ", "");
+      end_at = end_at.replace(" ", "");
+      window.location.href = '/dataPageAction?action=filter&start_at='+start_at+'&end_at='+end_at
+    }    
+</script>
 
 @endsection
