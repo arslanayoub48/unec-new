@@ -15,7 +15,7 @@ class TagsFilter extends Model
 
     public static function getTagsData($category)
     {
-
+        $ids_array=[];
         try {
 
             $tags = TagsFilter::where('category', $category)->select('tags')->first();

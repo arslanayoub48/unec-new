@@ -95,15 +95,15 @@
                             <h2>{{ __('index.l_in_7') }}</h2>
                         </div>
                         <div class="card">
-                            <img src="/assets/images/unec-group/Vector (2).svg" alt="icon">                            
+                            <img src="/assets/images/unec-group/Vector (2).svg" alt="icon">
                             <h2>{{ __('index.l_in_8') }}</h2>
                         </div>
                         <div class="card">
-                            <img src="/assets/images/unec-group/Frame (1).svg" alt="icon">                            
+                            <img src="/assets/images/unec-group/Frame (1).svg" alt="icon">
                             <h2>{{ __('index.l_in_9') }}</h2>
                         </div>
                         <div class="card">
-                            <img src="/assets/images/unec-group/Frame (2).svg" alt="icon">                            
+                            <img src="/assets/images/unec-group/Frame (2).svg" alt="icon">
                             <h2>{{ __('index.l_in_10') }}</h2>
                         </div>
                         <div class="card hidden">
@@ -123,7 +123,7 @@
                         <p style="opacity: 45%;">{{ __('index.l_in_13') }}</p>
                         <p style="opacity: 45%;">{{ __('index.l_in_14') }}</p>
                         <p style="opacity: 45%;">{{ __('index.l_in_15') }}</p>
-                        <p style="opacity: 45%;">{{ __('index.l_in_16') }}</p>                                                         
+                        <p style="opacity: 45%;">{{ __('index.l_in_16') }}</p>
                         <div style="margin-top: 2rem;">
                             <span>{{ __('index.l_in_18') }}</span>
                             <span>{{ __('index.l_in_19') }}</span>
@@ -132,7 +132,7 @@
                     <div class="col-8" style="padding: 0 0 0 1rem;">
                         <div id="carouselExampleIndicators2" class="carousel slide" data-interval="false">
                             <div class="carousel-inner" style="height: 400px;">
-                                
+
                                 <div class="carousel-item active">
                                     <div class="row">
 
@@ -194,87 +194,55 @@
                 <div class="row">
                     <div class="col-12 col-lg-2">
                         <blockquote>
-                            {{ __('index.l_in_21') }}                            
+                            {{ __('index.l_in_21') }}
                         </blockquote>
                         <span class="d-none d-lg-block">{{ __('index.l_in_22') }}</span>
                     </div>
                     <div class="card-group col-12 col-lg-10">
                         <div id="myCarousel" class="carousel slide w-100" data-interval="false">
                             <div class="carousel-inner w-100" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14.png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>{{ __('index.l_in_23') }}</span>
-                                                <p class="card-text"><a href="#">
-                                                    {{ __('index.l_in_20') }}                 
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
+                                <?php $active = true;
+                                if ($filteredEvents){
+
+                                ?>
+                                @foreach($filteredEvents as $filteredEvent)
+                                    <div class="carousel-item <?php if ($active){ echo "active"; $active = false; }?>">
+
+                                        <div class="col-lg-3 col-md-6 col-12">
+                                            <div class="card" style="height: 444px; width: 210px; margin-left: -10px;">
+                                                <?php
+                                                $slider = json_decode($filteredEvent->slider);
+                                                if ($slider){
+
+                                                $gallery_image = App\Models\Gallery::find($slider[0]);
+
+                                                ?>
+                                                    <img style="height: 244px; width: 190px;"  class="card-img-top"
+                                                         src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
+                                                         alt="Card image cap">
+                                                    <?php } ?>
+                                                <div class="card-body">
+                                                    <span>{{ __('index.l_in_23') }}</span>
+                                                    <p class="card-text"><a href="#">
+                                                        {{$filteredEvent->title}}
+                                                        </a>
+                                                    </p>
+                                                    <span>Aprel 04, 2022</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14 (1).png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                    {{ __('index.l_in_20') }}                
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14 (2).png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                    {{ __('index.l_in_20') }}                
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14 (3).png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                    {{ __('index.l_in_20') }}                
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
+                                <?php }?>
                             </div>
                             <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                                <?php $active = true; $count=0;
+                                if ($filteredEvents){
+                                ?>
+                                @foreach($filteredEvents as $filteredEvent)
+                                <li data-target="#myCarousel" data-slide-to="<?php echo $count; $count++?>" class="<?php if ($active){ echo "active"; $active = false; }?>"></li>
+                                    @endforeach
+                                    <?php }?>
                             </ol>
                         </div>
                         <span class="d-block d-lg-none ml-auto">  {{ __('index.l_in_22') }}</span>
@@ -356,7 +324,8 @@
                         <div class="title">
                             <h2>{{ __('index.advertisements') }}</h2>
 
-                            <a href="/advertisements"><span class="d-none d-lg-block">{{ __('index.all_advertisements') }}</span></a>
+                            <a href="/advertisements"><span
+                                        class="d-none d-lg-block">{{ __('index.all_advertisements') }}</span></a>
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
@@ -653,9 +622,10 @@
                         <div id="faxricarousel" class="carousel slide" data-interval="false">
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                   <div class="card">
+                                    <div class="card">
                                         <span>{{ __('index.37') }}</span>
-                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
+                                        <img class="card-img-top"
+                                             src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('index.38') }}</h5>
                                             <p class="card-text">
@@ -698,7 +668,8 @@
                                 <div class="carousel-item active">
                                     <div class="card">
                                         <span>{{ __('index.37') }}</span>
-                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
+                                        <img class="card-img-top"
+                                             src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
                                         <div class="card-body">
                                             <h5 class="card-title">{{ __('index.38') }}</h5>
                                             <p class="card-text">
