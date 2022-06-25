@@ -56,7 +56,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get("/news", "NewsController@list")->name('admin.news');
     Route::get("/news_categories", "News_categoriesController@list")->name('admin.news_categories');
 
-    // Event Section
+    // Event SectionEventsController
     Route::get("/events", "EventsController@list")->name('admin.events');
     Route::get("/events_categories", "Events_categoriesController@list")->name('admin.events_categories');
 

@@ -29,7 +29,8 @@
     <link href="/build/css/custom.css?20" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
+    <link href="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" rel="stylesheet">
+    <script src="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <style>
       html{
         zoom:.9;
@@ -47,9 +48,13 @@
       .text-white{
         color:#fff;
       }
+
+      .bootstrap-select .dropdown-menu.inner li {
+        font-size: 15px;
+      }
+
     </style>
     
-   
   </head>
 
   <body class="nav-md">

@@ -33,8 +33,6 @@ class CommonComposer
         $showRoute = [
             'admin.news',
             'admin.events',
-            'admin.news_categories',
-            'admin.events_categories',
         ];
 
         if (in_array($route, $showRoute)) {

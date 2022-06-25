@@ -225,32 +225,24 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-primary">Save</button>
-        </div>
+        </div> 
     </form>
     </div>
   </div>
 </div>
 
-@section('custom_js')
-<link href="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" rel="stylesheet">
-<script src="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
-
-
 <script>
   
-$(document).ready(function () {
-
-$('.tagsinput,.tagsselect').tagsinput({
-    tagClass: 'label label-primary'
+  $(document).ready(function () {
+     
+  $('.tagsinput,.tagsselect').tagsinput({
+      tagClass: 'label label-primary'
+    });
+  
   });
-
-});
-
+  
 </script>
-
-
-
-@endsection
+  
 
 <script>
   setTimeout(() => {
