@@ -95,5 +95,10 @@ Route::get("/empty-page", function () {
     return view("website.static.emptyPage");
 });
 
+//Subscribe
+Route::post("/subscribe", "SubscriptionController@store")->name('subscribe');
+
+Route::get("/subscriptions", "SubscriptionController@index")->name('index');
+
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');

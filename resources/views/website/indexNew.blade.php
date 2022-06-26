@@ -223,7 +223,7 @@
                                                     <?php } ?>
                                                 <div class="card-body">
                                                     <span>{{ __('index.l_in_23') }}</span>
-                                                    <p class="card-text"><a href="#">
+                                                    <p class="card-text"><a href="/single-event/{{$filteredEvent->slug}}">
                                                         {{$filteredEvent->title}}
                                                         </a>
                                                     </p>

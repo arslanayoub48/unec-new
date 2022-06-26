@@ -106,10 +106,13 @@
                         </div>
                     </div>
                     <div class="col-lg-4 d-none d-lg-block">
-                        <form class="filter">
+                        <form class="filter" id="my_form">
+                            @csrf
                             <div class="subscribe">
-                                <input placeholder="Email daxil edin" type="email" name="email" id="email"/>
-                                <input type="submit" value="ABUNƏ OLUN">
+
+                                <input placeholder="Email daxil edin" type="email" class="icon" name="email" id="textfield1" />
+                                <input type="submit" onclick="sendForm()" value="ABUNƏ OLUN">
+                            
                             </div>
                             <div class="title">
                                 <h2>{{ __('index.70') }}</h2>
@@ -194,6 +197,36 @@
                 selectOtherMonths: true
             });
         });
+    </script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function sendForm(){
+            $.ajax({
+                type: "POST",
+                url: "{{route('subscribe')}}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: jQuery("#my_form").serialize(),
+                cache: false,
+                success:  function(data){
+
+                    if(data.status  == "200"){
+                        document.getElementById('textfield1').value = "";
+                        toastr.success(data.message);
+                    }
+                    if(data.status == "400"){
+
+                        toastr.error(data.message);
+                    }
+
+                }
+            });
+        }
     </script>
     <script src="{{ asset('assets/main.js') }}" type="text/javascript"></script>
 @endsection
