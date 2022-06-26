@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TagsFilter;
+use http\Env\Response;
 use Illuminate\Http\Request;
 use App\Models\Events;
 use App\Models\Wlang;
 use App\Models\Meta;
 use App\Models\Events_categories;
 use Illuminate\Support\Facades\DB;
+use phpDocumentor\Reflection\DocBlock\Tag;
 
 class EventsController extends Controller
 {
@@ -192,4 +195,57 @@ class EventsController extends Controller
 
         return view("website.static.events.allEvents")->with('events', $events);
     }
+
+
+    public function filterTag(Request $request)
+    {
+
+        if ($request->has('eventstags')) {
+            $events_tags = $request['eventstags'];
+
+            $previous_tags = TagsFilter::where('category', 'events')->first();
+            if ($previous_tags) {
+                $events_tags = array_merge($events_tags, json_decode($previous_tags->tags));
+
+                $events_tags = array_unique($events_tags);
+                $events_tags = json_encode (array_values($events_tags));
+                $previous_tags->tags = $events_tags;
+                $previous_tags->save();
+                echo $events_tags;
+            }
+            else{
+                $events_tags = json_encode (array_values($events_tags));
+                TagsFilter::create([
+                    "tags"=>$events_tags,
+                    "category"=>"events",
+                ]);
+            }
+
+
+        } elseif ($request->has('newstags')) {
+            $news_tags = $request['newstags'];
+
+            $previous_tags = TagsFilter::where('category', 'news')->first();
+            if ($previous_tags) {
+                $news_tags = array_merge($news_tags, json_decode($previous_tags->tags));
+
+                $news_tags = array_unique($news_tags);
+                $news_tags = json_encode (array_values($news_tags));
+                $previous_tags->tags = $news_tags;
+                $previous_tags->save();
+                echo $news_tags;
+            }
+            else{
+                $news_tags = json_encode (array_values($news_tags));
+                TagsFilter::create([
+                    "tags"=>$news_tags,
+                    "category"=>"news",
+                ]);
+
+                echo $news_tags;
+                return response()->json($news_tags);
+            }
+        }
+    }
+
 }

@@ -61,6 +61,8 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get("/events_categories", "Events_categoriesController@list")->name('admin.events_categories');
 
     Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);
+    // Filter Tags
+    Route::post("/add-tags-filter", "EventsController@filterTag")->name('add-tags-filter');
 });
 
 
