@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Advertisements;
 use App\Models\Menu;
 use App\Models\News;
+use App\Models\Social;
 use App\Models\TagsFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -28,11 +29,11 @@ class IndexController extends Controller
         $filteredNews = TagsFilter::getTagsData('news');
         //$data['filteredAds'] = TagsFilter::getTagsData('ads');
         $filteredEvents = TagsFilter::getTagsData('events');
-
+        $socials = Social::orderBy("id", "DESC")->take(2)->get();
         $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
       
-       return view("website.indexNew",["filteredNews"=>$filteredNews,"filteredEvents"=>$filteredEvents,"news"=>$news,"advertisements"=>$advertisements]);
+       return view("website.indexNew",["filteredNews"=>$filteredNews,"filteredEvents"=>$filteredEvents,"news"=>$news,"advertisements"=>$advertisements,"socials"=>$socials]);
     }
 
     function dataPageAction(Request $request)
