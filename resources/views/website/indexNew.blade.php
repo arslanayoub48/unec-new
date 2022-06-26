@@ -510,14 +510,18 @@
                     <p>{{ __('index.33') }}</p>
                 </div>
                 <div class="images-group">
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7875.png')}}" alt="image">
+
+                    <div>
+                        <img src="{{url('assets/images/sosial-section/Rectangle 7875.png')}}" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                     </div>
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7876.png')}}" alt="image">
+                    <div>
+                        <img src="{{url('assets/images/sosial-section/Rectangle 7876.png')}}" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                     </div>
                     <div class="images">
-                        <div><img src="{{url('assets/images/sosial-section/Rectangle 7878.png')}}" class="w-100"
+                        <div>
+                            <img src="{{url('assets/images/sosial-section/Rectangle 7878.png')}}" class="w-100"
                                   alt="image">
                             <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                         </div>

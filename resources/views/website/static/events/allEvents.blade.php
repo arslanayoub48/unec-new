@@ -112,7 +112,7 @@
 
                                 <input placeholder="Email daxil edin" type="email" class="icon" name="email" id="textfield1" />
                                 <input type="submit" onclick="sendForm()" value="ABUNƏ OLUN">
-                            
+
                             </div>
                             <div class="title">
                                 <h2>{{ __('index.70') }}</h2>

@@ -97,8 +97,11 @@ Route::get("/empty-page", function () {
 
 //Subscribe
 Route::post("/subscribe", "SubscriptionController@store")->name('subscribe');
-
 Route::get("/subscriptions", "SubscriptionController@index")->name('index');
 
+
+//Social
+Route::get('/social',"SocialController@index")->name('social');
+Route::post('/add-social',"SocialController@store")->name('add-social');
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');
