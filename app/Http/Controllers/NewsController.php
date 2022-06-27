@@ -134,7 +134,7 @@ class NewsController extends Controller
         $all_news = News::where("locale", \App\Models\Wlang::getCurrent())->get();
 
         foreach ($all_news as $single_news) {
-            if(json_decode($single_news->tags)) {
+            if (json_decode($single_news->tags)) {
                 foreach (json_decode($single_news->tags) as $tag) {
                     if ($tag == $requestTag) {
                         $news_array[] = $single_news->id;

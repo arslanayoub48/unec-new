@@ -164,10 +164,10 @@
                             </div>
                             @if( $counter ) 
                                 <ol class="carousel-indicators">
-                                    @php($i = 0)                                                                   
+                                    @php $i = 0; @endphp                                                                   
                                     @while( $i < $counter )
                                         <li data-target="#carouselExampleIndicators2" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>
-                                        @php( $i++)
+                                    @php $i++;  @endphp
                                     @endwhile                                                                   
                                 </ol>
                             @endif
@@ -189,39 +189,37 @@
                     <div class="card-group col-12 col-lg-10">
                         <div id="myCarousel" class="carousel slide w-100" data-interval="false">
                             <div class="carousel-inner w-100" role="listbox">
-                                <?php $active = true;
-                                if ($filteredEvents){
+                                @php $active = true;  @endphp
+                                @if($filteredEvents)                                    
+                                    @foreach($filteredEvents as $filteredEvent)
+                                        <div class="carousel-item <?php if($active){ echo "active"; $active = false; }?>">
 
-                                ?>
-                                @foreach($filteredEvents as $filteredEvent)
-                                    <div class="carousel-item <?php if ($active){ echo "active"; $active = false; }?>">
+                                            <div class="col-lg-3 col-md-6 col-12">
+                                                <div class="card" style="height: 444px; width: 210px; margin-left: -10px;">
+                                                    <?php                                                   
+                                                    $slider = json_decode($filteredEvent->slider);
+                                                    if ($slider){
 
-                                        <div class="col-lg-3 col-md-6 col-12">
-                                            <div class="card" style="height: 444px; width: 210px; margin-left: -10px;">
-                                                <?php
-                                                $slider = json_decode($filteredEvent->slider);
-                                                if ($slider){
+                                                    $gallery_image = App\Models\Gallery::find($slider[0]);
 
-                                                $gallery_image = App\Models\Gallery::find($slider[0]);
-
-                                                ?>
-                                                    <img style="height: 244px; width: 190px;"  class="card-img-top"
-                                                         src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
-                                                         alt="Card image cap">
-                                                    <?php } ?>
-                                                <div class="card-body">
-                                                    <span>{{ __('index.l_in_23') }}</span>
-                                                    <p class="card-text"><a href="#">
-                                                        {{$filteredEvent->title}}
-                                                        </a>
-                                                    </p>
-                                                    <span>Aprel 04, 2022</span>
+                                                    ?>
+                                                        <img style="height: 244px; width: 190px;"  class="card-img-top"
+                                                            src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
+                                                            alt="Card image cap">
+                                                        <?php } ?>
+                                                    <div class="card-body">
+                                                        <span>{{ __('index.l_in_23') }}</span>
+                                                        <p class="card-text"><a href="#">
+                                                            {{$filteredEvent->title}}
+                                                            </a>
+                                                        </p>
+                                                        <span>Aprel 04, 2022</span>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
-                                <?php }?>
+                                    @endforeach
+                                @endif
                             </div>
                             <ol class="carousel-indicators">
                                 <?php $active = true; $count=0;
@@ -605,40 +603,42 @@
         <!-- FƏXRİ-section -->
         <section class="faxri">
             <div class="container">
-                <div class="row">
+                <div class="row">                    
                     <div class="col-lg-3 col-12">
                         <div id="faxricarousel" class="carousel slide" data-interval="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card">
-                                        <span>{{ __('index.37') }}</span>
-                                        <img class="card-img-top"
-                                             src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ __('index.38') }}</h5>
-                                            <p class="card-text">
-                                                {{ __('index.39') }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    2
-                                </div>
-                                <div class="carousel-item">
-                                    3
-                                </div>
-                                <div class="carousel-item">
-                                    4
-                                </div>
+                            <div class="carousel-inner" style="height: 400px;">
+                                @php  $counter = 0; @endphp
+                                @if( $titles )
+                                    @php $i = 0; @endphp
+                                    @foreach( $titles as $title )
+                                        @if( $title->side == 'left')                                    
+                                            <div style="overflow: hidden;" class="carousel-item {{ $i == 0  ? 'active' : '' }}">
+                                                <div class="card">
+                                                    <span>{{ $title->surename }}</span>
+                                                    <img class="card-img-top" style="with:96px; height:96px;" src="{{ asset('storage/images/' . $title->image ) }}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $title->title }}</h5>
+                                                        <p class="card-text">
+                                                            {{ $title->description }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @php $i++; $counter++; @endphp
+                                        @endif                                             
+                                    @endforeach
+                                @endif                                                                                                                                                                           
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#faxricarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#faxricarousel" data-slide-to="1"></li>
-                                <li data-target="#faxricarousel" data-slide-to="2"></li>
-                                <li data-target="#faxricarousel" data-slide-to="3"></li>
-                            </ol>
-                        </div>
+                            @if( $counter )                               
+                                <ol class="carousel-indicators">
+                                    @php $i = 0;  @endphp                                                                   
+                                    @while( $i < $counter )
+                                        <li data-target="#faxricarousel" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>                                        
+                                        @php $i++;  @endphp
+                                    @endwhile                                                                   
+                                </ol>
+                            @endif
+                        </div>                      
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="card middle-card">
@@ -651,38 +651,40 @@
                         </div>
                     </div>
                     <div class="col-lg-3 col-12">
-                        <div id="faxricarousel" class="carousel slide" data-interval="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card">
-                                        <span>{{ __('index.37') }}</span>
-                                        <img class="card-img-top"
-                                             src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}">
-                                        <div class="card-body">
-                                            <h5 class="card-title">{{ __('index.38') }}</h5>
-                                            <p class="card-text">
-                                                {{ __('index.39') }}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    2
-                                </div>
-                                <div class="carousel-item">
-                                    3
-                                </div>
-                                <div class="carousel-item">
-                                    4
-                                </div>
+                        <div id="faxricarousel" class="carousel slide faxricarousel1" data-interval="false">
+                            <div class="carousel-inner" style="height: 400px;">
+                                @php  $counter = 0; @endphp
+                                @if( $titles )
+                                    @php $i = 0; @endphp
+                                    @foreach( $titles as $title )
+                                        @if( $title->side == 'right')                                    
+                                            <div style="overflow: hidden;" class="carousel-item {{ $i == 0  ? 'active' : '' }}">
+                                                <div class="card">
+                                                    <span>{{ $title->surename }}</span>
+                                                    <img class="card-img-top" style="with:96px; height:96px;" src="{{ asset('storage/images/' . $title->image ) }}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $title->title }}</h5>
+                                                        <p class="card-text">
+                                                            {{ $title->description }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @php $i++; $counter++; @endphp
+                                        @endif                                             
+                                    @endforeach
+                                @endif                                                                                                                                                                           
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#faxricarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#faxricarousel" data-slide-to="1"></li>
-                                <li data-target="#faxricarousel" data-slide-to="2"></li>
-                                <li data-target="#faxricarousel" data-slide-to="3"></li>
-                            </ol>
-                        </div>
+                            @if( $counter ) 
+                                <ol class="carousel-indicators">
+                                    @php $i = 0;  @endphp                                                                   
+                                    @while( $i < $counter )
+                                        <li data-target=".faxricarousel1" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>                                        
+                                        @php $i++;  @endphp
+                                    @endwhile                                                                   
+                                </ol>
+                            @endif
+                        </div>                      
                     </div>
                 </div>
             </div>

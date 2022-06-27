@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Database\Eloquent\Builder;
+use App\Models\Wlang;
 use DB;
 
 class CommonComposer
@@ -29,6 +30,7 @@ class CommonComposer
     public function compose(View $view)
     {
         $showModel = false;
+
         $route  =   Route::currentRouteName();
         $showRoute = [
             'admin.news',
@@ -40,7 +42,9 @@ class CommonComposer
         }
 
         $data['showmodel'] = $showModel;
-        $data['languages'] = DB::table('lang')->get();
+        $data['languages'] = Wlang::all();
+        $data['current_lang'] = Wlang::getCurrent();
+
         $view->with($data);
     }
 }

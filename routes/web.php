@@ -51,6 +51,7 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
 
 
     Route::get("/tags", "IndexController@tags");
+    Route::get("/tags", "IndexController@tags");
 
     // News Sections
     Route::get("/news", "NewsController@list")->name('admin.news');
@@ -63,6 +64,9 @@ Route::group(['prefix' => 'admin',  'middleware' => ['auth']], function () {
     Route::get('logout/', ['as' => 'logout', 'uses' => 'UsersController@destroy']);
     // Filter Tags
     Route::post("/add-tags-filter", "EventsController@filterTag")->name('add-tags-filter');
+
+    //Titles
+    Route::resource('titles', TitleController::class);
 });
 
 

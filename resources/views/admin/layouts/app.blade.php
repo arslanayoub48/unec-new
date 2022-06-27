@@ -55,6 +55,8 @@
 
     </style>
     
+    @yield('custom_css')
+
   </head>
 
   <body class="nav-md">
@@ -116,6 +118,12 @@
                       <li ><a href="/admin/events_categories" class="text-white"><i class="fa fa-edit"></i>Tədbir Kategoriyaları</a></li>
                     </ul>
                   </li>
+
+                  <li><a href="{{ route('titles.index') }}"><i class="fa fa-edit"></i>başlıqlar</a>
+                    <ul>
+                      <li ><a href="{{ route('titles.create') }}" class="text-white"><i class="fa fa-edit"></i>Yeni əlavə et</a></li>
+                    </ul>
+                  </li>                  
                   
                   <program></program>
                   <!-- <li><a><i class="fa fa-desktop"></i> Menu <span class="fa fa-chevron-down"></span></a>

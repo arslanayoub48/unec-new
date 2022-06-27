@@ -187,7 +187,6 @@
                                                 @endif
                                             </ul>
                                         </div>
-
                                     </td>
                                 @endif
                             </tr>

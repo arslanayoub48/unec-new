@@ -16,10 +16,12 @@ class CreateTitlesTable extends Migration
         Schema::create('titles', function (Blueprint $table) {
             $table->id();
             $table->string('title')->nullable();
-            $table->integer('image')->nullable();
+            $table->string('image')->nullable();
+            $table->string('image_url')->nullable();
             $table->string('name')->nullable();
             $table->string('surename')->nullable();
             $table->string('description')->nullable();
+            $table->enum('side', ['left', 'right'])->default('left');
             $table->timestamps();
         });
     }
