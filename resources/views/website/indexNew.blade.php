@@ -521,7 +521,7 @@
                     ?>
                     <div><a href="{{$socials[0]->url}}">
                         <img style="width: 270px; height: 312px;"
-                             src="{{url('images/')}}/<?php echo $socials[0]->image ?>" alt="image"></a>
+                             src="{{url('images/social')}}/<?php echo $socials[0]->image ?>" alt="image"></a>
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
 
                     </div> <?php }  ?> <?php   if (!empty($socials[1])){
@@ -529,7 +529,7 @@
                     ?>
                     <div><a href="{{$socials[1]->url}}">
                         <img style="width: 270px; height: 312px;"
-                             src="{{url('images/')}}/<?php echo $socials[1]->image ?>" alt="image"></a>
+                             src="{{url('images/social')}}/<?php echo $socials[1]->image ?>" alt="image"></a>
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
 
                     </div>
@@ -541,7 +541,7 @@
                         ?>
                         <div><a href="{{$socials[2]->url}}">
                             <img style="width: 300px; height: 156px;"
-                                 src="{{url('images/')}}/<?php echo $socials[2]->image ?>" class="w-100"
+                                 src="{{url('images/social')}}/<?php echo $socials[2]->image ?>" class="w-100"
                                  alt="image"></a>
                             <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                         </div>
@@ -552,7 +552,7 @@
                             ?>
                             <div><a href="{{$socials[3]->url}}">
                                 <img style="width: 154px; height: 157px;"
-                                      src="{{url('images/')}}/<?php echo $socials[3]->image ?>"
+                                      src="{{url('images/social')}}/<?php echo $socials[3]->image ?>"
                                       style="min-height: 102%;"
                                      alt="image"></a>
                                 <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
@@ -566,7 +566,7 @@
 
 
                                 <img style="width: 154px; height: 157px;"
-                                      src="{{url('images/')}}/<?php echo $socials[4]->image ?>"
+                                      src="{{url('images/social')}}/<?php echo $socials[4]->image ?>"
                                       style="min-height: 102%;"
                                       alt="image">
                                 </a>
@@ -579,7 +579,7 @@
                     ?>
                     <div><a href="{{$socials[5]->url}}">
                         <img style="width: 270px; height: 312px;"
-                             src="{{url('images/')}}/<?php echo $socials[5]->image ?>" alt="image"></a>
+                             src="{{url('images/social')}}/<?php echo $socials[5]->image ?>" alt="image"></a>
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
 
                     </div>
@@ -628,7 +628,7 @@
                 <div class="horizontal-scroll">
                     @foreach($youtube_videos as $youtube_video)
                     <div class="horizontal-scroll__item">
-                        <img style="width: 222px; height: 320px;" src="{{url('images/youtube')}}/{{$youtube_video->image}}" alt="image">
+                        <img style="width: 222px; height: 320px;" src="{{url('images/review')}}/{{$youtube_video->image}}" alt="image">
                         <div class="cover">
 
                             <div class="content">

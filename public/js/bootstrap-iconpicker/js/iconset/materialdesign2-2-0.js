@@ -826,8 +826,8 @@ $.iconset_materialdesign = {
         'zmdi zmdi-wrench',
         'zmdi zmdi-xbox',
         'zmdi zmdi-yahoo',
-        'zmdi zmdi-youtube',
-        'zmdi zmdi-youtube-play',
+        'zmdi zmdi-review',
+        'zmdi zmdi-review-play',
         'zmdi zmdi-zero',
         'zmdi zmdi-zoom-in',
         'zmdi zmdi-zoom-out'
