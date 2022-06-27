@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Advertisements;
 use App\Models\Menu;
 use App\Models\News;
+use App\Models\Review;
 use App\Models\Social;
 use App\Models\TagsFilter;
 use Illuminate\Http\Request;
@@ -26,12 +27,11 @@ class IndexController extends Controller
 
     public function index()
     {
-        $engines = ['facebook','instagram','linkedIn','twitter'];
         $filteredNews = TagsFilter::getTagsData('news');
         //$data['filteredAds'] = TagsFilter::getTagsData('ads');
         $filteredEvents = TagsFilter::getTagsData('events');
-        $socials = Social::orderBy("id", "DESC")->whereIn('engine',$engines)->take(6)->get();
-        $youtube_videos = Social::orderBy("id", "DESC")->where('engine','youtube')->take(5)->get();
+        $socials = Social::orderBy("id", "DESC")->take(6)->get();
+        $youtube_videos = Review::orderBy("id", "DESC")->take(5)->get();
         $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
       
