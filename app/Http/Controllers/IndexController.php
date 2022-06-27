@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Advertisements;
 use App\Models\Menu;
 use App\Models\News;
+use App\Models\Social;
 use App\Models\TagsFilter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -26,15 +27,17 @@ class IndexController extends Controller
 
     public function index()
     {
-        $filteredNews = TagsFilter::getTagsData('news')->toArray();
-        //$data['filteredAds'] = TagsFilter::getTagsData('ads');
 
+        $engines = ['facebook', 'instagram', 'linkedIn', 'twitter'];
+        $filteredNews = TagsFilter::getTagsData('news');
+        //$data['filteredAds'] = TagsFilter::getTagsData('ads');
         $filteredEvents = TagsFilter::getTagsData('events');
+        $socials = Social::orderBy("id", "DESC")->whereIn('engine', $engines)->take(6)->get();
+        $youtube_videos = Social::orderBy("id", "DESC")->where('engine', 'youtube')->take(5)->get();
         $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
         $titles = Title::all();
-
-        return view("website.indexNew", ["filteredNews" => $filteredNews, "filteredEvents" => $filteredEvents, "news" => $news, "advertisements" => $advertisements, 'titles' => $titles]);
+        return view("website.indexNew", ["filteredNews" => $filteredNews, "filteredEvents" => $filteredEvents, "news" => $news, "advertisements" => $advertisements, "socials" => $socials, "youtube_videos" => $youtube_videos, 'titles' => $titles]);
     }
 
     function dataPageAction(Request $request)

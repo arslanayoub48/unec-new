@@ -131,6 +131,7 @@
                     </div>
                     <div class="col-8" style="padding: 0 0 0 1rem;">
                         <div id="carouselExampleIndicators2" class="carousel slide" data-interval="false">
+
                             <div class="carousel-inner" style="height: 400px;">                                
                                <?php 
                                     $counter = 0; 
@@ -151,6 +152,7 @@
                                                             <div style="width:230px; height:200px; background-image:url({{ asset('images/' . $image->image ) }}); background-repeat: no-repeat;background-position: center;"></div>                                                                                                                      
                                                             @endif
                                                             <p> <a href="/single-news/{{$n['slug']}}" >{{ $n['title'] }}</a></p>
+
 
                                                         </div>
                                                     </div>      
@@ -222,13 +224,17 @@
                                 @endif
                             </div>
                             <ol class="carousel-indicators">
-                                <?php $active = true; $count=0;
+                                <?php $active = true; $count = 0;
                                 if ($filteredEvents){
                                 ?>
                                 @foreach($filteredEvents as $filteredEvent)
-                                <li data-target="#myCarousel" data-slide-to="<?php echo $count; $count++?>" class="<?php if ($active){ echo "active"; $active = false; }?>"></li>
-                                    @endforeach
-                                    <?php }?>
+                                    <li data-target="#myCarousel" data-slide-to="<?php echo $count; $count++?>"
+                                        class="<?php if ($active) {
+                                            echo "active";
+                                            $active = false;
+                                        }?>"></li>
+                                @endforeach
+                                <?php }?>
                             </ol>
                         </div>
                         <span class="d-block d-lg-none ml-auto">  {{ __('index.l_in_22') }}</span>
@@ -496,35 +502,67 @@
                     <p>{{ __('index.33') }}</p>
                 </div>
                 <div class="images-group">
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7875.png')}}" alt="image">
+                    <?php  if (!empty($socials[0]->image)){
+                    ?>
+                    <div>
+                        <img style="width: 270px; height: 312px;"
+                             src="{{url('images/')}}/<?php echo $socials[0]->image ?>" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
-                    </div>
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7876.png')}}" alt="image">
+
+                    </div> <?php }  ?> <?php   if (!empty($socials[1])){
+
+                    ?>
+                    <div>
+                        <img style="width: 270px; height: 312px;"
+                             src="{{url('images/')}}/<?php echo $socials[1]->image ?>" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
+
                     </div>
+                    <?php } ?>
+
                     <div class="images">
-                        <div><img src="{{url('assets/images/sosial-section/Rectangle 7878.png')}}" class="w-100"
-                                  alt="image">
+                        <?php   if (!empty($socials[2])){
+
+                        ?>
+                        <div>
+                            <img style="width: 300px; height: 156px;"
+                                 src="{{url('images/')}}/<?php echo $socials[2]->image ?>" class="w-100"
+                                 alt="image">
                             <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                         </div>
+                        <?php  }?>
                         <div class="d-flex">
-                            <div><img src="{{url('assets/images/sosial-section/Rectangle 7879.png')}}" class="w-100"
+                            <?php  if (!empty($socials[3])){
+
+                            ?>
+                            <div><img style="width: 154px; height: 157px;"
+                                      src="{{url('images/')}}/<?php echo $socials[3]->image ?>"
                                       style="min-height: 102%;"
                                       alt="image">
-                                <img class="icon" src="{{url('assets/images/Faktlar-section/Vector (3).svg')}}"
-                                     alt="icon">
+                                <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
+
                             </div>
-                            <div><img src="{{url('assets/images/sosial-section/Rectangle 7880.png')}}" class="w-100"
+                            <?php }?>
+                            <?php  if (!empty($socials[4])){
+
+                            ?>
+                            <div><img style="width: 154px; height: 157px;"
+                                      src="{{url('images/')}}/<?php echo $socials[4]->image ?>"
                                       style="min-height: 102%;"
                                       alt="image">
                                 <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                             </div>
+                            <?php } ?>
                         </div>
                     </div>
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7877.png')}}" alt="image">
+                    <?php  if (!empty($socials[5])){
+                    ?>
+                    <div><img style="width: 270px; height: 312px;"
+                              src="{{url('images/')}}/<?php echo $socials[5]->image ?>" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
 
                     </div>
+                    <?php  }?>
                 </div>
                 <div class="social-icons text-center">
                     <a href="#"><img src="{{url('assets/images/sosial-section/Frame.svg')}}" alt="twitter-icon"></a>
@@ -550,52 +588,37 @@
                         <p>{{ __('index.34') }}</p>
                     </div>
                 </div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                                Modal content
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="horizontal-scroll">
+                    @foreach($youtube_videos as $youtube_video)
                     <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7881.png')}}" alt="image">
+                        <img style="width: 222px; height: 320px;" src="{{url('images/youtube')}}/{{$youtube_video->image}}" alt="image">
                         <div class="cover">
+
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>{{ __('index.35') }}</h5>
+                                <h5>{{$youtube_video->title}}</h5>
                             </div>
+
                         </div>
                     </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7882.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>{{ __('index.35') }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7883.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>{{ __('index.35') }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7884.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>{{ __('index.35') }}</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7885.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>{{ __('index.35') }}</h5>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
                 <a href="#" class="d-block d-md-none text-center">{{ __('index.36') }}</a>
             </div>

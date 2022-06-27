@@ -43,7 +43,7 @@ class TagsFilter extends Model
                 }
             }
             if ($category == "news") {
-                $data = News::whereIn("id", $ids_array)->get();
+                $data = News::whereIn("id", $ids_array)->get()->toArray();
             } elseif ($category == "events") {
                 $data = Events::whereIn("id", $ids_array)->get();
 

@@ -307,15 +307,19 @@ $content = json_decode($content);
                 </div>
             </div>
         </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-4">
-                    <form class="newsletter">
+                    <form class="newsletter" id="my_form" method="POST">
+                        @csrf
                         <img src="{{url('assets/images/footer/logo sayt ag 2.svg')}}" alt="logo">
                         <div class="newsletter-input">
-                            <img src="{{url('assets/images/footer/Vector (5).svg')}}" alt="icon">
-                            <input type="email" class="icon" name="email" id="email" placeholder="Email daxil edin">
+
+                            <input type="email" class="icon" name="email" id="textfield1" placeholder="Email daxil edin">
+                    <img src="{{url('assets/images/footer/Vector (5).svg')}} "  onclick="sendForm()" alt="icon">
                             <span>{{ __('index.41') }}</span>
+
                         </div>
                     </form>
                 </div>
@@ -423,7 +427,45 @@ $content = json_decode($content);
     });
 </script>
 
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    function sendForm(){
+        $.ajax({
+            type: "POST",
+            url: "{{route('subscribe')}}",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: jQuery("#my_form").serialize(),
+            cache: false,
+            success:  function(data){
 
+                if(data.status  == "200"){
+                    document.getElementById('textfield1').value = "";
+                    toastr.success(data.message);
+                }
+                if(data.status == "400"){
+
+                    toastr.error(data.message);
+                }
+
+            }
+        });
+    }
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
+     alpha/css/bootstrap.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </body>
 
 </html>
