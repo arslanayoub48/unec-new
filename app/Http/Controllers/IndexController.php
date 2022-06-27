@@ -26,14 +26,16 @@ class IndexController extends Controller
 
     public function index()
     {
+        $engines = ['facebook','instagram','linkedIn','twitter'];
         $filteredNews = TagsFilter::getTagsData('news');
         //$data['filteredAds'] = TagsFilter::getTagsData('ads');
         $filteredEvents = TagsFilter::getTagsData('events');
-        $socials = Social::orderBy("id", "DESC")->take(2)->get();
+        $socials = Social::orderBy("id", "DESC")->whereIn('engine',$engines)->take(6)->get();
+        $youtube_videos = Social::orderBy("id", "DESC")->where('engine','youtube')->take(5)->get();
         $news = News::orderBy("id", "DESC")->where("status", "publish")->take(4)->get();
         $advertisements = Advertisements::orderBy("id", "DESC")->where("locale", \App\Models\Wlang::getCurrent())->get();
       
-       return view("website.indexNew",["filteredNews"=>$filteredNews,"filteredEvents"=>$filteredEvents,"news"=>$news,"advertisements"=>$advertisements,"socials"=>$socials]);
+       return view("website.indexNew",["filteredNews"=>$filteredNews,"filteredEvents"=>$filteredEvents,"news"=>$news,"advertisements"=>$advertisements,"socials"=>$socials,"youtube_videos"=>$youtube_videos]);
     }
 
     function dataPageAction(Request $request)
