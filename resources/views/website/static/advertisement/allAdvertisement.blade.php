@@ -2,16 +2,15 @@
 
 @section("content")
 
-
     <main>
         <section style="background: #fff" class="top-image-section">
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>XƏBƏRLƏR</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{ __('index.l_in_24') }}</h2>
+                        <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
-                    <img src="{{asset('assets/images/Xeberler page/image 1.png')}}" alt="image">
+                    <img src="{{asset('assets/images/Xeberler page/imİkİncİ başlıqage 1.png')}}" alt="image">
                 </div>
             </div>
         </section>
@@ -21,12 +20,12 @@
                 <nav aria-label="breadcrumb" style="margin-bottom: 3rem;">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">UNEC</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Xəbərlər</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('index.l_in_24') }}</li>
                     </ol>
                 </nav>
                 <div class="title">
                     <div>
-                        <h2>Xəbərlər</h2>
+                        <h2>{{ __('index.l_in_24') }}</h2>
                     </div>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                         <option selected>Rubrika</option>

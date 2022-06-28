@@ -40,8 +40,7 @@
                                     <div class="content">
                                         <img class="d-block" src="assets/images/unec-2-section/Rectangle 11.png"
                                              alt="item-image">
-                                        <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                            mərkəzidir.</p>
+                                        <p>{{ __('index.l_in_4') }}</p>
                                     </div>
                                 </div>
                                 <div class="col-6">
@@ -58,7 +57,7 @@
                                 <div class="content">
                                     <img class="d-block" src="assets/images/unec-2-section/Rectangle 13.png"
                                          alt="item-image">
-                                    <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris mərkəzidir.</p>
+                                    <p>{{ __('index.l_in_4') }}</p>
                                 </div>
                             </div>
                         </div>
@@ -85,31 +84,31 @@
                     <div class="row">
                         <div class="card">
                             <img src="/assets/images/unec-group/Vector.svg" alt="icon">
-                            <h2>Müəllİm KABİNETİ</h2>
+                            <h2>{{ __('index.l_in_5') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Frame.svg" alt="icon">
-                            <h2>tələbə KABİNETİ</h2>
+                            <h2>{{ __('index.l_in_6') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Vector (1).svg" alt="icon">
-                            <h2>Fakültələr</h2>
+                            <h2>{{ __('index.l_in_7') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Vector (2).svg" alt="icon">
-                            <h2>kafedralar</h2>
+                            <h2>{{ __('index.l_in_8') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Frame (1).svg" alt="icon">
-                            <h2>İxtİsaslar</h2>
+                            <h2>{{ __('index.l_in_9') }}</h2>
                         </div>
                         <div class="card">
                             <img src="/assets/images/unec-group/Frame (2).svg" alt="icon">
-                            <h2>əməkdaşlar</h2>
+                            <h2>{{ __('index.l_in_10') }}</h2>
                         </div>
                         <div class="card hidden">
                             <img src="/assets/images/unec-group/Frame (3).svg" alt="icon">
-                            <h2>Karyera mərkəzİ</h2>
+                            <h2>{{ __('index.l_in_11') }}</h2>
                         </div>
                     </div>
                 </div>
@@ -120,80 +119,61 @@
             <div class="container">
                 <div class="row">
                     <div class="content-col col-4">
-                        <h2>UNEC - GƏLƏCƏYİN UNİVERSİTETİ</h2>
-                        <p style="opacity: 45%;">UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                            mərkəzidir.
-                            Universitetdə tədris prosesi
-                            və
-                            kadr
-                            hazırlığı Amerika və Avropa təhsil sisteminə uyğundur.</p>
-                        <p style="opacity: 45%;">İxtisaslar bakalavriat, magistratura və doktorantura təhsil pillələri
-                            üzrə
-                            azərbaycan, ingilis, rus və
-                            türk
-                            dillərində
-                            tədris edilir.</p>
-                        <p style="opacity: 45%;">Tələbələr universiteti iki və daha çox ixtisas üzrə (dual major) bitirə
-                            və
-                            müxtəlif
-                            mübadilə
-                            proqramlarında
-                            iştirak edə
-                            bilərlər.</p>
-                        <p style="opacity: 62%;"><b>Davamlı inkişaf yolunda bizimlə birgə addımlayın!
-                                Gələcək hədəflərimizə birlikdə nail olaq!</b></p>
+                        <h2>{{ __('index.l_in_12') }}</h2>
+                        <p style="opacity: 45%;">{{ __('index.l_in_13') }}</p>
+                        <p style="opacity: 45%;">{{ __('index.l_in_14') }}</p>
+                        <p style="opacity: 45%;">{{ __('index.l_in_15') }}</p>
+                        <p style="opacity: 45%;">{{ __('index.l_in_16') }}</p>
                         <div style="margin-top: 2rem;">
-                            <span>UNEC REKTORU</span>
-                            <span>PROF. ƏDALƏT MURADOV</span>
+                            <span>{{ __('index.l_in_18') }}</span>
+                            <span>{{ __('index.l_in_19') }}</span>
                         </div>
                     </div>
                     <div class="col-8" style="padding: 0 0 0 1rem;">
                         <div id="carouselExampleIndicators2" class="carousel slide" data-interval="false">
-                            <div class="carousel-inner" style="height: 400px;">
-                                <div class="carousel-item active">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="content">
-                                                <img class="d-block" src="assets/images/unec-2-section/Rectangle 11.png"
-                                                     alt="item-image">
-                                                <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                    mərkəzidir.</p>
+
+                            <div class="carousel-inner" style="height: 400px;">                                
+                               <?php 
+                                    $counter = 0; 
+                                    $i = 0;                                                
+                                ?>                                        
+                                    @while( $i < count( $filteredNews ) )         
+                                        <?php $datanews =  array_slice($filteredNews, $i, 3); ?>                                                                            
+                                        <div class="carousel-item {{ $i == 0 ?  'active' : '' }}">
+                                            <div class="row">
+                                                @if( $datanews )
+                                                    @foreach( $datanews as $n )
+                                                    <div class="col-md-4">
+                                                        <div class="content">
+                                                            @if( $n['image'] )
+                                                            @php
+                                                            $image = App\Models\Gallery::find($n['image']);
+                                                            @endphp  
+                                                            <div style="width:230px; height:200px; background-image:url({{ asset('images/' . $image->image ) }}); background-repeat: no-repeat;background-position: center;"></div>                                                                                                                      
+                                                            @endif
+                                                            <p> <a href="/single-news/{{$n['slug']}}" >{{ $n['title'] }}</a></p>
+
+
+                                                        </div>
+                                                    </div>      
+                                                    @endforeach
+                                                @endif                                         
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
-                                            <div class="content">
-                                                <img class="d-block" src="assets/images/unec-2-section/Rectangle 12.png"
-                                                     alt="item-image">
-                                                <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                    mərkəzidir.</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="content">
-                                                <img class="d-block" src="assets/images/unec-2-section/Rectangle 13.png"
-                                                     alt="item-image">
-                                                <p>UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                    mərkəzidir.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">2
-                                </div>
-                                <div class="carousel-item">
-                                    2
-                                </div>
-                                <div class="carousel-item">
-                                    4
-                                </div>
+                                        <?php $i = $i+3; $counter++;  ?>                                    
+                                    @endwhile                                    
+                                                     
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="0" class="active"></li>
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="1"></li>
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="2"></li>
-                                <li data-target="#carouselExampleIndicators2" data-slide-to="3"></li>
-                            </ol>
-                        </div>
+                            @if( $counter ) 
+                                <ol class="carousel-indicators">
+                                    @php $i = 0; @endphp                                                                   
+                                    @while( $i < $counter )
+                                        <li data-target="#carouselExampleIndicators2" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>
+                                    @php $i++;  @endphp
+                                    @endwhile                                                                   
+                                </ol>
+                            @endif
+                        </div>                
                     </div>
                 </div>
             </div>
@@ -204,95 +184,60 @@
                 <div class="row">
                     <div class="col-12 col-lg-2">
                         <blockquote>
-                            “Rəqəmsal iqtisadiyyat: müasir çağırışlar və real imkanlar” mövzusunda II beynəlxalq
-                            konfrans
+                            {{ __('index.l_in_21') }}
                         </blockquote>
-                        <span class="d-none d-lg-block">Bütün bölmələr</span>
+                        <span class="d-none d-lg-block">{{ __('index.l_in_22') }}</span>
                     </div>
                     <div class="card-group col-12 col-lg-10">
                         <div id="myCarousel" class="carousel slide w-100" data-interval="false">
                             <div class="carousel-inner w-100" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14.png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
+                                @php $active = true;  @endphp
+                                @if($filteredEvents)                                    
+                                    @foreach($filteredEvents as $filteredEvent)
+                                        <div class="carousel-item <?php if($active){ echo "active"; $active = false; }?>">
+
+                                            <div class="col-lg-3 col-md-6 col-12">
+                                                <div class="card" style="height: 444px; width: 210px; margin-left: -10px;">
+                                                    <?php                                                   
+                                                    $slider = json_decode($filteredEvent->slider);
+                                                    if ($slider){
+
+                                                    $gallery_image = App\Models\Gallery::find($slider[0]);
+
+                                                    ?>
+                                                        <img style="height: 244px; width: 190px;"  class="card-img-top"
+                                                            src="{{url('images/')}}/<?php echo $gallery_image->image ?>"
+                                                            alt="Card image cap">
+                                                        <?php } ?>
+                                                    <div class="card-body">
+                                                        <span>{{ __('index.l_in_23') }}</span>
+                                                        <p class="card-text"><a href="#">
+                                                            {{$filteredEvent->title}}
+                                                            </a>
+                                                        </p>
+                                                        <span>Aprel 04, 2022</span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14 (1).png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14 (2).png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-lg-3 col-md-6 col-12">
-                                        <div class="card">
-                                            <img class="card-img-top"
-                                                 src="assets/images/rəqəmsal-section/Rectangle 14 (3).png"
-                                                 alt="Card image cap">
-                                            <div class="card-body">
-                                                <span>Fakültə</span>
-                                                <p class="card-text"><a href="#">
-                                                        UNEC regionda iqtisad elmini dərindən öyrədən fundamental tədris
-                                                        mərkəzidir.
-                                                    </a>
-                                                </p>
-                                                <span>Aprel 04, 2022</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    @endforeach
+                                @endif
                             </div>
                             <ol class="carousel-indicators">
-                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#myCarousel" data-slide-to="1"></li>
-                                <li data-target="#myCarousel" data-slide-to="2"></li>
-                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                                <?php $active = true; $count = 0;
+                                if ($filteredEvents){
+                                ?>
+                                @foreach($filteredEvents as $filteredEvent)
+                                    <li data-target="#myCarousel" data-slide-to="<?php echo $count; $count++?>"
+                                        class="<?php if ($active) {
+                                            echo "active";
+                                            $active = false;
+                                        }?>"></li>
+                                @endforeach
+                                <?php }?>
                             </ol>
                         </div>
-                        <span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
+                        <span class="d-block d-lg-none ml-auto">  {{ __('index.l_in_22') }}</span>
                     </div>
                 </div>
             </div>
@@ -302,8 +247,8 @@
             <div class="container">
                 <div class="title">
                     <div>
-                        <h2>Xəbərlər</h2>
-                        <a href="/news"> <span>Bütün xəbərlər</span></a>
+                        <h2>{{ __('index.l_in_24') }}</h2>
+                        <a href="/news"> <span>{{ __('index.l_in_22') }}</span></a>
 
                     </div>
                     <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
@@ -345,7 +290,7 @@
                                                          <?php
                                                         echo date('d', strtotime($single_news->created_at)) . ' ' . date('M', strtotime($single_news->created_at)) . ',' . date('Y', strtotime($single_news->created_at));
                                                         ?>
-                                        </span>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
@@ -369,9 +314,10 @@
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="title">
-                            <h2>Elanlar</h2>
+                            <h2>{{ __('index.advertisements') }}</h2>
 
-                            <a href="/advertisements"><span class="d-none d-lg-block">Bütün elanlar</span></a>
+                            <a href="/advertisements"><span
+                                        class="d-none d-lg-block">{{ __('index.all_advertisements') }}</span></a>
                         </div>
                         <div class="card-group">
                             <div id="elanlarCarousel" class="carousel slide w-100" data-interval="false">
@@ -398,10 +344,10 @@
                                                         </h5>
                                                         <div class="">
                                                             @if(json_decode($advertisement->tags))
-                                                            @foreach(json_decode($advertisement->tags) as $tag)
-                                                                <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
+                                                                @foreach(json_decode($advertisement->tags) as $tag)
+                                                                    <a href="/advertisement/tag/{{$tag}}">#{{$tag}}</a>
 
-                                                            @endforeach
+                                                                @endforeach
                                                             @endif
                                                         </div>
                                                         <p><?php
@@ -434,7 +380,7 @@
 
                             </div>
                         </div>
-                        <div class="title"><span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
+                        <div class="title"><span class="d-block d-lg-none ml-auto">{{ __('index.l_in_22') }}</span>
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -442,7 +388,7 @@
                             <div class="title">
 
                                 <h2>Tədbirlər</h2>
-                                <a href="/events"> <span class="d-none d-lg-block">Bütün tədbirlər</span></a>
+                                <a href="/events"> <span class="d-none d-lg-block">{{ __('index.l_in_23') }}</span></a>
 
                             </div>
 
@@ -477,7 +423,7 @@
                             </ul>
 
                             <div class="title">
-                                <span class="d-block d-lg-none ml-auto">Bütün bölmələr</span>
+                                <span class="d-block d-lg-none ml-auto">{{ __('index.l_in_22') }}</span>
                             </div>
                         </div>
                     </div>
@@ -490,50 +436,54 @@
                 <div class="faktlar-border">
                     <div class="row">
                         <div class="col-lg-4 col-12 title">
-                            <span>Faktlar</span>
+                            <span>{{ __('index.l_in_27') }}</span>
                             <h2>UNEC</h2>
-                            <h3>Rəqəmlərlə</h3>
+                            <h3>{{ __('index.l_in_28') }}</h3>
                         </div>
                         <div class="col-lg-8 col-12">
                             <div class="card-group">
                                 <div class="row">
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector.svg')}}"
+                                            <img class="card-img-top"
+                                                 src="{{url('assets/images/Faktlar-section/Vector.svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">18.200</h5>
-                                                <span>Tələbə sayı</span>
+                                                <span>{{ __('index.l_in_29') }}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector (1).svg')}}"
+                                            <img class="card-img-top"
+                                                 src="{{url('assets/images/Faktlar-section/Vector (1).svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">403</h5>
-                                                <span>Professor və dosent</span>
+                                                <span>{{ __('index.l_in_30') }}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector (2).svg')}}"
+                                            <img class="card-img-top"
+                                                 src="{{url('assets/images/Faktlar-section/Vector (2).svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">10</h5>
-                                                <span>Fakültə</span>
+                                                <span>{{ __('index.l_in_23') }}</span>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-6">
                                         <div class="card">
-                                            <img class="card-img-top" src="{{url('assets/images/Faktlar-section/Vector (3).svg')}}"
+                                            <img class="card-img-top"
+                                                 src="{{url('assets/images/Faktlar-section/Vector (3).svg')}}"
                                                  alt="Card image cap">
                                             <div class="card-body">
                                                 <h5 class="card-text">23</h5>
-                                                <span>Kafedra</span>
+                                                <span>{{ __('index.l_in_31') }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -548,44 +498,81 @@
         <section class="sosial">
             <div class="container">
                 <div class="title text-center">
-                    <h2>#UNEC kəşf et</h2>
-                    <p>Sosial hesablarımızla tanış olun</p>
+                    <h2>{{ __('index.32') }}</h2>
+                    <p>{{ __('index.33') }}</p>
                 </div>
                 <div class="images-group">
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7875.png')}}" alt="image">
+                    <?php  if (!empty($socials[0]->image)){
+                    ?>
+                    <div>
+                        <img style="width: 270px; height: 312px;"
+                             src="{{url('images/')}}/<?php echo $socials[0]->image ?>" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
-                    </div>
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7876.png')}}" alt="image">
+
+                    </div> <?php }  ?> <?php   if (!empty($socials[1])){
+
+                    ?>
+                    <div>
+                        <img style="width: 270px; height: 312px;"
+                             src="{{url('images/')}}/<?php echo $socials[1]->image ?>" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
+
                     </div>
+                    <?php } ?>
+
                     <div class="images">
-                        <div><img src="{{url('assets/images/sosial-section/Rectangle 7878.png')}}" class="w-100" alt="image">
+                        <?php   if (!empty($socials[2])){
+
+                        ?>
+                        <div>
+                            <img style="width: 300px; height: 156px;"
+                                 src="{{url('images/')}}/<?php echo $socials[2]->image ?>" class="w-100"
+                                 alt="image">
                             <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                         </div>
+                        <?php  }?>
                         <div class="d-flex">
-                            <div><img src="{{url('assets/images/sosial-section/Rectangle 7879.png')}}" class="w-100"
+                            <?php  if (!empty($socials[3])){
+
+                            ?>
+                            <div><img style="width: 154px; height: 157px;"
+                                      src="{{url('images/')}}/<?php echo $socials[3]->image ?>"
                                       style="min-height: 102%;"
                                       alt="image">
-                                <img class="icon" src="{{url('assets/images/Faktlar-section/Vector (3).svg')}}" alt="icon">
+                                <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
+
                             </div>
-                            <div><img src="{{url('assets/images/sosial-section/Rectangle 7880.png')}}" class="w-100"
+                            <?php }?>
+                            <?php  if (!empty($socials[4])){
+
+                            ?>
+                            <div><img style="width: 154px; height: 157px;"
+                                      src="{{url('images/')}}/<?php echo $socials[4]->image ?>"
                                       style="min-height: 102%;"
                                       alt="image">
                                 <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
                             </div>
+                            <?php } ?>
                         </div>
                     </div>
-                    <div><img src="{{url('assets/images/sosial-section/Rectangle 7877.png')}}" alt="image">
+                    <?php  if (!empty($socials[5])){
+                    ?>
+                    <div><img style="width: 270px; height: 312px;"
+                              src="{{url('images/')}}/<?php echo $socials[5]->image ?>" alt="image">
                         <img class="icon" src="{{url('assets/images/sosial-section/insta.svg')}}" alt="icon">
 
                     </div>
+                    <?php  }?>
                 </div>
                 <div class="social-icons text-center">
                     <a href="#"><img src="{{url('assets/images/sosial-section/Frame.svg')}}" alt="twitter-icon"></a>
-                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (1).svg')}}" alt="facebook-icon"></a>
-                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (2).svg')}}" alt="linkedin-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (1).svg')}}"
+                                     alt="facebook-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (2).svg')}}"
+                                     alt="linkedin-icon"></a>
                     <a href="#"><img src="{{url('assets/images/sosial-section/Frame (3).svg')}}" alt="youtube-icon"></a>
-                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (4).svg')}}" alt="instagram-icon"></a>
+                    <a href="#"><img src="{{url('assets/images/sosial-section/Frame (4).svg')}}"
+                                     alt="instagram-icon"></a>
                 </div>
             </div>
         </section>
@@ -595,145 +582,132 @@
                 <div class="title">
                     <div class="left">
                         <h2>UNEC</h2>
-                        <span>Tələbələrin dili ilə</span>
+                        <span>{{ __('index.l_in_26') }}</span>
                     </div>
                     <div class="right">
-                        <p>Ən çox sorüşülan suallara
-                            tələbərimizin cavablan</p>
+                        <p>{{ __('index.34') }}</p>
+                    </div>
+                </div>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">Modal</h4>
+                            </div>
+                            <div class="modal-body">
+                                Modal content
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="horizontal-scroll">
+                    @foreach($youtube_videos as $youtube_video)
                     <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7881.png')}}" alt="image">
+                        <img style="width: 222px; height: 320px;" src="{{url('images/youtube')}}/{{$youtube_video->image}}" alt="image">
                         <div class="cover">
+
                             <div class="content">
                                 <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
+                                <h5>{{$youtube_video->title}}</h5>
                             </div>
+
                         </div>
                     </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7882.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7883.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7884.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="horizontal-scroll__item">
-                        <img src="{{url('assets/images/Tələbələrin-section/Rectangle 7885.png')}}" alt="image">
-                        <div class="cover">
-                            <div class="content">
-                                <img src="{{url('assets/images/Tələbələrin-section/video.svg')}}" alt="play">
-                                <h5>UNEC-də tədris neçə dildə aparılır?</h5>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
+
                 </div>
-                <a href="#" class="d-block d-md-none text-center">Dİgər suallar</a>
+                <a href="#" class="d-block d-md-none text-center">{{ __('index.36') }}</a>
             </div>
         </section>
         <!-- FƏXRİ-section -->
         <section class="faxri">
             <div class="container">
-                <div class="row">
+                <div class="row">                    
                     <div class="col-lg-3 col-12">
                         <div id="faxricarousel" class="carousel slide" data-interval="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card">
-                                        <span>FƏXRİ DOKTORLAR</span>
-                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
-                                             alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ad Soyad</h5>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Etiam eu turpis
-                                                molestie
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    2
-                                </div>
-                                <div class="carousel-item">
-                                    3
-                                </div>
-                                <div class="carousel-item">
-                                    4
-                                </div>
+                            <div class="carousel-inner" style="height: 400px;">
+                                @php  $counter = 0; @endphp
+                                @if( $titles )
+                                    @php $i = 0; @endphp
+                                    @foreach( $titles as $title )
+                                        @if( $title->side == 'left')                                    
+                                            <div style="overflow: hidden;" class="carousel-item {{ $i == 0  ? 'active' : '' }}">
+                                                <div class="card">
+                                                    <span>{{ $title->surename }}</span>
+                                                    <img class="card-img-top" style="with:96px; height:96px;" src="{{ asset('storage/images/' . $title->image ) }}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $title->title }}</h5>
+                                                        <p class="card-text">
+                                                            {{ $title->description }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @php $i++; $counter++; @endphp
+                                        @endif                                             
+                                    @endforeach
+                                @endif                                                                                                                                                                           
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#faxricarousel" data-slide-to="0" class="active"></li>
-                                <li data-target="#faxricarousel" data-slide-to="1"></li>
-                                <li data-target="#faxricarousel" data-slide-to="2"></li>
-                                <li data-target="#faxricarousel" data-slide-to="3"></li>
-                            </ol>
-                        </div>
+                            @if( $counter )                               
+                                <ol class="carousel-indicators">
+                                    @php $i = 0;  @endphp                                                                   
+                                    @while( $i < $counter )
+                                        <li data-target="#faxricarousel" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>                                        
+                                        @php $i++;  @endphp
+                                    @endwhile                                                                   
+                                </ol>
+                            @endif
+                        </div>                      
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="card middle-card">
-                            <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/file-e1628411134371 1.png')}}"
+                            <img class="card-img-top"
+                                 src="{{url('assets/images/FƏXRİ-section/file-e1628411134371 1.png')}}"
                                  alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title">HEYDƏR ƏLİYEVİN İQTİSADİ İRSİ</h5>
+                                <h5 class="card-title">{{ __('index.40') }}</h5>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-3 col-12">
-                        <div id="faxricarousel2" class="carousel slide" data-interval="false">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="card">
-                                        <span>FƏXRİ DOKTORLAR</span>
-                                        <img class="card-img-top" src="{{url('assets/images/FƏXRİ-section/Rectangle 7888.png')}}"
-                                             alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Ad Soyad</h5>
-                                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Etiam eu turpis
-                                                molestie
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    2
-                                </div>
-                                <div class="carousel-item">
-                                    3
-                                </div>
-                                <div class="carousel-item">
-                                    4
-                                </div>
+                        <div id="faxricarousel" class="carousel slide faxricarousel1" data-interval="false">
+                            <div class="carousel-inner" style="height: 400px;">
+                                @php  $counter = 0; @endphp
+                                @if( $titles )
+                                    @php $i = 0; @endphp
+                                    @foreach( $titles as $title )
+                                        @if( $title->side == 'right')                                    
+                                            <div style="overflow: hidden;" class="carousel-item {{ $i == 0  ? 'active' : '' }}">
+                                                <div class="card">
+                                                    <span>{{ $title->surename }}</span>
+                                                    <img class="card-img-top" style="with:96px; height:96px;" src="{{ asset('storage/images/' . $title->image ) }}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{{ $title->title }}</h5>
+                                                        <p class="card-text">
+                                                            {{ $title->description }}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @php $i++; $counter++; @endphp
+                                        @endif                                             
+                                    @endforeach
+                                @endif                                                                                                                                                                           
                             </div>
-                            <ol class="carousel-indicators">
-                                <li data-target="#faxricarousel2" data-slide-to="0" class="active"></li>
-                                <li data-target="#faxricarousel2" data-slide-to="1"></li>
-                                <li data-target="#faxricarousel2" data-slide-to="2"></li>
-                                <li data-target="#faxricarousel2" data-slide-to="3"></li>
-                            </ol>
-                        </div>
+                            @if( $counter ) 
+                                <ol class="carousel-indicators">
+                                    @php $i = 0;  @endphp                                                                   
+                                    @while( $i < $counter )
+                                        <li data-target=".faxricarousel1" class="{{ $i == 0 ? 'active' : '' }}"  data-slide-to="{{ $i }}"></li>                                        
+                                        @php $i++;  @endphp
+                                    @endwhile                                                                   
+                                </ol>
+                            @endif
+                        </div>                      
                     </div>
                 </div>
             </div>

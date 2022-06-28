@@ -6,8 +6,8 @@
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>XƏBƏRLƏR</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{ __('index.49') }}</h2>
+                        <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
                     <img src="{{url('assets/images/Xeberler page/image 1.png')}}" alt="image">
                 </div>
@@ -18,8 +18,8 @@
                 <nav aria-label="breadcrumb" style="margin-bottom: 3rem;">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="/">UNEC</a></li>
-                        <li class="breadcrumb-item" aria-current="page"><a href="/news">Xəbərlər</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Xəbərin adı</li>
+                        <li class="breadcrumb-item" aria-current="page"><a href="/news">{{ __('index.49') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('index.52') }}</li>
                     </ol>
                 </nav>
                 <div class="row">
@@ -171,24 +171,24 @@
                                 <input type="submit" value="ABUNƏ OLUN">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect2">Rubrikalar</label>
+                                <label for="exampleFormControlSelect2">{{ __('index.53') }}</label>
                                 <select multiple class="form-control" id="exampleFormControlSelect2">
-                                    <option selected>Abituriyentlər</option>
-                                    <option>Qrant və müsabiqələr</option>
-                                    <option>Elmi tədbirlər</option>
-                                    <option>Tələbələr</option>
-                                    <option>Disertasiya müdafiyəsi</option>
-                                    <option>Yaradıcılıq və idman</option>
+                                    <option selected>{{ __('index.54') }}</option>
+                                    <option>{{ __('index.55') }}</option>
+                                    <option>{{ __('index.56') }}</option>
+                                    <option>{{ __('index.57') }}</option>
+                                    <option>{{ __('index.58') }}</option>
+                                    <option>{{ __('index.59') }}</option>
                                 </select>
                             </div>
                             <div class="public">
-                                <h2>İctimaiyyətlə əlaqə:
+                                <h2>{{ __('index.60') }}
                                 </h2>
-                                <span>Əsas tədris binası, 201-ci otaq</span>
-                                <span>Tel: (012) 1846 (daxili 1159)</span>
+                                <span>{{ __('index.61') }} </span>
+                                <span>{{ __('index.62') }}</span>
                             </div>
                             <div class="Arxiv">
-                                <h2>Arxiv</h2>
+                                <h2>{{ __('index.63') }}</h2>
                                 <div id="xaberdatepicker"></div>
                                 <div class="btn-group">
                                     <button>Cancel</button>
@@ -196,10 +196,9 @@
                                 </div>
                             </div>
                             <div class="CTRL">
-                                <h2>CTRL + Enter</h2>
-                                <p>Mətində orfoqrafik səhf tapdınız?
-                                    Məlumatı seçin və Ctrl+Enter klavişlərini sıxın və bu haqda bizə məlumat verin.</p>
-                                <span>Təşəkkür edirik!</span>
+                                <h2>{{ __('index.64') }}</h2>
+                                <p>{{ __('index.65') }}</p>
+                                <span>{{ __('index.66') }}</span>
                             </div>
                         </form>
                     </div>

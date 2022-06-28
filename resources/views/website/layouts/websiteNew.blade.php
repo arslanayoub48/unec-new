@@ -27,12 +27,23 @@
 
     <title>3 UNEC ADIU</title>
 
+    <style>
+        .lang-item.active a {
+            color:#fff;
+        }
+        
+    </style>
+
 </head>
 
 <body>
 <div id="app">
     <!-- header -->
-
+@php
+$menu = App\Models\Menu::where('loc', 'sidebar')->where("locale", App\Models\Wlang::getCurrent())->first();
+$content = $menu ? $menu->content : '';
+$content = json_decode($content);
+@endphp    
     <header>
         <div class="top-header">
             <div class="container" style="position: relative;">
@@ -49,10 +60,13 @@
                     <li><a href="#"><img src="{{ url('assets/images/icons/search.svg') }}" alt="search-icon"/></a>
                     </li>
                     <li><a href="#"><img src="{{ url('assets/images/icons/eye.svg') }}" alt="eye-icon"/></a></li>
-                    @foreach(Illuminate\Support\Facades\DB::table('lang')->get() as $language)
-
-                    <li><a href="#"><?php echo strtoupper($language->slug) ?></a></li>
+                    @if( $languages )
+                    @foreach( $languages as $lang)
+                        <li class="lang-item {{ session('applocale') == $lang->slug ? 'active' : '' }}">
+                            <a href="{{ route('lang.change', $lang->slug ) }}">{{ strtoupper($lang->slug) }}</a>
+                        </li>
                     @endforeach
+                    @endif
                 </ul>
             </div>
             <div class="container">
@@ -67,70 +81,44 @@
                                  aria-orientation="vertical">
                                 <div class="title-menu">
                                     <h2>BÜTÜN SAYT</h2><img src="{{url('assets/images/Frame.svg')}}" alt="menu">
-                                </div>
-                                <?php $menu = App\Models\Menu::where('loc', 'sidebar')->where("locale", App\Models\Wlang::getCurrent())->first();
-
-                                $content = $menu->content;
-                                $content = json_decode($content);
-
-                                ?>
-                                @foreach ($content[0] as $item)
-                                    <?php
-                                    $id = $item->id;
-                                    $item_menu = App\Models\Menu::id($id);
-
-                                    ?>
-                                    <a class="nav-link show " id="<?php echo $item_menu->id ?>"
-                                       data-toggle="pill" href="#sidebar-menu-<?php echo $item_menu->id ?>"
-                                       role="tab" aria-controls="sidebar-menu-2"
-                                       aria-selected="false">{{ $item_menu->title  }}</a>
-
-                                @endforeach
-
-
+                                </div>                               
+                                @if( $content ) 
+                                    @foreach ($content[0] as $item)                                        
+                                        @if( $item_menu = App\Models\Menu::id($item->id) )                                    
+                                            <a class="nav-link show " id="{{ $item_menu->id }}" 
+                                                data-toggle="pill" href="#sidebar-menu-{{ $item_menu->id }}"
+                                                role="tab" aria-controls="sidebar-menu-2"
+                                                aria-selected="false">'
+                                                {{ $item_menu->title  }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                         <div class="col-6">
-                            <div class="tab-content" id="v-pills-tabContent">
-                                <?php $menu = App\Models\Menu::where('loc', 'sidebar')->where("locale", App\Models\Wlang::getCurrent())->first();
+                            <div class="tab-content" id="v-pills-tabContent">                               
+                                  @if( $content ) 
+                                    @foreach ($content[0] as $item)                                                                               
+                                        @if( $item_menu = App\Models\Menu::id($item->id) )
 
-                                $content = $menu->content;
-                                $content = json_decode($content);
+                                            <div class="tab-pane fade" id="sidebar-menu-<?php echo $item_menu->id ?>" role="tabpanel" aria-labelledby="sidebar-menu-2-tab">
+                                                <ul>                                                
+                                                    @if (isset($item->children))
+                                                        @foreach ($item->children[0] as $child)
+                                                            <?php
+                                                            $children = App\Models\Menu::id($child->id);
+                                                            ?>
 
-                                ?>
-                                @foreach ($content[0] as $item)
-                                    <?php
-                                    $id = $item->id;
-                                    $item_menu = App\Models\Menu::id($id);
-
-                                    ?>
-                                    <div class="tab-pane fade" id="sidebar-menu-<?php echo $item_menu->id ?>"
-                                         role="tabpanel"
-                                         aria-labelledby="sidebar-menu-2-tab">
-                                        <ul>
-                                            <?php
-                                            if (isset($item->children)) {
-
-                                            ?>
-                                            @foreach ($item->children[0] as $child)
-                                                <?php
-                                                $children = App\Models\Menu::id($child->id);
-                                                ?>
-
-                                                <a href="{{$children->slug }}"><li>{{$children->title }}</li></a>
-                                            @endforeach
-                                            <?php
-                                            }
-
-                                            ?>
-
-
-                                        </ul>
-                                    </div>
-
-                                @endforeach
-
-
+                                                            <a href="{{$children->slug }}"><li>{{$children->title }}</li></a>
+                                                        @endforeach
+                                                    @endif
+                                                </ul>
+                                            </div>
+                                            
+                                        @endif
+                                    @endforeach
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -177,47 +165,37 @@
                     </div>
                     @foreach(App\Models\Menu::whereIn('loc', ['top','main','lower','sidebar'])->where("locale", App\Models\Wlang::getCurrent())->get() as $menu)
                         <div class="accordion" id="exampleAccordion">
-                            <div class="card">
-                                <?php
-                                if (!$menu) return false;
-                                $content = $menu->content;
-                                $content = json_decode($content);
-                                if (is_array($content)) {
+                            <div class="card">     
 
-                                ?>
+                                @if(is_array($content))
+                                    @foreach ($content[0] as $item)
+                                        @if( $item_menu = App\Models\Menu::id($item->id) ) 
+                                            <div class="card-header" id="exItem2Header">
+                                                <button class="btn btn-link" type="button" data-toggle="collapse"
+                                                        data-target="#exItem{{$item_menu->id}}"
+                                                        aria-expanded="true"
+                                                        aria-controls="exItem{{$item_menu->id}}">{{$item_menu->title}}
+                                                </button>
+                                            </div>
 
-                                @foreach ($content[0] as $item)
-                                    <?php $id = $item->id;
-                                    $item_menu = App\Models\Menu::id($id);
-                                    ?>
-                                    <div class="card-header" id="exItem2Header">
-                                        <button class="btn btn-link" type="button" data-toggle="collapse"
-                                                data-target="#exItem{{$item_menu->id}}"
-                                                aria-expanded="true"
-                                                aria-controls="exItem{{$item_menu->id}}">{{$item_menu->title}}
-                                        </button>
-                                    </div>
+                                            @if(isset($item->children))
+                                                <div id="exItem{{$item_menu->id}}" class="collapse show"
+                                                    aria-labelledby="exItem2Header"
+                                                    data-parent="#exampleAccordion">
+                                                    <div class="card-body">
+                                                        <ul>
+                                                            @foreach($item->children[0] as $child)
+                                                                <?php  $children = App\Models\Menu::id($child->id); ?>
 
-                                    <?php    if (isset($item->children)) {
-                                    ?>
-
-                                    <div id="exItem{{$item_menu->id}}" class="collapse show"
-                                         aria-labelledby="exItem2Header"
-                                         data-parent="#exampleAccordion">
-                                        <div class="card-body">
-                                            <ul>
-                                                @foreach ($item->children[0] as $child)
-                                                    <?php  $children = App\Models\Menu::id($child->id); ?>
-
-                                                     <a href="{{$children->slug}}"><li>{{$children->title}}</li></a>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    </div>
-                                <?php } ?>
-                                @endforeach
-
-                                <?php } ?>
+                                                                <a href="{{$children->slug}}"><li>{{$children->title}}</li></a>
+                                                            @endforeach
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            @endif 
+                                        @endif 
+                                    @endforeach
+                                @endif 
                             </div>
                         </div>
                     @endforeach
@@ -329,15 +307,19 @@
                 </div>
             </div>
         </div>
+
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-4">
-                    <form class="newsletter">
+                    <form class="newsletter" id="my_form" method="POST">
+                        @csrf
                         <img src="{{url('assets/images/footer/logo sayt ag 2.svg')}}" alt="logo">
                         <div class="newsletter-input">
-                            <img src="{{url('assets/images/footer/Vector (5).svg')}}" alt="icon">
-                            <input type="email" class="icon" name="email" id="email" placeholder="Email daxil edin">
-                            <span>UNEC-in yenilikləri haqqinda ilk məlumat almaq üçün abunə olun</span>
+
+                            <input type="email" class="icon" name="email" id="textfield1" placeholder="Email daxil edin">
+                    <img src="{{url('assets/images/footer/Vector (5).svg')}} "  onclick="sendForm()" alt="icon">
+                            <span>{{ __('index.41') }}</span>
+
                         </div>
                     </form>
                 </div>
@@ -445,7 +427,45 @@
     });
 </script>
 
+<script>
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    function sendForm(){
+        $.ajax({
+            type: "POST",
+            url: "{{route('subscribe')}}",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: jQuery("#my_form").serialize(),
+            cache: false,
+            success:  function(data){
 
+                if(data.status  == "200"){
+                    document.getElementById('textfield1').value = "";
+                    toastr.success(data.message);
+                }
+                if(data.status == "400"){
+
+                    toastr.error(data.message);
+                }
+
+            }
+        });
+    }
+</script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-
+     alpha/css/bootstrap.css" rel="stylesheet">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </body>
 
 </html>

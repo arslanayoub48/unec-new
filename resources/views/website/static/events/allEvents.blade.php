@@ -8,8 +8,8 @@
             <div class="container">
                 <div class="top-image">
                     <div>
-                        <h2>Tədbİrlər</h2>
-                        <span class="d-lg-block d-none">İkİncİ başlıq</span>
+                        <h2>{{ __('index.l_in_.24') }}</h2>
+                        <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
                     <img src="assets/images/Xeberler page/image 1.png" alt="image">
                 </div>
@@ -20,7 +20,7 @@
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="#">UNEC</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Tədbirlər</li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ __('index.68') }}</li>
                     </ol>
                 </nav>
             </div>
@@ -43,7 +43,7 @@
                                             <div class="row"
                                                  style="justify-content: space-between;padding: 0 1rem;margin-bottom: 0.5rem;">
                                                 <div class="time">16:00</div>
-                                                <div class="" style="color: #9B51E0;">onlayn</div>
+                                                <div class="" style="color: #9B51E0;">{{ __('index.69') }}</div>
                                             </div>
                                         </div>
                                         @foreach($data as $event)
@@ -106,16 +106,19 @@
                         </div>
                     </div>
                     <div class="col-lg-4 d-none d-lg-block">
-                        <form class="filter">
+                        <form class="filter" id="my_form">
+                            @csrf
                             <div class="subscribe">
-                                <input placeholder="Email daxil edin" type="email" name="email" id="email"/>
-                                <input type="submit" value="ABUNƏ OLUN">
+
+                                <input placeholder="Email daxil edin" type="email" class="icon" name="email" id="textfield1" />
+                                <input type="submit" onclick="sendForm()" value="ABUNƏ OLUN">
+
                             </div>
                             <div class="title">
-                                <h2>FİLTERLƏR</h2>
+                                <h2>{{ __('index.70') }}</h2>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Tədris binaları</label>
+                                <label for="exampleFormControlSelect1"> {{ __('index.71') }}</label>
                                 <select class="form-control" id="exampleFormControlSelect1">
                                     <option>Bütün</option>
                                     <option>2</option>
@@ -125,7 +128,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect2">Rubrikalar</label>
+                                <label for="exampleFormControlSelect2">{{ __('index.53') }}</label>
                                 <select multiple class="form-control" id="exampleFormControlSelect2"
                                         style="box-shadow: none;margin-top: 0.5rem;background-image: none;height: 16rem;">
                                     <option>Abituriyentlər</option>
@@ -137,7 +140,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect4">Təsnifatı</label>
+                                <label for="exampleFormControlSelect4">{{ __('index.72') }}</label>
                                 <select multiple class="form-control" id="exampleFormControlSelect4"
                                         style="box-shadow: none;margin-top: 0.5rem;background-image: none;height: 16rem;">
                                     <option>Bakalavriat</option>
@@ -150,7 +153,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect3">Dillər üzrə</label>
+                                <label for="exampleFormControlSelect3">{{ __('index.73') }}</label>
                                 <select multiple class="form-control" id="exampleFormControlSelect3"
                                         style="box-shadow: none;margin-top: 0.5rem;background-image: none;">
                                     <option>Bütün</option>
@@ -162,18 +165,17 @@
                                 </select>
                             </div>
                             <div class="Arxiv">
-                                <h2>Arxiv</h2>
-                                <div id="filterdatepicker"></div>
+                                <h2>{{ __('index.63') }}</h2>
+                                <div id="xaberdatepicker"></div>
                                 <div class="btn-group">
                                     <button>Cancel</button>
                                     <button>Set Date</button>
                                 </div>
                             </div>
                             <div class="CTRL">
-                                <h2>CTRL + Enter</h2>
-                                <p>Mətində orfoqrafik səhf tapdınız?
-                                    Məlumatı seçin və Ctrl+Enter klavişlərini sıxın və bu haqda bizə məlumat verin.</p>
-                                <span>Təşəkkür edirik!</span>
+                                <h2>{{ __('index.64') }}</h2>
+                                <p>{{ __('index.65') }}</p>
+                                <span>{{ __('index.66') }}</span>
                             </div>
                         </form>
                     </div>
@@ -195,6 +197,36 @@
                 selectOtherMonths: true
             });
         });
+    </script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        function sendForm(){
+            $.ajax({
+                type: "POST",
+                url: "{{route('subscribe')}}",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: jQuery("#my_form").serialize(),
+                cache: false,
+                success:  function(data){
+
+                    if(data.status  == "200"){
+                        document.getElementById('textfield1').value = "";
+                        toastr.success(data.message);
+                    }
+                    if(data.status == "400"){
+
+                        toastr.error(data.message);
+                    }
+
+                }
+            });
+        }
     </script>
     <script src="{{ asset('assets/main.js') }}" type="text/javascript"></script>
 @endsection

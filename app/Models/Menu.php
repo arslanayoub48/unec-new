@@ -36,12 +36,10 @@ class Menu extends Model
                     $result .= "</ul>";
                 }
                 $result .= "</li>";
-
             }
         }
         $result .= "</ul>";
         return $result;
-
     }
 
     public static function id($id)
@@ -90,12 +88,10 @@ class Menu extends Model
                     $result .= "</ul></div></div></div>";
                 }
                 $result .= "</li>";
-
             }
         }
         $result .= "</ul>";
         return $result;
-
     }
 
     public static function treeMain($location)
@@ -126,12 +122,10 @@ class Menu extends Model
                     $result .= "</ul></div></div></div>";
                 }
                 $result .= "</li>";
-
             }
         }
         $result .= "</ul>";
         return $result;
-
     }
 
 
@@ -155,14 +149,13 @@ class Menu extends Model
                 $item_menu = Menu::id($id);
                 $result .= '<a class="nav-link active show" id="' . $item_menu->slug . '" data-toggle="pill" href="' . $item_menu->slug . '"
                     role="tab" aria-controls="sidebar-menu-2" aria-selected="false">' . $item_menu->title . '</a>';
-
             }
         }
         $result .= "</div></div>";
 
 
 
-     if (!$menu) return false;
+        if (!$menu) return false;
         $content = $menu->content;
         $content = json_decode($content);
         $result .= '<div class="col-6"><div class="tab-content" id="v-pills-tabContent">';
@@ -182,13 +175,10 @@ class Menu extends Model
                     }
                     $result .= "</ul></div>";
                 }
-
             }
         }
         $result .= "</div></div>";
         return $result;
-
-
     }
 
 
@@ -202,30 +192,33 @@ class Menu extends Model
         $result = '<ul class="navbar-nav">';
         if (is_array($content)) {
             foreach ($content[0] as $item) {
-                $id = $item->id;
-                $item_menu = Menu::id($id);
-                $result .= '<li class="menu-toggled nav-item">
-                                <a class="nav-link" href="' . $item_menu->slug . '">' . $item_menu->title . '</a> ';
+                if ($item) {
+                    $id = $item->id;
+                    $item_menu = Menu::id($id);
+                    if ($item_menu) {
 
-                if (isset($item->children)) {
+                        $result .= '<li class="menu-toggled nav-item">
+                                        <a class="nav-link" href="' . $item_menu->slug . '">' . $item_menu->title . '</a> ';
 
-                    $result .= '<div class="menu-content">
-                                    <div class="row"><div class="col">
-                                            <ul class="row">';
-                    foreach ($item->children[0] as $child) {
-                        $children = Menu::id($child->id);
-                        $result .= '<li class="col-lg-4"> <a href="' . $children->slug . '">' . $children->title . '</a>';
+                        if (isset($item->children)) {
+
+                            $result .= '<div class="menu-content">
+                                            <div class="row"><div class="col">
+                                                    <ul class="row">';
+                            foreach ($item->children[0] as $child) {
+                                $children = Menu::id($child->id);
+                                $result .= '<li class="col-lg-4"> <a href="' . $children->slug . '">' . $children->title . '</a>';
+                                $result .= "</li>";
+                            }
+                            $result .= "</ul></div></div></div>";
+                        }
+
                         $result .= "</li>";
                     }
-                    $result .= "</ul></div></div></div>";
                 }
-                $result .= "</li>";
-
             }
         }
         $result .= "</ul>";
         return $result;
-
     }
-
 }

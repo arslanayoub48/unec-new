@@ -14,7 +14,7 @@ use Exception;
 class TeachersController extends Controller
 {
 
-    public $error = 'Opps! something went wrong! please try agin!';
+public $error = 'Opps! something went wrong! please try agin!';
 
     public function list(Request $request)
     {
