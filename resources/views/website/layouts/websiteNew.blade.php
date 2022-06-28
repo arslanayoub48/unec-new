@@ -25,7 +25,7 @@
     <link href="{{ url('assets/style.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ url('frontend/assets/css/views_website/website.css') }}" rel="stylesheet" type="text/css">
 
-    <title>UNEC ADIU</title>
+    <title>UNEC ADIU Title updated</title>
 
     <style>
         .lang-item.active a {
