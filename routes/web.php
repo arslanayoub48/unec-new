@@ -124,5 +124,8 @@ Route::get("/subscriptions", "SubscriptionController@index")->name('index');
 //Social
 Route::get('/social',"SocialController@index")->name('social');
 Route::post('/add-social',"SocialController@store")->name('add-social');
+//Reviews
+Route::get('/reviews',"ReviewController@index")->name('reviews');
+Route::post('/add-review',"ReviewController@store")->name('add-review');
 
 Route::get('/{any}', "PageController@show")->where('any', '.*');

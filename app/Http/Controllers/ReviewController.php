@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Social;
+use App\Models\Review;
 use Illuminate\Http\Request;
 
-class SocialController extends Controller
+class ReviewController extends Controller
 {
     public function index()
     {
-        $reviews = Social::all();
+        $reviews = Review::all();
         return $reviews;
     }
 
@@ -17,11 +17,11 @@ class SocialController extends Controller
     {
         try {
             if ($request->hasFile('file')) {
-                $request->file->store('images/social', 'public');
+                $request->file->store('images/review', 'public');
 
-                $review = new Social([
+                $review = new Review([
                     "url" => $request->get('url'),
-                    "engine" => $request->get('engine'),
+                    "title" => $request->get('engine'),
                     "image" => $request->file->hashName()
                 ]);
                 $review->save();
