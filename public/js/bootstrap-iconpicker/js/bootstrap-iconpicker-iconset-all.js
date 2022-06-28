@@ -1029,8 +1029,8 @@
                     'xing-square',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -1534,8 +1534,8 @@
                     'yahoo',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                     ]
             },
             {
@@ -2081,8 +2081,8 @@
                     'yelp',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -2680,8 +2680,8 @@
                     'yelp',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -3360,8 +3360,8 @@
                     'yelp',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -4060,8 +4060,8 @@
                     'yelp',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -4787,8 +4787,8 @@
                     'yelp',
                     'yen',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -5579,8 +5579,8 @@
                     'yen',
                     'yoast',
                     'youtube',
-                    'youtube-play',
-                    'youtube-square'
+                    'review-play',
+                    'review-square'
                 ]
             },
             {
@@ -6925,8 +6925,8 @@
                     'fas fa-yen-sign',
                     'fas fa-yin-yang',
                     'fab fa-yoast',
-                    'fab fa-youtube',
-                    'fab fa-youtube-square',
+                    'fab fa-review',
+                    'fab fa-review-square',
                     'fab fa-zhihu'
                 ]
             }
@@ -8296,8 +8296,8 @@
                     'fas fa-yen-sign',
                     'fas fa-yin-yang',
                     'fab fa-yoast',
-                    'fab fa-youtube',
-                    'fab fa-youtube-square',
+                    'fab fa-review',
+                    'fab fa-review-square',
                     'fab fa-zhihu'
                 ]
             },
@@ -11767,8 +11767,8 @@
                     'social-wordpress-outline',
                     'social-yahoo',
                     'social-yahoo-outline',
-                    'social-youtube',
-                    'social-youtube-outline',
+                    'social-review',
+                    'social-review-outline',
                     'speakerphone',
                     'speedometer',
                     'spoon',
@@ -12501,8 +12501,8 @@
                     'social-yahoo-outline',
                     'social-yen',
                     'social-yen-outline',
-                    'social-youtube',
-                    'social-youtube-outline',
+                    'social-review',
+                    'social-review-outline',
                     'soup-can',
                     'soup-can-outline',
                     'speakerphone',
@@ -17897,7 +17897,7 @@
                     'xbox',
                     'yahoo',
                     'youtube',
-                    'youtube-play',
+                    'review-play',
                     'zero',
                     'zoom-in',
                     'zoom-out'
@@ -23988,8 +23988,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',
@@ -24330,8 +24330,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',
@@ -24669,8 +24669,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',
@@ -25011,8 +25011,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',
@@ -25353,8 +25353,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',
@@ -25695,8 +25695,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',
@@ -26037,8 +26037,8 @@
                     'social-twitter-circular',
                     'social-vimeo',
                     'social-vimeo-circular',
-                    'social-youtube',
-                    'social-youtube-circular',
+                    'social-review',
+                    'social-review-circular',
                     'sort-alphabetically',
                     'sort-alphabetically-outline',
                     'sort-numerically',

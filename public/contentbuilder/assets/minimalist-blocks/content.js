@@ -231,7 +231,7 @@ var data_basic = {
 		'category': '120',
 		'html':
 				'<div class="embed-responsive embed-responsive-16by9">' +
-            		'<iframe width="560" height="315" src="//www.youtube.com/embed/P5yHEKqx86U?rel=0" frameborder="0" allowfullscreen=""></iframe>' +
+            		'<iframe width="560" height="315" src="//www.review.com/embed/P5yHEKqx86U?rel=0" frameborder="0" allowfullscreen=""></iframe>' +
             	'</div>'
         },
 

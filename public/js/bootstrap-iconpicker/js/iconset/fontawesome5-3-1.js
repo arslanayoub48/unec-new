@@ -1351,8 +1351,8 @@ $.iconset_fontawesome_5 = {
           'fas fa-yen-sign',
           'fas fa-yin-yang',
           'fab fa-yoast',
-          'fab fa-youtube',
-          'fab fa-youtube-square',
+          'fab fa-review',
+          'fab fa-review-square',
           'fab fa-zhihu'
       ]
     };

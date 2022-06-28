@@ -10,7 +10,7 @@
                         <h2>{{ __('index.l_in_24') }}</h2>
                         <span class="d-lg-block d-none">{{ __('index.51') }}</span>
                     </div>
-                    <img src="{{asset('assets/images/Xeberler page/imİkİncİ başlıqage 1.png')}}" alt="image">
+                    <img src="{{asset('assets/images/Xeberler page/image 1.png')}}" alt="image">
                 </div>
             </div>
         </section>
