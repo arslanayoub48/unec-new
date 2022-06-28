@@ -17,7 +17,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: secret
     volumes:
-      - ./database:/var/lib/mysql
+      - /home/database:/var/lib/mysql
   
   adminer:
     image: adminer
