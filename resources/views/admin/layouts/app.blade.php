@@ -29,6 +29,8 @@
     <link href="/build/css/custom.css?20" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.css') }}" rel="stylesheet">
+    <script src="{{ asset('plugins/bootstrap-tagsinput/bootstrap-tagsinput.js') }}"></script>
     <style>
       html{
         zoom:.9;
@@ -46,9 +48,15 @@
       .text-white{
         color:#fff;
       }
+
+      .bootstrap-select .dropdown-menu.inner li {
+        font-size: 15px;
+      }
+
     </style>
     
-   
+    @yield('custom_css')
+
   </head>
 
   <body class="nav-md">
@@ -110,6 +118,12 @@
                       <li ><a href="/admin/events_categories" class="text-white"><i class="fa fa-edit"></i>Tədbir Kategoriyaları</a></li>
                     </ul>
                   </li>
+
+                  <li><a href="{{ route('titles.index') }}"><i class="fa fa-edit"></i>başlıqlar</a>
+                    <ul>
+                      <li ><a href="{{ route('titles.create') }}" class="text-white"><i class="fa fa-edit"></i>Yeni əlavə et</a></li>
+                    </ul>
+                  </li>                  
                   
                   <program></program>
                   <!-- <li><a><i class="fa fa-desktop"></i> Menu <span class="fa fa-chevron-down"></span></a>
@@ -431,5 +445,7 @@ function removeImage(id, name = null){
 
   </script>
    
+   @yield('custom_js')
+
   </body>
 </html>

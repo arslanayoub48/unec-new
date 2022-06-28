@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Title extends Model
 {
     use HasFactory;
+
+    public $fillable = [
+        'title',
+        'description',
+        'image',
+        'name',
+        'surename',
+        'image_url',
+        'side',
+    ];
 }
